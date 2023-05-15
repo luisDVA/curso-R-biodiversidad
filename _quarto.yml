@@ -18,11 +18,9 @@ website:
       - href: index.qmd
         text: Home
       - href: schedule.qmd
-        text: Schedule
+        text: Temario y cronograma
       - href: materials.qmd
         text: Materials
-      - href: https://github.com/Pakillo/quarto-course-website-template/discussions
-        text: Forum
 
 format:
   html:
