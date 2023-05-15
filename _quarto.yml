@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Course Title"
+  title: "Herramientas para el manejo de datos de biodiversidad en R"
   sidebar:
     background: primary
     # logo: "images/logo.png"
