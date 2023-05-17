@@ -2,12 +2,13 @@
 title: "Temario y cronograma"
 ---
 
+
 ## 1) Flujos de trabajo y análisis (0.5 días)
 – Organización de proyectos y archivos (R Console & RStudio)
 – Buenas prácticas para nombrar archivos y objetos
 – Trabajando con rutas 
 – Estructuras de datos
-– Exploración rápida de datos (*Gabriel – EasyStats, skimR)
+– Exploración rápida de datos
 
 ## Manipulación y limpieza de datos (1.5 días)
 – Pasos a seguir para importar y reestructurar tablas y archivos.
@@ -25,7 +26,8 @@ Ejemplo completo de todos estos pasos con:
 – Representaciones gráficas de información
 – Personalización de elementos gráficos (ejes, colores, fuentes, leyendas)
 – Preparación de figuras científicas
-	* Ejemplo de figuras complejas mostrando todos los resultados asociados a un análisis de componentes principales (PCA) (e.g., armar panels, combinación de figuras sin usar otro software, paquete ‘patchwork’)
+	* Ejemplo de figuras complejas mostrando todos los resultados asociados a un análisis de componentes principales (PCA)
+	* Combinación de figuras sin usar otro software, paquete ‘patchwork’
 – Herramientas para exportar gráficos de alta resolución en múltiples formatos
 
 ## 4) Lo que nadie nos enseñó sobre R (1 día)
@@ -33,8 +35,8 @@ Ejemplo completo de todos estos pasos con:
 – Iteración y vectorización para evitar repetición
 – Trabajando con listas
 – Manejo de matrices 
-* Aplicando manejo de matrices a datos de ecología de comunidades 
-* Matrices de correlación entre rasgos para estudios morfométricos (geomorph, mvmorph)
+	* Aplicando manejo de matrices a datos de ecología de comunidades 
+	* Matrices de correlación entre rasgos para estudios morfométricos
 – Atajos y herramientas para mayor eficiencia
 – Significado de los errores más comunes
 
