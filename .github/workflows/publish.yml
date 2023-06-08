@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev libprotobuf-dev
-          sudo R -e 'install.packages(c("ggplot2", "readr", "tidyr", "forcats", "stringr", "rmarkdown", "here", "viridis", "scico", "ggthemes", "patchwork", "ragg", "janitor", "datos", "purrr"))'
+          sudo R -e 'install.packages(c("ggplot2", "readr", "tidyr", "forcats", "stringr", "rmarkdown", "here", "viridis", "scico", "ggthemes", "patchwork", "ragg", "gt", "janitor", "datos", "purrr"))'
 
       - name: Put pandoc in PATH
         run: |
@@ -54,6 +54,7 @@ jobs:
             any::janitor
             any::datos
             any::purrr
+            any::gt
           
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
