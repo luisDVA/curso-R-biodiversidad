@@ -1,5 +1,6 @@
 ---
-title: "Course Title"
+title: "Web Oficial del Curso"
 ---
 
-Course info & details here
+
+![](presentaciones/imgs/herramientas2023.jpg)
