@@ -11,7 +11,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/Pakillo/quarto-course-website-template
+        href: https://github.com/luisDVA/curso-R-biodiversidad
         text: GitHub
     style: docked
     contents:
@@ -19,13 +19,12 @@ website:
         text: Home
       - href: temario.qmd
         text: Temario y cronograma
-      - href: materials.qmd
-        text: Materials
+      - href: materiales.qmd
+        text: Materiales
 
 format:
   html:
-    theme: cosmo
-    # css: styles.css
+    theme: flatly
     toc: true
 
 execute:
