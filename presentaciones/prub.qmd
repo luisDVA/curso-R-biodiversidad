@@ -1,0 +1,10 @@
+---
+title: "nose"
+author: "nada"
+format: revealjs
+editor: visual
+---
+
+## Hola mila
+
+hola lui

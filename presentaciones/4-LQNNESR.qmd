@@ -1,7 +1,9 @@
 ---
 title: "Lo que nadie nos enseñó sobre R"
+author: Luis D. Verde Arregoitia
 format:
   revealjs:
+    theme: curso_styles.scss
     transition: fade
     progress: true
     preview-links: true
@@ -30,36 +32,6 @@ execute:
 – Manejo de matrices  
 – Atajos y herramientas para mayor eficiencia  
 – Errores comunes y cómo buscar soluciones  
-
-```{css echo=FALSE}
-.big-code{
-  font-size: 200%  
-}
-
-.med-code{
-  font-size: 150%  
-}
-
-.reveal .slide figure>figcaption, .reveal .slide img.stretch+p.caption, .reveal .slide img.r-stretch+p.caption  {
-  font-size: .4em;
-  color: #606060;
-  text-align: center;
-  margin-top: 1;
-}
-
-.neonText {
-  color: #fff;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #0fa,
-      0 0 82px #0fa,
-      0 0 92px #0fa,
-      0 0 102px #0fa,
-      0 0 151px #0fa;
-}
-```
 
 ```{r}
 #| echo: false
@@ -95,14 +67,14 @@ library(ggplot2)
 
 El archivo `.Rprofile` file contiene código que se ejecuta cada que arrancamos R.
 
-</br> [`.Rprofile` generalmente vive en nuestro directorio de inicio]{style="font-size: 1.2em; text-align: center"}
+</br> [`.Rprofile` generalmente vive en nuestro directorio de inicio]{style="text-align: center;"}  
 
-</br> Podemos modificarlo con `usethis::edit_r_profile()`
+Podemos modificarlo con `usethis::edit_r_profile()`
 
 *Usar con precaución para no perder reproducibilidad*
 
-:::{.thing-row}
-::: {style="text-align: right"}
+:::{.rightref}
+:::{.refbox}
 R Startup\
 [What they forgot to teach you about R](https://rstats.wtf/r-startup.html%5D)
 :::
@@ -148,14 +120,12 @@ Copiar/pegar código para editarlo en análisis repetitivos agrega pasos inneces
 
 </br>
 
-::: {.row .d-flex}
-::: {.col-md-6}
-::: {style="text-align: right; background-color:#4a4a62;"}
+::::{.rightref}
+:::{.refbox}
 Nick Holt (2017)\
 [Function Iterations in R](https://nick-holt.github.io/2017/12/function-iterations-in-r/)
 :::
-:::
-:::
+::::
 
 ## Ejercicio - futbol {background-color="#a4c5ff"}
 
@@ -194,13 +164,15 @@ La mayoría de nuestras tareas se pueden desarrollar siguiendo el paradigma "_di
 - aplicar alguna función a cada grupo
 - combinar los resultados
 
-::: {style="text-align: right; background-color:#4a4a62"}
+::::{.rightref}
+:::{.refbox}
 Data Carpentry (2018)\
 [Aggregating and analyzing data with dplyr](https://datacarpentry.org/R-genomics/04-dplyr.html)
 
 Hadley Wickham (2011)\
 [The split-apply-combine strategy for data analysis](https://doi.org/10.18637/jss.v040.i01)
 :::
+::::
 
 ## `dplyr::group_by()`
 
@@ -1066,9 +1038,8 @@ p_db <- p_db %>% select(Package, Author, Description, Title)
 
 
 
-## 📦 `annotater`
+## 📦 [`annotater`](https://annotater.liomys.mx)
 
-https://annotater.liomys.mx
 
 Agregar detalles sobre los paquetes que estamos mencionando en nuestros scripts
 
@@ -1093,9 +1064,9 @@ library(readr) # Read Rectangular Text Data, CRAN v2.0.2
 
 -   *También podemos anotar cuáles funciones de c/ paquete estamos usando*
 
-## 📦 `littleboxes`
+## 📦 [`littleboxes`](https://github.com/ThinkR-open/littleboxes)
 
-https://github.com/ThinkR-open/littleboxes
+
 
 Cajas para títulos
 
@@ -1164,10 +1135,12 @@ _search path_: los entornos que definen los objetos y funciones a los que podemo
 
 Crear el ejemplo más simple posible que genere el mismo error para poder confimar o resolver algún problema
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Jenny Bryan (2020)\
 [Object of type 'closure' is not subsettable](https://www.rstudio.com/resources/rstudioconf-2020/object-of-type-closure-is-not-subsettable/)
 :::
+::::
 
 ## Errores comunes
 
@@ -1177,11 +1150,14 @@ Jenny Bryan (2020)\
 - pasos en desorden
 
 ### Opciones útiles
-- Estudiar los mensajes de error más compunes
-::: {style="text-align: right"}
+- Estudiar los mensajes de error más comunes
+
+::::{.rightref}
+:::{.refbox}
 Emily Jennings-Dobbs (2021)\
 [Common Errors in R](https://jtr13.github.io/cc21/common-errors-in-r.html)
 :::
+::::
 
 - Correr los ejemplos disponibles con la ayuda y comparar con nuestro código
 
@@ -1266,11 +1242,13 @@ Muestra el input y su salida juntos
 
 > La salida de reprex está diseñana para que la vean otras personas
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 JD Long\
 📼 [How Reproducible Examples are the Secret to Faster Learning & Faster Code](https://www.youtube.com/watch?v=0zNPgGa-Cu0)\
-29/09/2022
 :::
+::::
+
 
 ## Creando un reprex
 

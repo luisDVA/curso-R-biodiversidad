@@ -1,9 +1,33 @@
 ---
 title: "Flujos de trabajo y análisis"
-format: 
+author: Luis D. Verde Arregoitia
+format:
   revealjs:
-    theme: default
+    theme: curso_styles.scss
+    transition: fade
+    progress: true
+    preview-links: true
+    hide-inactive-cursor: true
+    highlight-style: printing
+    pause: true
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 5
+  fig-height: 6
 ---
+
+```{r pckgs}
+#| echo: false
+library(fontawesome)
+```
 
 ## Temas de este bloque
 
@@ -14,13 +38,11 @@ format:
 * Repaso
 * Exploración rápida de datos
 
-```{r}
-library(fontawesome)
-```
 
-------------------------------------------------------------------------
+##
 
 ![](imgs/rake.jpg){fig-align="center"}
+
 
 ## ¿Qué es `r fa(name = "r-project")`?
 
@@ -55,6 +77,15 @@ library(fontawesome)
 - Enfoque en código
 - Pipes
 
+## Mi sistema
+
+-   R v4.3.0
+
+-   RStudio 2023.05.0-daily+304 "Mountain Hydrangea"
+
+-   Sin personalizaciones visuales
+
+-   Linux Mint 20.3
 
 ## `r fa(name = "r-project")` no es RStudio
 
@@ -66,30 +97,26 @@ Herramientas para facilitar el uso de un lenguaje de programación
 
 -   Atajos y herramientas para administrar y ejecutar código
 
-***
+## Otras opciones
 
-RStudio\
-Emacs + ESS (https://ess.r-project.org)\
-vim + Nvim-R: ([Turn Vim Into an IDE for R](https://medium.com/free-code-camp/turning-vim-into-an-r-ide-cd9602e8c217))\
-Visual Studio + [RTVS](https://docs.microsoft.com/en-us/visualstudio/rtvs)
+ - RStudio\
+- Emacs + ESS (https://ess.r-project.org)\
+- vim + Nvim-R: ([Turn Vim Into an IDE for R](https://medium.com/free-code-camp/turning-vim-into-an-r-ide-cd9602e8c217))\
+- Visual Studio + [RTVS](https://docs.microsoft.com/en-us/visualstudio/rtvs)
+- Cualquier editor de [texto](https://web.archive.org/web/20151108031733/http://www.sciviews.org/_rgui/projects/Editors.html) (enviando líneas o selecciones a una instancia de R)
 
 ## 
 
-![](https://spss-tutorials.com/img/spss-data-editor-data-view.png)
-
-::: {style="text-align: right"}
-Ruben Geert van den Berg\
-https://www.spss-tutorials.com
-:::
+![R. Geert van den Berg [SPSS Tutorials] ](https://spss-tutorials.com/img/spss-data-editor-data-view.png)
 
 ## Scripts y código fuente
 
 ::: columns
-::: {.column width="50%"}
-<img src="imgs/pancks.png" width="70%"/>
+::: {.column width="40%"}
+![](imgs/pancks.png)
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 Reproducir y modificar pasos
 
 Encontrar errores
@@ -175,8 +202,7 @@ install.packages("here")
 
 ::: columns
 ::: {.column width="33%"}
-<img src="imgs/file-system.jpg" width="70%"/>\
-Fuente: The Network Encyclopedia
+![](imgs/file-system.jpg)
 :::
 
 ::: {.column width="66%"}
@@ -213,10 +239,12 @@ Guardar archivos en ubicaciones específicas, con nombres intencionales y útile
 :::
 :::
 
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"}
+::::{.rightref}
+:::{.refbox}
 Jenny Bryan (2015)\
 [Naming Things](https://speakerdeck.com/jennybc/how-to-name-files)
 :::
+::::
 
 ## Nombres
 
@@ -276,7 +304,8 @@ Directorio con todo los archivos relevantes para algún trabajo
   
   \
   
-::: {style="background-color:#4a4a62"}
+::::{.rightref}
+:::{.refbox}
 ::: columns
 ::: {.column width="50%"}
 Jenny Bryan (2017)\
@@ -289,6 +318,9 @@ Maëlle Salmon (2021)\
 :::
 :::
 :::
+::::
+
+
 
 ## Proyectos en RStudio
 
@@ -323,7 +355,7 @@ Crear un proyecto para el curso en RStudio
 
 ## 
 
-![](imgs/ubereats.png)
+![](imgs/ubereats.png){fig-align="center"}
 
 ## 📦 `fs`
 
@@ -379,19 +411,22 @@ dir_ls()
 -   Evitar `rm(list = ls())`.
 
 -   'Hoja en blanco' & reiniciar R seguido
-:::
-:::
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Jenny Bryan & Jim Hester (2020)\
 [What they forgot to teach you about R](https://rstats.wtf/save-source.html)\
 Jenny Bryan (2018)\
 [Zen And The aRt Of Workflow Maintenance](https://speakerdeck.com/jennybc/zen-and-the-art-of-workflow-maintenance)
 :::
+::::
+
+:::
+:::
 
 ## Hoja en blanco (blank slate)
 
-![](imgs/clnslt.jpg)
+![](imgs/clnslt.jpg){fig-align= "center" fig-size="60%"}
 
 
 
@@ -417,9 +452,11 @@ Trabajemos en relación a la raíz del proyecto con la función `here()`
 -   construye rutas portátiles
 -   genera rutas absolutas (comienzan con `/`, `C:\` o `\\`)
 
-::: {style="text-align: right; background-color:#4a4a62"}
-[Ode to the here package (2018)](https://github.com/jennybc/here_here) \
+::::{.rightref}
+:::{.refbox}
+[Ode to the here package (2018)](https://github.com/jennybc/here_here)
 :::
+::::
 
 ## 
 
@@ -445,10 +482,11 @@ construye:
 
 </br>
 
-::: {style="text-align: right; background-color:#4a4a62"}
-[How to use the here package (2018)](http://jenrichmond.rbind.io/post/how-to-use-the-here-package)
+::::{.rightref}
+:::{.refbox}
+How to use the here package [(2018)](http://jenrichmond.rbind.io/post/how-to-use-the-here-package)
 :::
-
+::::
 
 ## Importando archivos (tablas)
 
@@ -468,9 +506,9 @@ Paquetes adicionales para importar datos rectangulares desde archivos de texto y
 
 -   Funciones adicionales para limpiar los valores en las columnas
 
-# Ejercicio{background-color="#a4c5ff"}
+## Ejercicio{background-color="#a4c5ff"}
 
-Importar una tabla a R desde un archivo:
+Importar una tabla a R desde un archivo
 
 # Estructuras de datos
 
@@ -523,40 +561,38 @@ Las **funciones** (generalmente) viven en paquetes
 
 Números
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 c(1,2,3,4)
 ```
-
+:::
 </br>
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 c(22.1,0.006,4.1)
 ```
+:::
 
 ## Vectores
 
 Caracteres
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 c("perro","gato","rata","B")
 ```
+:::
 
 ## Vectores
 
 Lógicos (verdadero/falso)
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 c(TRUE,FALSE,FALSE,FALSE,TRUE)
 ```
-
+:::
 ---
 
 ![](imgs/logical.jpg)
@@ -567,48 +603,48 @@ c(TRUE,FALSE,FALSE,FALSE,TRUE)
 
 ## Creando objetos
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 x <- c(1, 2, 3)
 ```
+:::
 
 Función `c()` para juntar elementos en un vector
 
-
+:::{.med-code}
 ```{r}
-#| echo: true
-#| eval: true
 x <- c(1,2,3)
 y <- c("a","G","h")
 ```
+:::
 
+:::{.med-code}
 ```{r}
-#| echo: true
-#| eval: true
 x
 y
 ```
+:::
 
 
 ## Los objetos tienen clases
 
+:::{.big-code}
 ```{r}
 #| echo: true
 #| eval: true
 class(x)
 class(y)
 ```
-
+:::
 
 
 ## Los vectores solo pueden tener objetos de la misma clase
 
+:::{.big-code}
 ```{r}
-#| echo: true
-#| eval: true
 c(1,"a",2)
 ```
+:::
 
 Al combinar caracteres y números hay conversión automática
 
@@ -634,6 +670,7 @@ Al combinar caracteres y números hay conversión automática
 
 ## Factores
 
+:::{.med-code}
 ```{r}
 #| eval: true
 #| echo: true
@@ -641,6 +678,7 @@ factor(c("perro","gato","ave","ninguno",
          "perro","ninguno","perro","perro",
          "gato","ave","perro"))
 ```
+:::
 
 ## Dos o más vectores del mismo largo...
 
@@ -652,7 +690,7 @@ factor(c("perro","gato","ave","ninguno",
 :::
 
 ::: {.column width="60%"}
-### Data frame!
+### ¡Data frame!
 
 - Objeto tabular con filas y columnas
 
@@ -667,6 +705,7 @@ factor(c("perro","gato","ave","ninguno",
 
 Se crean importando un archivo tabular o con `data.frame()`
 
+:::{.med-code}
 ```{r}
 #| eval: true
 #| echo: true
@@ -676,16 +715,19 @@ data.frame(id=c("rana","pez","nutria","gusano"),
            listo=c(TRUE,TRUE,FALSE,TRUE))
 
 ```
+:::
 
 -   cada vector es una columna
 -   nombres de columnas sin comillas
 -   mismo largo para todos los vectores
 
 ## 
-
+:::{.big-code}
 ```{r}
 #| eval: true
 #| echo: true
 mi_tabla
 ```
+:::
 
+# ¿Dudas?

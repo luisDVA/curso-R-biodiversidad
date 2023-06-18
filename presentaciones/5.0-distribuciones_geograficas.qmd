@@ -1,0 +1,360 @@
+---
+title: "Distribuciones"
+author: Fabricio Villalobos & Juliana Herrera-Pérez
+format: revealjs
+---
+
+## Puntos, polígonos y mapas de distribución
+
+> "...el espacio donde las condiciones ecológicas favorecen, real o potencialmente y en varios niveles, las interacciones no efímeras de los individuos de una especie" Mota-Vargas & Rojas-Soto 2012
+
+## 
+
+-   Los registros (colectas georeferenciadas) de las especies son los datos primarios de biodiversidad, a partir de los cuáles podemos estimar las áreas de distribución de estas y describir/evaluar los patrones de diversidad que emergen de su agregación (traslape; e.g., gradiente geográfico de riqueza)
+-   En este ejemplo/ejercicio veremos cómo obtener dichos registros directamente desde R
+-   También, veremos cómo generar áreas de distribución (extenciones de presencia) a partir de estos registros, creando polígonos de diferentes tipos (mínimo, alpha y alpha dinámico)
+
+Los datos de registros serán obtenidos de la plataforma en línea [Global Biodiversity Information Facility - GBIF](https://www.gbif.org/)
+
+## Paquetes necesarios:
+
+```{r}
+#| eval: true
+#| echo: true
+library(rgbif)
+library(dplyr)
+library(ggplot2)
+library(sf)
+library(here)
+library(rnaturalearth)
+library(terra)
+library(alphahull)
+library(rangeBuilder)
+```
+
+# Obteniendo registros de presencia de GBIF
+
+## 
+
+Escoger una especie y aplicar la función `occ_data`
+
+```{r}
+#| eval: true
+#| echo: true
+sp_1 <- occ_data(scientificName = "Musonycteris harrisoni", limit = 500)
+```
+
+. . .
+
+El objeto sp_1 es una lista con datos sobre los resultados obtenidos en GBIF (incluyendo algunos metadatos), para trabajar únicamente con la tabla de registros hay que seleccionar el objeto data dentro del mismo
+
+```{r}
+#| eval: true
+#| echo: true
+sp_1 <- sp_1$data
+```
+
+##
+
+Checar el nombre de las columnas (para después buscar únicamente las de posición geográfica: lat/long)
+
+```{r}
+#| eval: true
+#| echo: true
+names(sp_1)
+```
+
+## 
+
+Crear otro objeto a partir del anterior para quedarse únicamente con long/lat
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_points <- select(sp_1,decimalLongitude,decimalLatitude)
+```
+
+. . .
+
+NOTA: el nombre de la variable puede ser diferente (.e.g "LATITUDE", "Latidude", "lat", etc. Siempre hay que checar antes)
+
+. . .
+
+Quedarse únicamente con los puntos/registros individuales (i.e., excluir duplicados)
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_points_unique <- unique(sp1_points)
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+dim(sp1_points)
+dim(sp1_points_unique)
+```
+
+## 
+
+Graficar (poner en un mapa) esos puntos de presencia de nuestra especie
+
+```{r}
+#| eval: true
+#| echo: true
+ggplot(sp1_points)+
+  geom_point(aes(decimalLongitude,decimalLatitude),
+             col="blue",pch=19)
+```
+
+## 
+
+Agregar el mapa del mundo para saber qué onda!
+
+```{r}
+#| eval: true
+#| echo: true
+wrld <- ne_countries(scale = "small",returnclass = "sf")
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+ggplot()+
+  geom_sf(data=wrld)+
+  geom_point(data=sp1_points,aes(decimalLongitude,decimalLatitude),
+             col="blue",pch=19,size=1)
+```
+
+## 
+
+Hay algo claramente equivocado, ¿cierto? Los puntos/registros necesitan ser "curados" (limpiados)
+
+. . .
+
+Eliminar los puntos con mala georeferencia (en este caso, puntos obvios en el "viejo mundo")+ manteniendo cada set de datos en cada paso (para poder ir atrás en caso de dudas)
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_points2 <- filter(sp1_points_unique, decimalLatitude > 0.5)
+sp1_points3 <- filter(sp1_points2, decimalLatitude < 22)
+sp1_points4 <- filter(sp1_points3, decimalLongitude > -105.56611)
+```
+
+## 
+
+Ahora sí, mapeamos de nuevo pero sólamente en la región de interés (México)
+
+```{r}
+#| eval: true
+#| echo: true
+mex_map <- filter(wrld,name=="Mexico")
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+ggplot()+
+  geom_sf(data=mex_map)+
+  geom_point(data=sp1_points4,aes(decimalLongitude,decimalLatitude),
+             col="blue",pch=19,size=1)
+```
+
+# Polígono convexo mínimo
+
+## 
+
+Primero, necesitamos convertir los puntos a un `spat_vector` de `terra`
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_spatVect <- vect(sp1_points4, geom=c("decimalLongitude", "decimalLatitude"), crs="epsg:4326", keepgeom=FALSE)
+```
+
+. . .
+
+Ahora sí, creamos el PCM
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_mcp <- terra::convHull(sp1_spatVect)
+```
+
+## 
+
+¿Cómo se ve?
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_mcp2 <- st_as_sf(sp1_mcp)
+
+
+ggplot()+
+  geom_sf(data=mex_map)+
+  geom_sf(data=sp1_mcp2,
+             fill="blue")
+```
+
+# Polígono alfa (alpha hull)
+
+## 
+
+Usamos el paquete `alphahull`
+
+```{r}
+#| eval: false
+#| echo: true
+sp1_alphahull <- ahull(sp1_points4, alpha = 6)
+```
+
+. . .
+
+*Error: shull: duplicate points found*
+
+. . .
+
+Falla porque encuentra puntos duplicados o, como en este caso, puntos en una línea recta (i.e, mismo X y/o mismo Y).
+
+. . .
+
+Identificar los duplicados en long y lat
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_dupLong <- which(duplicated(sp1_points4[,1]))
+sp1_dupLat <- which(duplicated(sp1_points4[,2]))
+#Juntar los IDs de los duplicados en cada columna
+sp1_dups <- c(sp1_dupLong,sp1_dupLat)
+```
+
+##
+
+Generar un nuevo set de datos (para no sobreescribir el anterior)
+
+```{r}
+#| eval: true
+#| echo: true
+#Crear otro objeto, siempre es mejor para no alterar los datos originales
+sp1_points5 <- sp1_points4
+#Sumarle una cantidad pequeña y aleatoria a los valores originales
+sp1_points5[sp1_dups,] <- sp1_points5[sp1_dups,] + matrix(rnorm(length(sp1_dups)*2, mean = 0, sd = 0.0001),ncol = 2)
+```
+
+## 
+
+Crear el Alpha Hull con un valor de alpha escogido (por la razón que crean relevante)
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_alphahull <- ahull(sp1_points5, alpha = 1)
+```
+
+. . .
+
+Para calcular el alpha hull, necesitamos que el objeto sea de tipo espacial del paquete `sf`. Para eso usaremos una función independiente, disponible en su carpeta de trabajo
+
+```{r}
+#| eval: true
+#| echo: true
+source(file = here("data","ah2sf.R"))
+
+sp1_alphahull.poly <- ah2sf(sp1_alphahull)
+```
+
+## 
+
+¿Cómo se ve?
+
+```{r}
+#| eval: true
+#| echo: true
+ggplot()+
+  geom_sf(data=mex_map)+
+  geom_sf(data=sp1_alphahull.poly,
+          fill="blue")
+```
+
+# Polífgono alfa dinámico
+
+## 
+
+Usamos el paquete `rangeBuilder`, el cual crea un polígono alpha hull con un valor de alpha "óptimo" basado en la distribución espacial de los puntos
+
+```{r}
+#| eval: true
+#| echo: true
+sp_range <- getDynamicAlphaHull(
+  sp1_points5, #Tabla de puntos/registros de la especie
+  coordHeaders = c("decimalLongitude", "decimalLatitude"),# x y y
+  fraction = 0.95,   # la fracción mínima de registros que debe incluir el polígono
+  partCount = 2,  #	el máximo de polígonos disyuntos permitidos
+  initialAlpha = 1, # Alpha inicial
+  alphaIncrement = 0.5,
+  alphaCap = 1000,
+  clipToCoast = "terrestrial"  # solo la parte terrestre del polígono se mantendrá (se cortan las partes no-terrestres/acuáticas con base en un mapa descargado de naturalearth).
+)
+```
+
+## 
+
+Guardamos el valor de `alpha` obtenido
+
+```{r}
+#| eval: true
+#| echo: true
+alpha <- sp_range[[2]] # salvar el valor de alfa óptimo encontrado
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+alpha
+```
+
+. . .
+
+Convertir el polígono alpha a un objeto sf
+
+```{r}
+#| eval: true
+#| echo: true
+sp1_dynalpha <- st_make_valid(st_as_sf(sp_range[[1]]))
+```
+
+## 
+
+¿Cómo se ve ese polígono?
+
+```{r}
+#| eval: true
+#| echo: true
+ggplot() +
+  geom_sf(data=mex_map)+ 
+  geom_sf(data=sp1_dynalpha,fill = 'blue')
+```
+
+## 
+
+Finalmente, podemos salvar esos polígonos como `shapefiles`, para usarlos en otros software (e.g. ArcGIS) y eventualmente juntar los de varias especies para otros análisis (ejercicio siguiente)
+
+```{r}
+#| eval: false
+#| echo: true
+st_write(sp1_mcp2, "sp1_min_convex.shp")
+st_write(sp1_alphahull.poly, "sp1_alphahull.shp")
+st_write(sp1_dynalpha, "sp1_dyn_alphahull.shp")
+```

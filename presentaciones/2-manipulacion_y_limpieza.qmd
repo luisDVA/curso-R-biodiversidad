@@ -1,13 +1,37 @@
 ---
 title: "Manipulacion y limpieza de datos"
-format: revealjs
-editor: visual
+author: Luis D. Verde Arregoitia
+  format:
+  revealjs:
+    theme: curso_styles.scss
+    transition: fade
+    progress: true
+    preview-links: true
+    hide-inactive-cursor: true
+    highlight-style: printing
+    pause: true
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 5
+  fig-height: 6
 ---
 
 ```{r setup}
+#| echo: false
 library(janitor)
 library(tidyr)
 library(stringr)
+library(dplyr)
+library(datos)
+library(gt)
 ```
 
 ```{css echo=FALSE}
@@ -30,7 +54,7 @@ library(stringr)
 
 Si queremos hacer varias operaciones en secuencia:
 
-::: incremental
+::: {.incremental}
 -   Código anidado (los resultados de evalúan de adentro hacia afuera)
 
 -   Objetos intermedios (creamos objetos con resultados intermedios y los pasamos a la siguiente función en la secuencia)
@@ -57,16 +81,20 @@ round(mean(notas), digits = 2)
 
 </br>
 
+:::{.med-code}
+
 ```{r}
 #| eval: true
 #| echo: true
 notas_promedio <- mean(notas)
 
-notas_promedio_rd <- round(notas_promedio, digits = 2)
+notas_promedio_rd <- 
+  round(notas_promedio,
+           digits = 2)
 
 notas_promedio_rd
-
 ```
+:::
 
 ## Pipes
 
@@ -109,10 +137,12 @@ Toma un objeto a la izquerda del operador y lo inserta como argumento en la func
 
 > Insertamos con `ctrl + shift + M`
 
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"} 
+::::{.rightref}
+:::{.refbox}
 Adolfo Álvarez (2021)\
 [The (updated) history of the pipe operator in R](http://adolfoalvarez.cl/blog/2021-09-16-plumbers-chains-and-famous-painters-the-history-of-the-pipe-operator-in-r/)
 :::
+::::
 
 ------------------------------------------------------------------------
 
@@ -139,11 +169,16 @@ notas %>%
 
 ------------------------------------------------------------------------
 
+</br>
+
+::: {style="text-align: center"}
 `LHS |> RHS(argument = 12)`
 
 *se convierte en*
 
 `RHS(LHS, argument = 12)`
+:::
+
 
 ## tidyverse
 
@@ -157,11 +192,13 @@ notas %>%
 :::
 :::
 
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"} 
+::::{.rightref}
+:::{.refbox}
 Wickham et al. (2019)\
 [Welcome to the tidyverse](https://www.theoj.org/joss-papers/joss.01686/10.21105.joss.01686.pdf)\
 https://www.tidyverse.org/
 :::
+::::
 
 ## tidyverse
 
@@ -169,10 +206,77 @@ https://www.tidyverse.org/
 
 -   Diseñado para facilitar su aprendizaje y que los usuarios vayan aprendiendo más funciones conforme interactuen con más elementos de este 'ecosistema'.
 
-::: {style="text-align: right"}
-Çetinkaya-Rundel et al. (2021)\
-An educator's perspective of the tidyverse\
-[arxiv.org/abs/2108.03510](https://arxiv.org/abs/2108.03510)
+::::{.rightref}
+:::{.refbox}
+Çetinkaya-Rundel et al. ([2021](https://arxiv.org/abs/2108.03510))\
+An educator's perspective of the tidyverse
+:::
+::::
+
+
+## tibbles (/tibls/)
+
+Modernizando el `data.frame`  
+
+Implementado para todo el `tidyverse` a través de 📦  `tibble`
+
+```{r}
+tibble(
+  x = c("a", "b", "c"),
+  y = c(1, 2, 3)
+)
+```
+
+Objeto rectangular común para todos los paquetes del `tidyverse`
+
+## Funciones de `tidyverse`
+
+::: {.incremental}
+- reciben un `data.frame` ➡️ regresan un `data.frame`  
+
+
+- reciben un `tibble` ➡️ regresan un `tibble`  
+
+
+- generan un objeto nuevo ➡️ crean un `tibble`
+:::
+
+## Creando tibbles
+
+- Salida predeterminada de funciones 
+
+- Convirtiendo otros objetos con `as_tibble()`
+
+- Construyendo a partir de vectores con `tibble()`
+
+## tibbles
+
+Para menos ambigüedad:
+
+. . .
+
+:::{.incremental}
+- No asignan nombres a las filas 
+
+- No modifican los nombres de las columnas
+
+- No convierten caracteres en factores  
+
+- Exigen nombres completos para seleccionar subconjuntos de variables con `$`
+:::
+
+## Impresión de tibbles
+
+Para no saturar la consola, los métodos de impresión para _tibbles_ muestran:
+
+:::{.incremental}
+- Las primeras 10 filas 
+
+- Cuántas filas y columnas no se imprimieron
+
+- Solo las columnas que entran en el ancho de nuestra pantalla
+
+- El tipo de variable de todas las columnas
 :::
 
 # Organizando información
@@ -184,11 +288,7 @@ An educator's perspective of the tidyverse\
 ## Más utilizable
 
 ```{r}
-library(dplyr)
-library(gt)
-```
-
-```{r}
+#| echo: false
 tibble::tribble(
          ~Nombre, ~Periodo,      ~TipoViaje, ~PropositoViaje, ~Costo, ~Pais,
      "Miguel J.",    2022L,      "Nacional",  "Salida campo",  1000L,  "MX",
@@ -219,7 +319,9 @@ Siguiendo buenos principios de organización producimos mejores datos y podremos
 
 -   Estructuras rectangulares
 
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"} 
+::::{.rightref}
+:::{.refbox}
+
 ::: columns
 ::: {.column width="33%"}
 Openscapes (2020)\
@@ -237,12 +339,17 @@ Verde Arregoita et al. (2018)\
 :::
 :::
 :::
+::::
 
 ## Consistencia
+
+Tablas relacionadas con datos sobre seguimiento GPS de aves
 
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| echo: false
+
 tibble::tribble(
   ~id,       ~ave,     ~edad,    ~estado,
   23L,  "gorrión", "juvenil",      "VER",
@@ -266,6 +373,8 @@ tibble::tribble(
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: false
+
 tibble::tribble(
   ~ID_ave, ~num_rasteador, ~sexo,
       23L,         "b452",   "M",
@@ -308,25 +417,24 @@ Objetos con filas y columnas, en los cuales:
 :::
 :::
 
-## 
+## datos rectangulares \~ rangos de celdas en una hoja de cálculo
 
 ::: columns
 ::: {.column width="50%"}
 ![](imgs/cashflow.png){width="50%"}\
-
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"} 
-Davis Vaughan (2018)\
-[Tidying Excel cash flow spreadsheets](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
-:::
 :::
 
 ::: {.column width="50%"}
-datos rectangulares \~ rangos de celdas en una hoja de cálculo
-
 ![](imgs/rangespresp.png)
 :::
-
 :::
+
+::::{.rightref}
+:::{.refbox}
+Davis Vaughan (2018)\
+[Tidying Excel cash flow spreadsheets](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
+:::
+::::
 
 ## 
 
@@ -350,6 +458,7 @@ but sometimes such data is "rectangular" in the same sense that this cat is "bow
 ::: columns
 ::: {.column width="50%"}
 ```{r}
+#| echo: false
 tibble::tribble(
     ~animal, ~ind_observados, ~habitat,
   "caracol",             12L,    "mar",
@@ -369,6 +478,7 @@ tibble::tribble(
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: false
 tibble::tribble(
   ~caracol, ~gaviota, ~nutria,
       "12",     "14",    "11",
@@ -392,7 +502,7 @@ tibble::tribble(
 
 -   Agrupar, transformar, ordenar, visualizar, modelar, compartir, etc.
 
-![](imgs/data-science-communicate.svg)\
+![](imgs/data-science-communicate.svg){fig-align="center"}
 
 ## ¿No se puede?
 
@@ -404,10 +514,12 @@ Una reinterpretación accesible de distintos principios y definiciones de estad�
 
 </br>
 
-::: {style="text-align: right; background-color:#4a4a62; color:#e6e6d5; box-shadow: 10px 10px grey"}
+::::{.rightref}
+:::{.refbox}
 Wickham (2014)\
 [Tidy Data](https://www.jstatsoft.org/article/view/v059i10/) - Journal of Statistical Software
 :::
+::::
 
 ## 'Tidy data'
 
@@ -449,6 +561,7 @@ Los valores de cada observación quedan juntos
 :::
 
 ::: {.column width="60%"}
+</br>
 Las variables entran directemente como especificaciones para modelos y/o parámetros gráficos
 :::
 :::
@@ -474,6 +587,8 @@ Usar 'variables indicadoras' en lugar de colapsar información entre dos o más 
 
 ::: {.column width="60%"}
 ```{r}
+#| echo: false
+
 tibble::tribble(
      ~Equipo,      ~Liga, ~Victorias, ~Clasificado,
       "Osos",  "Primera",         8L,         "SI",
@@ -748,7 +863,7 @@ tibble::tribble(
 ## `select()`
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="30%"}
 #### Seleccionar columnas
 
 -   por nombre\
@@ -756,35 +871,34 @@ tibble::tribble(
 -   por tipo\
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
+:::{.med-code}
 ```{r}
-#| echo: true
-#| eval: true
 paises_m %>% 
-  select(pais, amenazadas) %>% 
+  select(pais,
+         amenazadas) %>% 
   head(4)
 ```
+:::
 :::
 :::
 
 ## `mutate()`
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="35%"}
 #### Crea o modifica columnas
 
 -   Crear nuevas\
 -   'sobre-escribir' existentes\
 :::
 
-::: {.column width="60%"}
+::: {.column width="65%"}
 ```{r}
-#| echo: true
-#| eval: true
 
 paises_m %>%
   select(pais, amenazadas) %>% 
-  mutate(amenazadas_log= log(amenazadas)) %>% 
+  mutate(amenazadas_log = log(amenazadas)) %>% 
   head(5)
 ```
 :::
@@ -794,19 +908,18 @@ Podemos contrar en dónde aparece la nueva columna con los argumentos `.before` 
 
 ## `filter()`
 
-::: columns
-::: {.column width="50%"}
+
 #### Seleccionar filas
 
 Retiene solamente las filas que cumplen una condición
 
+:::{.med-code}
 ```{r}
-#| echo: true
-#| eval: true
 paises_m %>% 
   select(pais, especies, amenazadas) %>% 
-  filter(amenazadas > 500)
+  filter(amenazadas > 75)
 ```
+:::
 
 ## Ejercicio - Datos desde paquetes (1) {background-color="#a4c5ff"}
 
@@ -847,7 +960,7 @@ data("nba_players_19")
 ## Ejercicio - manipulación de datos {background-color="#a4c5ff"}
 
 
--   Cargar el objeto `pinguinos` que viene dentro del paquete `datos`
+-   Cargar el objeto `pinguinos`, se instala con el paquete `datos`
 
 -   Crear un subconjunto de datos que solo incluya `especie`, `isla`, y `largo_aleta_mm`
 
@@ -895,7 +1008,12 @@ paises_m %>%
 
 Existen funciones auxiliares para especificar conjuntos de varaibles, se usan junto con o en lugar de `across()` 
 
-[`dplyr` [selection features and helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)]{style="font-size: 1.3em; text-align: center"}
+::::{.rightref}
+:::{.refbox}
+[`dplyr` [selection features and helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)]
+:::
+::::
+
 
 ## `everything()`
 
@@ -1013,7 +1131,7 @@ paises_m %>%
 ::: {.column width="50%"}
 ### Datos anchos
 
-Lectura y caputra más fácil\
+Lectura y captura más fácil\
 Útil para edición interactiva en hojas de cálculo\
 :::
 
@@ -1032,7 +1150,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico
 
 <br/> ancho a largo: `pivot_longer()`
 
-:::{.big-code}
+:::{.med-code}
 ```{r}
 #| eval: false
 #| echo: true
@@ -1042,7 +1160,7 @@ pivot_longer(data, cols, names_to, values_to)
 :::
 <br/> largo a ancho: `pivot_wider()`
 
-:::{.big-code}
+:::{.med-code}
 ```{r}
 #| echo: true
 #| eval: false
@@ -1156,8 +1274,6 @@ colonias %>%
 ## 
 
 ```{r}
-#| eval: true
-#| echo: true
 colonias %>%
   pivot_longer(
     cols = c(Abarrotes,Supermercado,Minisuper),
@@ -1183,8 +1299,6 @@ colonias_largo %>%
 ## 
 
 ```{r}
-#| eval: true
-#| echo: true
 
 colonias_largo %>% 
   pivot_wider(names_from = tipo_negocio, 
@@ -1217,22 +1331,18 @@ colonias_largo %>%
 
 ## 
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
-
 x <- c(1, 2, NA, NA, 5)
 y <- c(NA, NA, 3, 4, 5)
 z <- c(1, 4, 3, 5, 3)
 ```
+:::
 
 Vectores numéricos del mismo largo, hay valores faltantes.
 
 :::{.big-code}
 ```{r}
-#| eval: true
-#| echo: true
-
 coalesce(x, y, z)
 ```
 :::
@@ -1243,20 +1353,17 @@ coalesce(x, y, z)
 
 :::{.big-code}
 ```{r}
-#| eval: true
-#| echo: true
- 
 x <- c(1, 2, NA, NA, 5)
 y <- c(NA, NA, 3, 4, 5)
 z <- c(1, 4, 3, 5, 3)
 ```
 :::
-```{r}
-#| eval: true
-#| echo: true
 
+:::{.big-code}
+```{r}
 coalesce(z,x,y)
 ```
+:::
 
 ## 
 
@@ -1391,31 +1498,33 @@ carbon_mamiferos %>%
 * Lenguaje conciso para describir patrones de texto
 
 </br>
+
 ### Cadenas (🧶strings) de caracteres codificadas especificamente para empatar patrones en otras cadenas de texto
 
 ## Expresiones regulares
 
 En la práctica, un lenguaje de programación con su propia sintaxis y terminología
 
+</br>
+
 **entrada:** una cadena de texto que se compila en un mini programa construido específicamente para identificar un patrón
 
-* Pueden usarse para empatar, buscar, reemplazar, o partir texto   
+</br>
+Pueden usarse para empatar, buscar, reemplazar, o partir texto   
 
 ## Cadenas de texto (🧶Strings)
 
 Un conjunto de caracteres que componen un elemento de un vector:
-:::{.big-code}
-```{r}
-#| eval: true
-#| echo: true
 
+:::{.med-code}
+```{r}
 cadena_de_texto <- "Esta oración es una cadena"
 ```
 :::
 
 Podemos almacenar varias cadenas en un vector de texto:
 
-:::{.big-code}
+:::{.med-code}
 ```{r}
 #| eval: true
 #| echo: true
@@ -1506,6 +1615,7 @@ Podemos:
 </br> gato
 :::
 
+:::  {.column width="33%"}
 ### Entrada
 
 </br> "Ese gato feo"
@@ -1552,7 +1662,11 @@ Podemos agrupar a los caracteres dependiendo de su comportamiento
 
 ## Literales
 
-Si la entrada es **"pato"** y la E.R. es [pato]{style="color: orange"} </br> Habrá coincidencia cuando los caracteres [p]{style="color: orange"}, [a]{style="color: orange"}, [t]{style="color: orange"} y [o]{style="color: orange"} aparezcan consecutivamente en el texto de entrada
+Si la entrada es **"pato"** y la E.R. es [pato]{style="color: orange"}  
+
+</br> 
+
+Habrá coincidencia cuando los caracteres [p]{style="color: orange"}, [a]{style="color: orange"}, [t]{style="color: orange"} y [o]{style="color: orange"} aparezcan consecutivamente en el texto de entrada
 
 
 ## Caracteres literales
@@ -1564,6 +1678,7 @@ Si la entrada es **"pato"** y la E.R. es [pato]{style="color: orange"} </br> Hab
 ## 
 
 ::: {.callout-note}
+##
 El poder y la flexibilidad de las expresiones regulares viene de su capacidad de describir patrones complejos
 :::
 
@@ -1599,9 +1714,13 @@ Si un patron de texto se puede describir verbalmente, seguramente se puede codif
 
 ## Metacaracteres
 
-Un pequeño subconjunto de caracteres nos ayudan a describir patrones más complejos porque tienen comportamientos especiales y no se buscan solo a sí mismos. Cuando aparecen en una E.R., se interpretan de una manera especial.
+Un pequeño subconjunto de caracteres nos ayudan a describir patrones más complejos porque tienen comportamientos especiales y no se buscan solo a sí mismos.  
 
-Incluyen: \[\[\]\^\$.\|?\*+()\]\[d\]\]{style="color: orange"}, que están apartados para fines especiales
+
+Cuando aparecen en una E.R., se interpretan de una manera especial.  
+
+
+Incluyen: [\[\[\]\^\$.\|?\*+()\]\[d\]\]]{style="color: orange"}, que están apartados para fines especiales
 
 ## Comodines
 
@@ -1609,6 +1728,7 @@ Para empatar caracteres desconocidos
 
 **`.`** empata cualquier caracter una vez
 
+</br>
 [m..l]{style="color: orange"} empata "[miel]{style="background-color: yellow"}" pero no "miguel"
 
 
@@ -1618,6 +1738,8 @@ Empatan uno o más caracteres especificados con corchetes
 
 `[ ]` para buscar conjuntos de caracteres
 
+</br>
+
 [\[mr\]ata]{style="color: orange"} empata "[mata]{style="background-color: yellow"}", y "[rata]{style="background-color: yellow"}", pero no "bata"
 
 
@@ -1626,6 +1748,8 @@ Empatan uno o más caracteres especificados con corchetes
 [\[\^\]]{style="color: orange"}    excluye conjuntos de caracteres 
 
 > `^` va al principio del conjunto
+
+</br>
 
 [\[\^aoeiou\]]{style="color: orange"} solo empata consonantes
 
@@ -1641,7 +1765,7 @@ El guión [-]{style="color: orange"} dentro de un conjunto de caracteres sirve p
 
 [\[5-8\]]{style="color: orange"} cualquier dígito entre 5 y 8
 
-[A-Za-z]{style="color: orange"} cualquier letra
+[\[A-Za-z\]]{style="color: orange"} cualquier letra
 
 
 ## Aserciones de tipo límite (anchors)
@@ -1650,6 +1774,8 @@ Especifican la posición relativa del patrón que estamos buscando
 
 [ \^ ]{style="color: orange"}    comienza con\
 [ \$ ]{style="color: orange"}    termina con\
+
+</br>
 
 [  \^mil]{style="color: orange"} empata  "[mil]{style="background-color: yellow"}itar" pero no "familia"
 
@@ -1716,25 +1842,12 @@ Indican el número de caracteres o expresiones que deben coincidir
 
 > n veces
 
-## Práctica {background-color="#a4c5ff"}
+## Ejercicio {background-color="#a4c5ff"}
 
--   Use a quantifier to match **cute**, **cuuute**, **cuuuuuute**, and **cuuuuuuuuute**
+- Empatar **mira**, **miiiiiiiiiira**, y **miiira**  
 
--   How can we match Computer, computer, Computers, and computers?
+- Empatar Computador, computadora, computador, y Computadora (usar juegos de caracteres y cuantificadores)
 
-::: columns
-::: {.column width="33%"}
-a)  \[cC\]omputers?
-:::
-
-::: {.column width="33%"}
-b)  Computers+
-:::
-
-::: {.column width="33%"}
-c)  \[cC\]omputer\[s\]+
-:::
-:::
 
 ## Coincidencias alternativas
 
@@ -1758,17 +1871,23 @@ Separa alternativas de búsqueda
 
 > en R la diagonal también se tiene que escapar
 
-* Los metacaracteres dentro de conjuntos de caracteres se vuelven literales*
+*Los metacaracteres dentro de conjuntos de caracteres se vuelven literales*
 
 ## Construcciones especiales
 
+Para abreviar conjuntos de caracteres  
 
-Refer to commonly-used character sets
+[\\w]{style="color: orange; font-weight: bold"}  letras, guión bajo, y números  
 
-[\\w]{style="color: orange; font-weight: bold"}  letras, guión bajo, y números<br> 
-[\\d]{style="color: orange; font-weight: bold"}  dígitos<br> [\\t]{style="color: orange; font-weight: bold"}    tabulación [\\n]{style="color: orange; font-weight: bold"}   saltos de línea\
-[\\s]{style="color: orange; font-weight: bold"}  espacio\
-[\\b]{style="color: orange; font-weight: bold"}  límite de palabra<br>
+[\\d]{style="color: orange; font-weight: bold"}  dígitos  
+
+[\\t]{style="color: orange; font-weight: bold"}tabulación  
+
+[\\n]{style="color: orange; font-weight: bold"}   saltos de línea  
+
+[\\s]{style="color: orange; font-weight: bold"}  espacio  
+
+[\\b]{style="color: orange; font-weight: bold"}  límite de palabra  
 
 
 ## Límites de palabra
@@ -1779,11 +1898,11 @@ Marca la posición en la que un caracter de palabra (letras, números, guión ba
 
 El límite de una palabra encontrada no se incluye en el resultado 
 
-> Antes de
+**Antes de**
 
 [\\bmila]{style="color: orange; font-weight: bold"} encuentra "la [mila]{style="background-color: yellow"}nesa" pero no "Camila"
 
-> Después de
+**Después de**
 
 [arte\\b]{style="color: orange; font-weight: bold"} encuentra "salud[arte]{style="background-color: yellow"} hoy" pero no "artesanal"
 
@@ -1814,6 +1933,8 @@ c)  ta\\b
 "Liomys [pictus]{style="background-color: yellow"}"
 
 [\^\\w+\\b]{style="color: orange; font-weight: bold"} primera palabra
+"[12]{style="background-color: yellow"} de marzo"\
+"[Liomys]{style="background-color: yellow"} pictus"
 
 
 ## Ejercicio {background-color="#a4c5ff"}
@@ -1825,6 +1946,8 @@ Empatemos:
 5.  Cadenas sin la letra ***s***
 
 # Expresiones regulares en R
+
+## 
 
 Podemos crear subconjuntos de filas y columnas mediante coincidencias entre expresiones regulares y nombres de variables o con sus valores
 
@@ -1846,12 +1969,13 @@ Funciones para manipular cadenas de texto
 
 **¿Coincidencias?**
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
-
-str_detect(string = c("catalogo", "aguacate", "pera"), pattern = "cat")
+#| output-location: slide
+str_detect(string = c("catalogo", "aguacate", "pera"),
+           pattern = "cat")
 ```
+:::
 
 Regresa un vector V/F de la misma longitud que la entrada
 
@@ -1859,41 +1983,40 @@ Regresa un vector V/F de la misma longitud que la entrada
 
 **¿Cuáles elementos coinciden?**
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
-
+#| output-location: slide
 str_which(string = c("catalogo", "aguacate", "pera"), pattern = "cat")
 ```
+:::
 
 Regresa el índice de los elemenots con coincidencias
 
 ## `stringr` - reemplazar coincidencias
 
-
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
+#| output-location: slide
 
 str_replace(string = c("anthonyi", "daviesi", "jonesi"),
             pattern = "i$",
             replacement = "ii")
 ```
+:::
 
 ## `stringr` - función `regex()`
 
 **Sin distinción entre MAYUSCULAS y minúsculas**
 
 ```{r}
-#| eval: true
-#| echo: true
+#| output-location: slide
 
 str_replace(string = c("anthonyI", "daviesi", "jonesi"),
             pattern = regex("i$",ignore_case = TRUE),
             replacement = "ii")
 ```
 
-## Ejercicio - `stringr`{background-color="#a4c5ff"}
+## Ejercicio - `stringr` {background-color="#a4c5ff"}
 
 Probemos estas expresiones contra este vector usando `str_detect`. Explicar las coincidencias.
 
@@ -1924,47 +2047,47 @@ Extraer o borrar partes de cadenas de texto
 
 ## Expresiones regulares y 📦 `dplyr` 
 
+</br>
+
 La función auxiliar **`matches()`** acepta expresiones regulares para seleccionar variables que contengan coincidencias
 
 
 ## Seleccionando variables
 
 Datos de pingüinos `pinguinos` de 📦 `datos`
+:::{.med-code}
 ```{r}
 library(datos)
-```
-
-
-```{r}
-#| eval: true
-#| echo: true
-
 data(pinguinos)
 names(pinguinos)
 ```
+:::
 
+## 
+
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
-
 pinguinos %>% 
-  select(especie, matches("larg")) %>% sample_n(3)
+  select(especie, matches("larg")) %>% 
+  sample_n(3)
 ```
+:::
 
 ## Filtrando filas 
 
-Datos de paises (`paises`) de 📦 `datos`
+Datos de paises del paquete 📦 `datos`
 
 ```{r, eval=FALSE}
+library(datos)
 data(paises)
 ```
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
- 
-paises %>% select(pais,continente) %>% sample_n(4)
+paises %>% select(pais,continente) %>% 
+  sample_n(4)
 ```
+:::
 
 ## Coincidencias en filas
 
@@ -2057,10 +2180,9 @@ tibble::tribble(
       "e_ric2", "Hidalgo 11 Depto 1B", "Campestre", "A. Obregón"
   )
 ```
+:::
 
-## 
-
-Identify with .b.purple\[`get_dupes()`\] from 📦 .rrured.b\[`janitor`\]
+## Identificar con `get_dupes()` 
 
 ```{r}
 ordenes_pizza %>%
@@ -2137,4 +2259,11 @@ ordenes_pizza %>%
   distinct(Direccion,Colonia, .keep_all = TRUE)
 ```
 
-## Ejercicio
+## Ejercicio {background-color="#a4c5ff"}
+
+- Cargar el archivo `murcielagos.csv`
+
+- ¿De cuántas localidades únicas provienen estos registros?
+
+- Exportar un archivo con las localidades únicas y nombres de columna en español
+

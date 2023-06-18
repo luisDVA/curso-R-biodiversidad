@@ -1,5 +1,6 @@
 ---
 title: "Visualización de datos"
+author: Luis D. Verde Arregoitia
 format:
   revealjs:
     transition: fade
