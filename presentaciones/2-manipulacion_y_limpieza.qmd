@@ -1,7 +1,7 @@
 ---
 title: "Manipulacion y limpieza de datos"
 author: Luis D. Verde Arregoitia
-  format:
+format:
   revealjs:
     theme: curso_styles.scss
     transition: fade
@@ -34,12 +34,6 @@ library(datos)
 library(gt)
 ```
 
-```{css echo=FALSE}
-.big-code{
-  font-size: 200%  
-}
-```
-
 ### Temas del bloque:
 
 -   'pipes' y el `tidyverse`\  
@@ -50,7 +44,7 @@ library(gt)
 -   Herramientas para manejar datos faltantes\
 -   Formas de identificar información repetida
 
-## Pipes
+## Pipes (\paips\)
 
 Si queremos hacer varias operaciones en secuencia:
 
@@ -96,7 +90,7 @@ notas_promedio_rd
 ```
 :::
 
-## Pipes
+## Pipes 
 
 ::: fragment
 ::: columns
@@ -183,11 +177,11 @@ notas %>%
 ## tidyverse
 
 ::: columns
-::: {.column width="10%"}
+::: {.column width="20%"}
 ![](imgs/tidyverse_celestial.png)
 :::
 
-::: {.column width="90%"}
+::: {.column width="80%"}
 > ... una colección de paquetes de R diseñados para ciencia de datos. Todos los paquetes comparten una filosofía de diseño, gramática, y estructuras de datos. Su objetivo principal es de 'facilitar una conversación sobre datos entre un humano y su computador'
 :::
 :::
@@ -202,7 +196,7 @@ https://www.tidyverse.org/
 
 ## tidyverse
 
--   Abarca tareas que se repiten mucho en cualquier projecto de datos: importar archivos, limpiar datos, transformar, visualizar, o programar nuevas funciones.
+-   Para tareas comunes con datos: importar archivos, limpiar datos, transformar, visualizar, o programar nuevas funciones.
 
 -   Diseñado para facilitar su aprendizaje y que los usuarios vayan aprendiendo más funciones conforme interactuen con más elementos de este 'ecosistema'.
 
@@ -226,6 +220,8 @@ tibble(
   y = c(1, 2, 3)
 )
 ```
+
+. . .
 
 Objeto rectangular común para todos los paquetes del `tidyverse`
 
@@ -298,7 +294,15 @@ tibble::tribble(
      "Miguel J.",    2022L, "Internacional",      "Congreso",  2000L, "EUA",
   "Alejandra M.",    2022L,              NA,              NA,     NA,    NA,
        "Raul S.",    2022L,      "Nacional",  "Salida campo",  1000L,  "MX"
-  ) %>% gt()
+  ) %>% gt() %>%
+    tab_style(
+    cell_text(size = "29px"),
+    locations = list(
+      cells_body(),
+      cells_column_labels(everything()),
+      cells_title()
+    )
+  )
 
 
 ```
@@ -421,7 +425,7 @@ Objetos con filas y columnas, en los cuales:
 
 ::: columns
 ::: {.column width="50%"}
-![](imgs/cashflow.png){width="50%"}\
+![](imgs/cashflow.png)
 :::
 
 ::: {.column width="50%"}
@@ -581,11 +585,11 @@ Las variables entran directemente como especificaciones para modelos y/o paráme
 Usar 'variables indicadoras' en lugar de colapsar información entre dos o más variables.
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="37%"}
 ![](imgs/gruposvars.png)
 :::
 
-::: {.column width="60%"}
+::: {.column width="63%"}
 ```{r}
 #| echo: false
 
@@ -598,7 +602,7 @@ tibble::tribble(
   "Fénix FC", "Reservas",         7L,         "SI"
   ) %>% gt()%>% 
     tab_style(
-    cell_text(size = "33px"),
+    cell_text(size = "32px"),
     locations = list(
       cells_body(),
       cells_column_labels(everything()),
@@ -698,8 +702,6 @@ tibble::tribble(
 
 ## Nombres de columna partidos
 
-::: columns
-::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| eval: true
@@ -712,7 +714,7 @@ tibble::tribble(
        "UABJO",   "Sur",       "Diseño",           "6",         "8.5"
   ) %>% gt() %>% 
   tab_style(
-    cell_text(size = "24px"),
+    cell_text(size = "25px"),
     locations = list(
       cells_body(),
       cells_column_labels(everything()),
@@ -720,9 +722,7 @@ tibble::tribble(
     )
   )
 ```
-:::
 
-::: {.column width="50%"}
 - Los nombres de las columnas aparecen en \>1 fila
 
 - Mezcla de fragmentos de nombre con datos
@@ -1008,9 +1008,11 @@ paises_m %>%
 
 Existen funciones auxiliares para especificar conjuntos de varaibles, se usan junto con o en lugar de `across()` 
 
+</br>
+
 ::::{.rightref}
 :::{.refbox}
-[`dplyr` [selection features and helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)]
+[[dplyr selection features and helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)]
 :::
 ::::
 
@@ -1019,23 +1021,27 @@ Existen funciones auxiliares para especificar conjuntos de varaibles, se usan ju
 
 Todas las variables
 
+:::{.med-code}
 ```{r}
 #| eval: true
 #| echo: true
 paises_m %>% 
   mutate(across(everything(), as.character)) %>% head(3)
 ```
+:::
 
 ## `!`
 
 Devuelve el complemento de un conjunto de variables
 
+:::{.med-code}
 ```{r}
 #| eval: true
 #| echo: true
 paises_m %>% 
   select(!c(region,amenazadas)) %>% head()
 ```
+:::
 
 ## `where()`
 
@@ -1044,8 +1050,6 @@ Selecciona las variables para las cuales alguna comparación regrese `TRUE`
 > ej: transformar todas las variables de tipo numérico, identificadas con `is.numeric()`
 
 ```{r}
-#| eval: true
-#| echo: true
 paises_m %>% 
   mutate(across(where(is.numeric), log2)) %>% slice(1:3)
 ```
@@ -1057,9 +1061,6 @@ Encuentra nombres de variables con expresiones regulares
 > ej: quitar variables que contengan "prec"
 
 ```{r}
-#| eval: true
-#| echo: true
- 
 paises_m %>% 
   mutate(across(matches("p..s"), toupper)) %>% head
 ```
@@ -1068,12 +1069,12 @@ paises_m %>%
 
 Selecciona variables contiguas
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
 paises_m %>% 
   select(pais:amenazadas) %>% head()
 ```
+:::
 
 ## `-`
 
@@ -1081,12 +1082,12 @@ Excluir variables
 
 (devuleve todos los elementos excepto el que sigue el operador de resta)
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
 paises_m %>% 
   select(-region) %>% head()
 ```
+:::
 
 ## `across` sin funciones auxiliares
 
@@ -1526,8 +1527,6 @@ Podemos almacenar varias cadenas en un vector de texto:
 
 :::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
 
 mascotas <-  c("perro","gato","loro","perro")
 ```
@@ -1560,7 +1559,7 @@ bebidas_df %>%
   tab_style(
     style = list(
       cell_fill(color = "yellow"),
-       cell_text(size = '27px')
+       cell_text(size = '35px')
     ),
     locations = cells_body(
       columns = vars(bebida)
@@ -1599,12 +1598,15 @@ Podemos:
 
 . . . 
 
+::: {.incremental}
+
 * Ahorrar tiempo al buscar patrones, transformar texto, describir patrones, extraer partes de palabras, etc.
 
 * Una sola expresión regular puede reemplazar decenas de líneas de código 
 
 * Sirven en prácticamente cualquier lenguaje de programación o aplicación de línea de comandos
 
+:::
 
 ## Primeros pasos con regex
 
@@ -1618,13 +1620,13 @@ Podemos:
 :::  {.column width="33%"}
 ### Entrada
 
-</br> "Ese gato feo"
+</br></br> "Ese gato feo"
 :::
 
 ::: {.column width="33%"}
 ### Resultado
 
-</br> Ese [gato]{style="color: orange"} feo
+</br></br> Ese [gato]{style="color: orange"} feo
 :::
 :::
 
@@ -1720,7 +1722,7 @@ Un pequeño subconjunto de caracteres nos ayudan a describir patrones más compl
 Cuando aparecen en una E.R., se interpretan de una manera especial.  
 
 
-Incluyen: [\[\[\]\^\$.\|?\*+()\]\[d\]\]]{style="color: orange"}, que están apartados para fines especiales
+Incluyen: [\[\]\^\$.\|?\*+()]{style="color: orange"}, que están apartados para fines especiales
 
 ## Comodines
 
@@ -1779,7 +1781,7 @@ Especifican la posición relativa del patrón que estamos buscando
 
 [  \^mil]{style="color: orange"} empata  "[mil]{style="background-color: yellow"}itar" pero no "familia"
 
-[ing\$]{style="color: orange"} empata "Boi[ing]{style="background-color: yellow"}" pero no "ingeniero"
+[ing\$]{style="color: orange"} empata "Bo[ing]{style="background-color: yellow"}" pero no "ingeniero"
 
 
 ## Ejercicio {background-color="#a4c5ff"}
@@ -1951,7 +1953,8 @@ Empatemos:
 
 Podemos crear subconjuntos de filas y columnas mediante coincidencias entre expresiones regulares y nombres de variables o con sus valores
 
-![](imgs/regexsubconjuntos.png)
+##
+![](imgs/regexsubconjuntos.png){fig-align="center"}
 
 ## 📦 `stringr`
 
@@ -1972,8 +1975,9 @@ Funciones para manipular cadenas de texto
 :::{.med-code}
 ```{r}
 #| output-location: slide
-str_detect(string = c("catalogo", "aguacate", "pera"),
-           pattern = "cat")
+str_detect(string = c("catalogo", "aguacate",
+"pera"),
+ pattern = "cat")
 ```
 :::
 
@@ -1996,7 +2000,6 @@ Regresa el índice de los elemenots con coincidencias
 
 :::{.med-code}
 ```{r}
-#| output-location: slide
 
 str_replace(string = c("anthonyi", "daviesi", "jonesi"),
             pattern = "i$",
@@ -2009,7 +2012,7 @@ str_replace(string = c("anthonyi", "daviesi", "jonesi"),
 **Sin distinción entre MAYUSCULAS y minúsculas**
 
 ```{r}
-#| output-location: slide
+
 
 str_replace(string = c("anthonyI", "daviesi", "jonesi"),
             pattern = regex("i$",ignore_case = TRUE),
@@ -2055,6 +2058,7 @@ La función auxiliar **`matches()`** acepta expresiones regulares para seleccion
 ## Seleccionando variables
 
 Datos de pingüinos `pinguinos` de 📦 `datos`
+
 :::{.med-code}
 ```{r}
 library(datos)

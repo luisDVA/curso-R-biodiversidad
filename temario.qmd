@@ -1,5 +1,6 @@
 ---
 title: "Temario y cronograma"
+toc-title: Contenido 
 ---
 
 ## 1) Flujos de trabajo y análisis (0.5 días)

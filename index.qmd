@@ -1,6 +1,26 @@
 ---
-title: "Web Oficial del Curso"
+title: "Materiales del curso"
+toc: false
 ---
 
+Este sitio contiene los materiales prácticos y las presentaciones para todos los temas. Se actualizará diariamiente durante la semana del curso.
 
-![](presentaciones/imgs/herramientas2023.jpg)
+::: columns
+::: {.column width="40%"}
+![](presentaciones/imgs/herramientas2023.jpg){width="90%"}
+:::
+
+::: {.column width="60%"}
+### Coordinador
+
+Dr. Fabricio Villalobos Camacho
+
+## Profesores
+
+Dr. Fabricio Villalobos Camacho  
+Dr. Gabriel Massaine Moulatlet  
+Dr. Luis D. Verde Arregoitia
+
+:::
+:::
+

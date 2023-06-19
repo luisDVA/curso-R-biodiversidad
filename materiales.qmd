@@ -1,8 +1,47 @@
 ---
 title: "Materiales del curso"
+toc-title: Contenido
 ---
 
-[Datos](archivos-ej/)
+## Datos 
 
-[Presentaciones](presentaciones/)
+Descargar todos los archivos (datos y scripts) para los ejercicios del curso:
 
+[🗜️[Descargar datos](archivos-ej/datoscurso.zip)]{style="font-size: 1.6rem; background-color: #b46294; 	padding: 3px;	border-radius: 6px; text-align: center;"}
+
+## Presentaciones
+
+Estas presentaciones en formato web cuentan con un índice de contenidos interactivo (boton en la esquine inferior izquierda).
+
+### Lunes 19
+[Flujos de Trabajo y Organización de Proyectos ](presentaciones/1-flujos_trabajo.qmd){.external target="_blank"}
+
+[Exploración de datos ](presentaciones/1.1-exploracion_rapida_datos.qmd){.external target="_blank"}
+
+[Manipulación y Limpieza de datos - I](presentaciones/2-manipulacion_y_limpieza.qmd){.external target="_blank"}
+
+### Martes 20
+
+[Manipulación y Limpieza de datos - II](presentaciones/2-manipulacion_y_limpieza.qmd){.external target="_blank"}
+
+### Miércoles 21
+
+[Visualización de Datos](presentaciones/3-visualizacion.qmd){.external target="_blank"}
+
+### Jueves 22
+
+[Lo que Nunca nos Enseñaron sobre R](presentaciones/4-LQNNESR.qmd){.external target="_blank"}
+
+[Manejo de Matrices](presentaciones/4.1-matricesv2.qmd){.external target="_blank"}
+
+### Viernes 23
+
+[Distribuciones Geográficas](presentaciones/5.0-distribuciones_geograficas.qmd){.external target="_blank"}
+
+[Riqueza de Especies](presentaciones/5-gradiente_riqueza.qmd){.external target="_blank"}
+
+[Mapas Bivariados](presentaciones/5.1-mapas_bivariados.qmd){.external target="_blank"}
+
+[Reglas Ecogeográficas](presentaciones/5.2-regla_ecogeografica.qmd){.external target="_blank"}
+
+[Filogenias](presentaciones/5.4-filogenias.qmd){.external target="_blank"}

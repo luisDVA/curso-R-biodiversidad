@@ -397,4 +397,3 @@ plot(p2)
 . . .
 
 ¿Qué podemos concluir de esto?
-

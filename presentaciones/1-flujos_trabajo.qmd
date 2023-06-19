@@ -24,9 +24,11 @@ execute:
   fig-height: 6
 ---
 
-```{r pckgs}
+```{r pkgs setup}
 #| echo: false
+
 library(fontawesome)
+
 ```
 
 ## Temas de este bloque
@@ -53,7 +55,7 @@ library(fontawesome)
 ¿Dialecto de S?\
 ¿Paquete estadístico?\
 ¿RStudio?\
-¿Lenguage de programación?\
+¿Lenguaje de programación?\
 ¿Dispositivo gráfico?
 
 ## `r fa(name = "r-project")`?
@@ -93,7 +95,7 @@ library(fontawesome)
 
 Herramientas para facilitar el uso de un lenguaje de programación
 
--   Editor de texto que 'reconoce' la sintaxis de un lenguage
+-   Editor de texto que 'reconoce' la sintaxis de un lenguaje
 
 -   Atajos y herramientas para administrar y ejecutar código
 
@@ -210,7 +212,7 @@ Guardar archivos en ubicaciones específicas, con nombres intencionales y útile
 
 - Nombres cortos e informativos
 
-- Fáciles de puedan ordenar y que cooperen con búsquedas parciales
+- Fáciles de ordenar y que cooperen con búsquedas parciales
 
 - Atención con caracteres especiales y espacios
 :::
@@ -426,13 +428,22 @@ Jenny Bryan (2018)\
 
 ## Hoja en blanco (blank slate)
 
-![](imgs/clnslt.jpg){fig-align= "center" fig-size="60%"}
+::: columns
+::: {.column width="60%"}
+No se guarda el espacio de trabajo a un archivo _.Rdata_
+
+No se carga el espacio de trabajo desde un archivo _.Rdata_ al arrancar R
+
+:::
+
+::: {.column width="40%"}
+
+![](imgs/clnslt.jpg)
+
+:::
+:::
 
 
-
-No se guarda el espacio de trabajo a un archivo .Rdata
-
-No se carga el espacio de trabajo desde un archivo .Rdata al arrancar R
 
 ## Reiniciar R
 

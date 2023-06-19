@@ -1,9 +1,11 @@
 /*-- scss:defaults --*/
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 
 // fonts
 $font-family-sans-serif: 'Source Sans Pro', Helvetica, sans-serif, 'News Cycle';
+$font-family-monospace: 'Fira Code', monospace;
 $code-color: #f35b04;
 
 /*-- scss:rules --*/
@@ -70,7 +72,7 @@ border: 1px solid black
 .reveal code {
 	font-size: 104%;
 	background-color: #ede7e3;
+	background-color: #ede7e3;
 	padding: 3px;
-	border-radius: 6px;
 }
 

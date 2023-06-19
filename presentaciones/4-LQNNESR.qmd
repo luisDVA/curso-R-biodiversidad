@@ -183,7 +183,6 @@ Hadley Wickham (2011)\
 ![Manipulación de datos en R con dplyr - Rubén Sánchez](imgs/groupby.PNG){width="64%"}
 
 
-------------------------------------------------------------------------
 
 ## Trabajando con datos agrupados
 
@@ -191,7 +190,8 @@ Con la versión agrupada de nuestra tabla, las funciones de `dplyr` trabajan sob
 
 </br>
 
-::: {style="text-align: right; background-color:#4a4a62"}
+::::{.rightref}
+:::{.refbox}
 RStudio (2021)\
 [Data transformation with dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 :::
@@ -269,10 +269,15 @@ msleep %>% group_by(order) %>%
 :::
 
 ::: {.column width="60%"}
+::::{.rightref}
+:::{.refbox}
 Jenny Bryan\
 [purrr tutorial](https://jennybc.github.io/purrr-tutorial/index.html)\
 [Data Rectangling](https://speakerdeck.com/jennybc/data-rectangling)\
 [purrr workshop](https://speakerdeck.com/jennybc/purrr-workshop)
+:::
+:::
+
 :::
 :::
 
@@ -286,7 +291,7 @@ Jenny Bryan\
 #| echo: true
 #| eval: false
 
-for (value in sequence) {
+for (value in sequence){
    statement(s)
 }
 
@@ -302,7 +307,7 @@ Executa una serie de enunciados (*statements*), una vez para cada elemento de un
 ```{r}
 #| eval: true
 #| echo: true
-for (x in 1:7) {
+for (x in 1:7){
   print(x)
 } 
 ```
@@ -330,8 +335,8 @@ hay constantes preinstaladas en R que les pueden servir
 #| echo: true
 
 msleep %>% 
-  group_by(order) %>%   # para cada orden
-  slice_sample(1)       # declaración a ejecutar 
+  group_by(order) %>% # para cada orden
+  slice_sample(1) # declaración a ejecutar 
                         
 ```
 :::
@@ -403,11 +408,12 @@ x[5]>5 ; x[6]>5
 :::
 :::
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Thomas Mock (2018)\
 [Functional Programming in R with purrr](https://towardsdatascience.com/functional-programming-in-r-with-purrr-469e597d0229)
 :::
-
+:::
 ------------------------------------------------------------------------
 
 ::: {style="text-align: center"}
@@ -484,15 +490,14 @@ mi_funcion(mi_argumento = mi_vector)
 
 El cuerpo de la función (las declaraciones que se ejecutan al correr la función) se agrupa con llaves (`{}`)
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
- 
+
 miFunc <- function(x) {
   x + 4 # cuerpo
 }
 ```
-
+:::
 </br>
 
 ::: columns
@@ -510,7 +515,7 @@ miFunc(x=6)
 :::
 
 ::: {.column width="65%"}
-Al ejecutar funciones es opcional especificar los nombres de los argumentos, pero en funciones con \>1 argumentos, el orden de los mismos importa
+Al ejecutar funciones es opcional especificar los nombres de los argumentos, pero en funciones con \>1 argumentos, el orden importa
 :::
 :::
 
@@ -624,14 +629,16 @@ Reemplaza "`function(x) {}`" con "`\(x){}`"
 :::
 
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Russ Hyde (2021)\
 [New features in R 4.1.0](https://www.jumpingrivers.com/blog/new-features-r410-pipe-anonymous-functions/)
+:::
 :::
 
 :::{.callout-note}
 ## 
-Los desarroladores del `tidyverse` están migrando al uso de esta notación abreviada
+Los desarroladores del `tidyverse` están migrando al uso de esta notación
 :::
 
 
@@ -655,9 +662,11 @@ Los desarroladores del `tidyverse` están migrando al uso de esta notación abre
 
 - Aprovechar las herramientas que nos dejan aplicar funciones a muchos elementos a la vez
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Jenny Bryan - Stat545\
 [Write your own R functions](https://stat545.com/functions-part1.html)
+:::
 :::
 
 # Listas
@@ -679,9 +688,11 @@ mi_lista <- list(
 ```
 :::
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Rebecca Barter (2019)\
 [Learn to purrr](https://www.rebeccabarter.com/blog/2019-08-19_purrr/)
+:::
 :::
 
 ------------------------------------------------------------------------
@@ -721,13 +732,12 @@ class(gremios)
 
 `group_keys()` regresa los grupos
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
-
 msleep %>% group_by(vore) %>%
   group_keys()
 ```
+:::
 
 ## 'Indexando' listas
 
@@ -813,9 +823,8 @@ map(rasgos,mean,na.rm=TRUE)
 
 ## Aplicar funciones personalizadas iterativamente
 
+:::{.med-code}
 ```{r}
-#| eval: true
-#| echo: true
 
 # obtener min, max, y la diferencia
 resumenMMR <- function(x){
@@ -826,6 +835,7 @@ resumenMMR <- function(x){
 }
 
 ```
+:::
 
 ## Probar con vectores
 
@@ -866,9 +876,8 @@ map(.x = rasgos, .f = resumenMMR)
 
 ##
 
+:::{.med-code}
 ```{r}
-#| echo: true
-#| eval: true
 
 # regresa una lista
 map(rasgos, median, na.rm = TRUE)
@@ -876,14 +885,18 @@ map(rasgos, median, na.rm = TRUE)
 map_dbl(rasgos, median, na.rm = TRUE)
 
 ```
+:::
 
 ## `map()` con funciones anónimas
 
 Funciones que podemos escribir dentro de `map()` sin definir
 
-::: {style="text-align: right"}
+
+::::{.rightref}
+:::{.refbox}
 Mike Cheng (2019)\
 [Anonymous Functions in R - Part 1](https://coolbutuseless.github.io/2019/03/13/anonymous-functions-in-r-part-1/)
+:::
 :::
 
 ## 
@@ -933,7 +946,7 @@ Internamente `~.x + 4` se vuelve `function(x) x+4`
 
 - agrupar los datos por localidad y crear una lista de data frames con una para cada localidad
 
-- crear un vector con los nombres delas localidades
+- crear un vector con los nombres de las localidades
 
 :::{.callout-note}
 ##
@@ -948,9 +961,11 @@ Ambas listas of vectores de entrada se le pasan como argumentos a la función `.
 
 ![](imgs/map2.png){width="87%"}
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 Altman et al. (2021)\
 [Map with multiple inputs](https://dcl-prog.stanford.edu/purrr-parallel.html)
+:::
 :::
 
 ## Ejercicio - Carpeta con archivos {background-color="#a4c5ff"}
@@ -996,8 +1011,10 @@ Altman et al. (2021)\
 -   indentar o 'desindentar' selección (`tab` y `shift`+`tab`)
 -   convertir selección a comentario (`ctrl` + `shift` + `c`)
 
-::: {style="text-align: right"}
+::::{.rightref}
+:::{.refbox}
 [RStudio Shortcuts and Tips (2021)](https://appsilon.com/rstudio-shortcuts-and-tips/)
+:::
 :::
 
 ## Atajos útiles
@@ -1062,7 +1079,7 @@ Título, fuente y versión
 library(readr) # Read Rectangular Text Data, CRAN v2.0.2
 ```
 
--   *También podemos anotar cuáles funciones de c/ paquete estamos usando*
+-   *También podemos anotar cuáles funciones o datos de c/ paquete estamos usando*
 
 ## 📦 [`littleboxes`](https://github.com/ThinkR-open/littleboxes)
 
@@ -1117,9 +1134,7 @@ Copiar y pegar datos desde y hacia R, manipular vectores
 
 # Errores comunes y como solucionarlos
 
-##
-
-1 - **Resetear**
+## 1 - **Resetear**
 
 Reiniciar R (limpia la ruta de búsqueda, "desprende" objetos, regresa opciones a sus valores predeterminados) 
 
@@ -1131,7 +1146,7 @@ _search path_: los entornos que definen los objetos y funciones a los que podemo
 ### prueba
 (e.g. `Sys.setenv(LANGUAGE="ko"`))
 
-2 - **Reprex** (ejemplos reproducibles)
+## 2 - **Reprex** (ejemplos reproducibles)
 
 Crear el ejemplo más simple posible que genere el mismo error para poder confimar o resolver algún problema
 
@@ -1149,7 +1164,7 @@ Jenny Bryan (2020)\
 - espacios, paréntesis, o comas de más o de menos
 - pasos en desorden
 
-### Opciones útiles
+## Opciones útiles
 - Estudiar los mensajes de error más comunes
 
 ::::{.rightref}
@@ -1227,6 +1242,7 @@ Dear person I don't know who emailed me this morning, the <a href="https://twitt
 
 - Proveer datos (mientras más simple mejor)
     - No ir más allá de lo mínimo necesario para recrear el problema
+    - No truncar posibles fuentes de error
 - Mostrar qué paquetes se están usando
     - Incluir versiones puede ayudar  
 - Se puede copiar, pegar y ejecutar fácilmente
@@ -1272,7 +1288,7 @@ ggplot(mis_datos)+
 
 ## Búsquedas web
 
-Nadie sabe todo de memoria y hay que saber buscan en línea
+Nadie sabe todo de memoria y hay que saber buscar en línea
 
 - Aprender a usar funciones avanzadas en los buscadores populares ["Google-fu"](https://tryhackme.com/resources/blog/google-fu) 
 

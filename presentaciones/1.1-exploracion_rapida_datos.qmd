@@ -20,13 +20,13 @@ library(here)
 
 ## 
 
--   Buscar informaciones generales sobre los datos
+-   Buscar información general sobre los datos
 -   Con *Big Data* es poco probable lograr visualizar toda la información en las matrices
 -   Identificar problemas de forma y contenido
 
 ## Paquetes
 
-Vamos a utilizar los seguientes paquetes en R
+Vamos a utilizar los siguientes paquetes en R
 
 -   `skimR`
 -   `janitor`
@@ -50,7 +50,7 @@ Vamos a utilizar los seguientes paquetes en R
 
 ## En R
 
--   R identifica de manera automatica las diferencias entre los tipos de información
+-   R identifica de manera automática las diferencias entre los tipos de información
 -   Números, caracteres, espacios, factores...
 -   Por eso la importancia de visualizar rápidamente los posibles problemas
 
@@ -73,7 +73,7 @@ Vamos a utilizar los seguientes paquetes en R
 
 ## 
 
-Vamos aplicar la función `summary()` sobre nuestro conjunto de datos *df*
+Vamos a aplicar la función `summary()` sobre nuestro conjunto de datos *df*
 
 ```{r}
 #| eval: true
