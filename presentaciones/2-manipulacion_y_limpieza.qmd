@@ -49,9 +49,9 @@ library(gt)
 Si queremos hacer varias operaciones en secuencia:
 
 ::: {.incremental}
--   Código anidado (los resultados de evalúan de adentro hacia afuera)
+-   Código anidado (los resultados se evalúan de adentro hacia afuera)
 
--   Objetos intermedios (creamos objetos con resultados intermedios y los pasamos a la siguiente función en la secuencia)
+-   Objetos intermedios (creamos objetos con resultados intermedios y para la siguiente función en la secuencia)
 
 -   Pipes (estructuramos operaciones seriadas de izquierda a derecha)
 :::
