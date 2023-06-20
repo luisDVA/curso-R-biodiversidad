@@ -4,6 +4,7 @@ author: Luis D. Verde Arregoitia
 format:
   revealjs:
     theme: curso_styles.scss
+    chalkboard: true
     transition: fade
     progress: true
     preview-links: true
@@ -761,7 +762,7 @@ Fáciles de interpretar (por humanos y por máquinas) y listos para analizar
 
 # Herramientas para manipular datos rectangulares
 
-## Funciones y paquetes para peparar, transforar, y estructuras datos
+## Funciones y paquetes para preparar, transformar, y estructurar datos
 
 ::: columns
 ::: {.column width="20%"}
@@ -966,7 +967,7 @@ data("nba_players_19")
 
 -   ¿Cuántos individuos tienen aletas \> a 195 mm?
 
--   Crae una nueva columna con el largo de aleta en pulgadas
+-   Crea una nueva columna con el largo de aleta en pulgadas
 
 # Trabajando con \> 1 columna con `across()`
 

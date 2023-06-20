@@ -340,7 +340,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#ejercicio---manipulación-de-datos",
     "title": "Manipulacion y limpieza de datos",
     "section": "Ejercicio - manipulación de datos",
-    "text": "Ejercicio - manipulación de datos\n\nCargar el objeto pinguinos, se instala con el paquete datos\nCrear un subconjunto de datos que solo incluya especie, isla, y largo_aleta_mm\n¿Cuántos individuos tienen aletas &gt; a 195 mm?\nCrae una nueva columna con el largo de aleta en pulgadas"
+    "text": "Ejercicio - manipulación de datos\n\nCargar el objeto pinguinos, se instala con el paquete datos\nCrear un subconjunto de datos que solo incluya especie, isla, y largo_aleta_mm\n¿Cuántos individuos tienen aletas &gt; a 195 mm?\nCrea una nueva columna con el largo de aleta en pulgadas"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#operaciones-con-varias-columnas-en-simultáneo",
@@ -1725,15 +1725,15 @@
     "objectID": "presentaciones/1-flujos_trabajo.html#temas-de-este-bloque",
     "href": "presentaciones/1-flujos_trabajo.html#temas-de-este-bloque",
     "title": "Flujos de trabajo y análisis",
-    "section": "Temas de este bloque",
-    "text": "Temas de este bloque\n\nOrganización de proyectos y archivos\n\nBuenas prácticas para nombrar archivos y objetos\n\nTrabajando con rutas\n\nEstructuras y organización de datos Objetos\n\nRepaso\nExploración rápida de datos"
+    "section": "",
+    "text": "Organización de proyectos y archivos\n\nBuenas prácticas para nombrar archivos y objetos\n\nTrabajando con rutas\n\nEstructuras y organización de datos Objetos\n\nRepaso\nExploración rápida de datos"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#qué-es",
     "href": "presentaciones/1-flujos_trabajo.html#qué-es",
     "title": "Flujos de trabajo y análisis",
     "section": "¿Qué es ?",
-    "text": "¿Qué es ?\n✍️Software\n\n¿Dialecto de S?\n¿Paquete estadístico?\n¿RStudio?\n¿Lenguaje de programación?\n¿Dispositivo gráfico?"
+    "text": "¿Qué es ?\n✍️Software\n. . .\n¿Dialecto de S?\n¿Paquete estadístico?\n¿RStudio?\n¿Lenguaje de programación?\n¿Dispositivo gráfico?"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#section-1",
@@ -1831,28 +1831,28 @@
     "href": "presentaciones/1-flujos_trabajo.html#nombres",
     "title": "Flujos de trabajo y análisis",
     "section": "Nombres",
-    "text": "Nombres\n\n\nOK\nmax_temp \n prec_min_usd\ntemp_mensual\n\nNo tanto\ntemperatura_maximaC2014\nmax\ntemp\n'Precio Mínimo ($) USD'\n'Temperatura/Mes (°F)'\n\n\n\n\n\nJenny Bryan (2015)\nNaming Things"
+    "text": "Nombres\n\n\n\nOK\nmax_temp \n prec_min_usd\ntemp_mensual\n\n\n\nNo tanto\ntemperatura_maximaC2014\nmax\ntemp\n'Precio Mínimo ($) USD'\n'Temperatura/Mes (°F)'\n\n\n\n\n\n\nJenny Bryan (2015)\nNaming Things"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#nombres-1",
     "href": "presentaciones/1-flujos_trabajo.html#nombres-1",
     "title": "Flujos de trabajo y análisis",
     "section": "Nombres",
-    "text": "Nombres\n\n\nOK\n01_factura-marzo2023.pdf\n02_factura-julio2023.pdf\nms_helechos_20210412.docx\n\nNo tanto\ndescarga5462.pdf\njuliocompraluis.pdf\nborrador.docx\n\n\n\nEn R los nombres válidos solo pueden llevar letras, números, puntos, y guiones; no pueden comenzar con números"
+    "text": "Nombres\n\n\n\nOK\n01_factura-marzo2023.pdf\n02_factura-julio2023.pdf\nms_helechos_20210412.docx\n\n\n\nNo tanto\ndescarga5462.pdf\njuliocompraluis.pdf\nborrador.docx\n\n\n\n\nEn R los nombres válidos solo pueden llevar letras, números, puntos, y guiones; no pueden comenzar con números"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#esquemas-de-mayúsculasminúsculas-y-espacios",
     "href": "presentaciones/1-flujos_trabajo.html#esquemas-de-mayúsculasminúsculas-y-espacios",
     "title": "Flujos de trabajo y análisis",
     "section": "Esquemas de mayúsculas/minúsculas y espacios",
-    "text": "Esquemas de mayúsculas/minúsculas y espacios\n\ncamelCase - la segunda palabra en adelante con mayúscula, sin espacios\nsnake_case - solo minúsculas, guión bajo entre palabras\nslug-case - solo minúsculas, guión entre palabras"
+    "text": "Esquemas de mayúsculas/minúsculas y espacios\n\ncamelCase - la segunda palabra en adelante con mayúscula, sin espacios\nsnake_case - solo minúsculas, guión bajo entre palabras\nslug-case - solo minúsculas, guión entre palabras\n\n Title Case - Mayúsculas excepto en artículos, con espacios\nSentence case - Primera palabra con mayúsculas, con espacios   Podemos transformar cadenas de texto de un esquema a otro con el paquete 📦snakecase"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#organización-de-proyectos",
     "href": "presentaciones/1-flujos_trabajo.html#organización-de-proyectos",
     "title": "Flujos de trabajo y análisis",
     "section": "Organización de proyectos",
-    "text": "Organización de proyectos\nProyecto\nDirectorio con todo los archivos relevantes para algún trabajo\nSeparar:\n📁 Datos (o código para cargarlos desde fuentes remotas)\n📁 Scripts de análisis y/o visualización\n📁 Salidas (figuras, informes, datos intermedios, etc.)\n\n\n\n\n\n\nJenny Bryan (2017)\nProject-oriented workflow\n\nMaëlle Salmon (2021)\nDraw me a project"
+    "text": "Organización de proyectos\n\nProyecto\nDirectorio con todo los archivos relevantes para algún trabajo\n\n\nSeparar:\n📁 Datos (o código para cargarlos desde fuentes remotas)\n📁 Scripts de análisis y/o visualización\n📁 Salidas (figuras, informes, datos intermedios, etc.)\n\n\n\n\n\n\nJenny Bryan (2017)\nProject-oriented workflow\n\nMaëlle Salmon (2021)\nDraw me a project"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#proyectos-en-rstudio",
@@ -1880,7 +1880,7 @@
     "href": "presentaciones/1-flujos_trabajo.html#ejercicio-1",
     "title": "Flujos de trabajo y análisis",
     "section": "Ejercicio",
-    "text": "Ejercicio\n\nCrear nuevas carpetas en el directorio del proyecto\n\ndatos\nsalida\nR\n\n\nLos paquetes ya instalados se cargan con la función library()\n\nlibrary(fs)"
+    "text": "Ejercicio\n\nCrear nuevas carpetas en el directorio del proyecto\n\ndatos\nsalida\nR\n\n\n\nLos paquetes ya instalados se cargan con la función library()\n\nlibrary(fs)"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#crear-nuevas-carpetas-en-el-directorio-del-proyecto",
@@ -1908,7 +1908,7 @@
     "href": "presentaciones/1-flujos_trabajo.html#reiniciar-r",
     "title": "Flujos de trabajo y análisis",
     "section": "Reiniciar R",
-    "text": "Reiniciar R\nCtrl+Shift+F10\n(Windows y Linux)\nCommand+Shift+F10\n(Mac)"
+    "text": "Reiniciar R\n\nCtrl+Shift+F10\n(Windows y Linux)\n\n\nCommand+Shift+F10\n(Mac)"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#here-y-rutas-relativas",
@@ -1922,7 +1922,7 @@
     "href": "presentaciones/1-flujos_trabajo.html#section-5",
     "title": "Flujos de trabajo y análisis",
     "section": "",
-    "text": "Si la raíz del proyecto es mi-proyecto\n\nhere(\"analisis\",\"script1.R\")\n\nconstruye:\nF:\\PC de Luis\\ruta\\que\\solo\\tengo\\mi-proyecto\\analisis\\script1.R"
+    "text": "Si la raíz del proyecto es mi-proyecto\n\nhere(\"analisis\",\"script1.R\")\n\nconstruye:\nF:\\PC de Luis\\ruta\\que\\solo\\tengo\\mi-proyecto\\analisis\\script1.R\n\n\nhere() no cambia el directorio de trabajo, solo construye rutas\n here() resuelve cuál es la raíz de un proyecto (i.e. dónde está el archivo .Rproj?) y las rutas son relativas a ésto\n\n\n\nHow to use the here package (2018)"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#importando-archivos-tablas",
@@ -1964,7 +1964,7 @@
     "href": "presentaciones/1-flujos_trabajo.html#section-6",
     "title": "Flujos de trabajo y análisis",
     "section": "",
-    "text": "Vectores\n\nListas\n\n\nTablas"
+    "text": "Vectores\n\n\n\nListas\n\n\n\n\nTablas"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#vectores-1",
@@ -2034,7 +2034,7 @@
     "href": "presentaciones/1-flujos_trabajo.html#dos-o-más-vectores-del-mismo-largo",
     "title": "Flujos de trabajo y análisis",
     "section": "Dos o más vectores del mismo largo…",
-    "text": "Dos o más vectores del mismo largo…\n\n\n\n\n\n¡Data frame!\n\nObjeto tabular con filas y columnas\nPuede almacenar objetos de distintas clases en las columnas\nNombres para cada columna"
+    "text": "Dos o más vectores del mismo largo…\n\n\n\n\n\n\n¡Data frame!\n\nObjeto tabular con filas y columnas\nPuede almacenar objetos de distintas clases en las columnas\nNombres para cada columna"
   },
   {
     "objectID": "presentaciones/1-flujos_trabajo.html#data-frames",
@@ -2713,7 +2713,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#paquetes",
     "title": "Exploración rápida de datos",
     "section": "Paquetes",
-    "text": "Paquetes\nVamos a utilizar los siguientes paquetes en R\n\nskimR\njanitor\nreport"
+    "text": "Paquetes\nVamos a utilizar los siguientes paquetes en R\n\nskimr\njanitor\nreport\n\n\n\n\n“Los científicos de datos dedican entre el 50 % y el 80 % de su tiempo a este labor más mundano de recopilar y preparar datos digitales rebeldes, antes de que puedan explorarse en busca de pepitas útiles.” - Internet (2023)"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#pasos-para-la-exploración-de-datos",
@@ -2741,7 +2741,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#section-1",
     "title": "Exploración rápida de datos",
     "section": "",
-    "text": "Vamos a aplicar la función summary() sobre nuestro conjunto de datos df\n\ndf &lt;- data.frame(nacionalidad = c(\"ARG\",\"NOR\",\"FRA\",\"ARG\",\"ARG\",\"ARG\",\"ARG\"),\n                 jugadores = c('Messi', 'Haaland', 'Benzema', 'Alvarez', 'Lautaro',\n                               'DiMaria','Maradona'),\n                 goles = c(12, 30, 30, 12, 12,30, NA),\n                 partidos = c(15, 20, 20, 20, 18,20, NA))\n\n\n\nsummary(df)\n\n nacionalidad        jugadores             goles       partidos    \n Length:7           Length:7           Min.   :12   Min.   :15.00  \n Class :character   Class :character   1st Qu.:12   1st Qu.:18.50  \n Mode  :character   Mode  :character   Median :21   Median :20.00  \n                                       Mean   :21   Mean   :18.83  \n                                       3rd Qu.:30   3rd Qu.:20.00  \n                                       Max.   :30   Max.   :20.00  \n                                       NA's   :1    NA's   :1"
+    "text": "Vamos a aplicar la función summary() sobre nuestro conjunto de datos df\n\ndf &lt;- data.frame(nacionalidad = c(\"ARG\",\"NOR\",\"FRA\",\"ARG\",\"ARG\",\"ARG\",\"ARG\"),\n                 jugadores = c('Messi', 'Haaland', 'Benzema', 'Alvarez', 'Lautaro',\n                               'DiMaria','Maradona'),\n                 goles = c(12, 30, 30, 12, 12,30, NA),\n                 partidos = c(15, 20, 20, 20, 18,20, NA))\n\n. . .\n\nsummary(df)\n\n nacionalidad        jugadores             goles       partidos    \n Length:7           Length:7           Min.   :12   Min.   :15.00  \n Class :character   Class :character   1st Qu.:12   1st Qu.:18.50  \n Mode  :character   Mode  :character   Median :21   Median :20.00  \n                                       Mean   :21   Mean   :18.83  \n                                       3rd Qu.:30   3rd Qu.:20.00  \n                                       Max.   :30   Max.   :20.00  \n                                       NA's   :1    NA's   :1"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#ahora-vamos-aplicar-la-función-skim-sobre-un-conjunto-de-datos-df",
@@ -2755,7 +2755,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#separando-los-elementos",
     "title": "Exploración rápida de datos",
     "section": "Separando los elementos",
-    "text": "Separando los elementos\n\nla función yank()\n\n\nlibrary(tidyverse)\nlibrary(skimr)\n\ndf%&gt;%\n  skim()%&gt;%\n  yank(\"numeric\")\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\ngoles\n1\n0.86\n21.00\n9.86\n12\n12.0\n21\n30\n30\n▇▁▁▁▇\n\n\npartidos\n1\n0.86\n18.83\n2.04\n15\n18.5\n20\n20\n20\n▂▁▂▁▇"
+    "text": "Separando los elementos\n\nla función yank()\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(skimr)\n\ndf%&gt;%\n  skim()%&gt;%\n  yank(\"numeric\")\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\ngoles\n1\n0.86\n21.00\n9.86\n12\n12.0\n21\n30\n30\n▇▁▁▁▇\n\n\npartidos\n1\n0.86\n18.83\n2.04\n15\n18.5\n20\n20\n20\n▂▁▂▁▇"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#conjuntos-de-datos-muy-grandes",
@@ -2776,14 +2776,14 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#vamos-a-identificar-los-nas",
     "title": "Exploración rápida de datos",
     "section": "Vamos a identificar los NAs",
-    "text": "Vamos a identificar los NAs\n\n¿Alguién sugiere alguna manera de hacer eso?\n\n\n\nlibrary(tidyr)\n\nbirds%&gt;%\n  filter(is.na(birds))\n\n  birds               plants interaction\n1  &lt;NA&gt; Canthium oligocarpum           0"
+    "text": "Vamos a identificar los NAs\n\n¿Alguién sugiere alguna manera de hacer eso?\n\n. . .\n\nlibrary(tidyr)\n\nbirds%&gt;%\n  filter(is.na(birds))\n\n  birds               plants interaction\n1  &lt;NA&gt; Canthium oligocarpum           0"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#en-cuál-fila-están-los-valores-faltantes",
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#en-cuál-fila-están-los-valores-faltantes",
     "title": "Exploración rápida de datos",
     "section": "¿En cuál fila están los valores faltantes?",
-    "text": "¿En cuál fila están los valores faltantes?\n\n¿Sugerencias de cómo hacerlo?\n\n\n\nwhich(birds$birds==\"\")\n\n[1] 140748 140749 140750"
+    "text": "¿En cuál fila están los valores faltantes?\n\n¿Sugerencias de cómo hacerlo?\n\n. . .\n\nwhich(birds$birds==\"\")\n\n[1] 140748 140749 140750"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#funciónes-adicionales-dplyrglimpse",
@@ -2804,7 +2804,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#easystatsreport",
     "title": "Exploración rápida de datos",
     "section": "easystats::report()",
-    "text": "easystats::report()\n\nlibrary(easystats)\n\ndf%&gt;%\n  report()\n\nThe data contains 7 observations of the following 4 variables:\n\n  - nacionalidad: 3 entries, such as ARG (n = 5); FRA (n = 1); NOR (n = 1) (0\nmissing)\n  - jugadores: 7 entries, such as Alvarez (n = 1); Benzema (n = 1); DiMaria (n =\n1) and 4 others (0 missing)\n  - goles: n = 7, Mean = 21.00, SD = 9.86, Median = , MAD = 13.34, range: [12,\n30], Skewness = 0.00, Kurtosis = -3.33, 1 missing\n  - partidos: n = 7, Mean = 18.83, SD = 2.04, Median = , MAD = 0.00, range: [15,\n20], Skewness = -1.78, Kurtosis = 2.77, 1 missing"
+    "text": "easystats::report()\n\nlibrary(easystats)\n\n# Attaching packages: easystats 0.6.0\n✔ bayestestR  0.13.1   ✔ correlation 0.8.4 \n✔ datawizard  0.8.0    ✔ effectsize  0.8.3 \n✔ insight     0.19.2   ✔ modelbased  0.8.6 \n✔ performance 0.10.4   ✔ parameters  0.21.1\n✔ report      0.5.7    ✔ see         0.8.0 \n\ndf%&gt;%\n  report()\n\nThe data contains 7 observations of the following 4 variables:\n\n  - nacionalidad: 3 entries, such as ARG (n = 5); FRA (n = 1); NOR (n = 1) (0\nmissing)\n  - jugadores: 7 entries, such as Alvarez (n = 1); Benzema (n = 1); DiMaria (n =\n1) and 4 others (0 missing)\n  - goles: n = 7, Mean = 21.00, SD = 9.86, Median = , MAD = 13.34, range: [12,\n30], Skewness = 0.00, Kurtosis = -3.33, 1 missing\n  - partidos: n = 7, Mean = 18.83, SD = 2.04, Median = , MAD = 0.00, range: [15,\n20], Skewness = -1.78, Kurtosis = 2.77, 1 missing"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#section-4",
@@ -2818,7 +2818,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#section-5",
     "title": "Exploración rápida de datos",
     "section": "",
-    "text": "La función report es extramadamente útil cuando aplicada a modelos estadísticos, pero sirve para visualizaciones también\n\n\nmodel &lt;- lm(Sepal.Length ~ Species, data = iris)\nreport(model)"
+    "text": "La función report es extramadamente útil cuando aplicada a modelos estadísticos, pero sirve para visualizaciones también\n\n\nmodel &lt;- lm(Sepal.Length ~ Species, data = iris)\nreport(model)\n\nWe fitted a linear model (estimated using OLS) to predict Sepal.Length with\nSpecies (formula: Sepal.Length ~ Species). The model explains a statistically\nsignificant and substantial proportion of variance (R2 = 0.62, F(2, 147) =\n119.26, p &lt; .001, adj. R2 = 0.61). The model's intercept, corresponding to\nSpecies = setosa, is at 5.01 (95% CI [4.86, 5.15], t(147) = 68.76, p &lt; .001).\nWithin this model:\n\n  - The effect of Species [versicolor] is statistically significant and positive\n(beta = 0.93, 95% CI [0.73, 1.13], t(147) = 9.03, p &lt; .001; Std. beta = 1.12,\n95% CI [0.88, 1.37])\n  - The effect of Species [virginica] is statistically significant and positive\n(beta = 1.58, 95% CI [1.38, 1.79], t(147) = 15.37, p &lt; .001; Std. beta = 1.91,\n95% CI [1.66, 2.16])\n\nStandardized parameters were obtained by fitting the model on a standardized\nversion of the dataset. 95% Confidence Intervals (CIs) and p-values were\ncomputed using a Wald t-distribution approximation."
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#section-5-output",
@@ -2888,7 +2888,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#la-función-janitortabyl",
     "title": "Exploración rápida de datos",
     "section": "La función janitor::tabyl()",
-    "text": "La función janitor::tabyl()\n\n\n\nCon `tabyl()´\n\n\nlibrary(janitor)\n\n# Tablas con una variable\ndf %&gt;%\n  tabyl(jugadores)\n\n jugadores n   percent\n   Alvarez 1 0.1428571\n   Benzema 1 0.1428571\n   DiMaria 1 0.1428571\n   Haaland 1 0.1428571\n   Lautaro 1 0.1428571\n  Maradona 1 0.1428571\n     Messi 1 0.1428571\n\n\n\n\nCon table()\n\n\n# Tablas con una variable - comparar con la función `table()`\n  table(df$jugadores)\n\n\n Alvarez  Benzema  DiMaria  Haaland  Lautaro Maradona    Messi \n       1        1        1        1        1        1        1"
+    "text": "La función janitor::tabyl()\n\n\n\nCon `tabyl()´\n\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following object is masked from 'package:insight':\n\n    clean_names\n\n\nThe following objects are masked from 'package:datawizard':\n\n    remove_empty, remove_empty_rows\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\n# Tablas con una variable\ndf %&gt;%\n  tabyl(jugadores)\n\n jugadores n   percent\n   Alvarez 1 0.1428571\n   Benzema 1 0.1428571\n   DiMaria 1 0.1428571\n   Haaland 1 0.1428571\n   Lautaro 1 0.1428571\n  Maradona 1 0.1428571\n     Messi 1 0.1428571\n\n\n\n\nCon table()\n\n\n# Tablas con una variable - comparar con la función `table()`\n  table(df$jugadores)\n\n\n Alvarez  Benzema  DiMaria  Haaland  Lautaro Maradona    Messi \n       1        1        1        1        1        1        1"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#tablas-con-na",
@@ -2909,7 +2909,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#quiz-1",
     "title": "Exploración rápida de datos",
     "section": "QUIZ:",
-    "text": "QUIZ:\n\nUse la función tabyl() para saber cuál es la especie de ave con más occurrencias\nTIP: para visualizar, miren la función View() o la función arrange()\n\n\n\nbirds %&gt;%\n  tabyl(birds)%&gt;%\n  arrange(desc(n))%&gt;%\n  head()\n\n                birds    n     percent valid_percent\n   Turdus rufiventris 1120 0.007957371   0.007957428\n        Turdus merula 1119 0.007950266   0.007950323\n      Vireo olivaceus 1070 0.007602131   0.007602185\n      Thraupis sayaca 1021 0.007253996   0.007254048\n Pitangus sulphuratus  997 0.007083481   0.007083532\n    Turdus albicollis  996 0.007076377   0.007076427"
+    "text": "QUIZ:\n\nUse la función tabyl() para saber cuál es la especie de ave con más occurrencias\nTIP: para visualizar, miren la función View() o la función arrange()\n\n. . .\n\nbirds %&gt;%\n  tabyl(birds)%&gt;%\n  arrange(desc(n))%&gt;%\n  head()\n\n                birds    n     percent valid_percent\n   Turdus rufiventris 1120 0.007957371   0.007957428\n        Turdus merula 1119 0.007950266   0.007950323\n      Vireo olivaceus 1070 0.007602131   0.007602185\n      Thraupis sayaca 1021 0.007253996   0.007254048\n Pitangus sulphuratus  997 0.007083481   0.007083532\n    Turdus albicollis  996 0.007076377   0.007076427"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#algunas-funciones-derivadas-útiles",
@@ -2972,7 +2972,7 @@
     "href": "presentaciones/1.1-exploracion_rapida_datos.html#section-8",
     "title": "Exploración rápida de datos",
     "section": "",
-    "text": "fac &lt;- as.factor(c(\"muy fuerte\",\"muy fuerte\",\"muy fuerte\",\"fuerte\",\"débil\",\"débil\",\"muy débil\",\"muy débil\"))\n\n\n\n\n               fac n percent\n             débil 2   0.250\n fuerte, muy débil 3   0.375\n        muy fuerte 3   0.375"
+    "text": "fac &lt;- as.factor(c(\"muy fuerte\",\"muy fuerte\",\"muy fuerte\",\"fuerte\",\"débil\",\"débil\",\"muy débil\",\"muy débil\"))\n\n. . .\n\ntop_levels(fac,n=1) # n es el numero de níveles en las categorias *bajo* y *alto*\n\n               fac n percent\n             débil 2   0.250\n fuerte, muy débil 3   0.375\n        muy fuerte 3   0.375"
   },
   {
     "objectID": "presentaciones/1.1-exploracion_rapida_datos.html#janitor-miscellaneous-functions",
@@ -3988,5 +3988,33 @@
     "title": "Materiales del curso",
     "section": "Profesores",
     "text": "Profesores\nDr. Fabricio Villalobos Camacho\nDr. Gabriel Massaine Moulatlet\nDr. Luis D. Verde Arregoitia"
+  },
+  {
+    "objectID": "presentaciones/2-manipulacion_y_limpieza.html#funciones-y-paquetes-para-preparar-transformar-y-estructurar-datos",
+    "href": "presentaciones/2-manipulacion_y_limpieza.html#funciones-y-paquetes-para-preparar-transformar-y-estructurar-datos",
+    "title": "Manipulacion y limpieza de datos",
+    "section": "Funciones y paquetes para preparar, transformar, y estructurar datos",
+    "text": "Funciones y paquetes para preparar, transformar, y estructurar datos\n\n\n📦 dplyr\n📦 tidyr\n\nFlexibles, pero desarrollados en torno a una filosofía común\n\nTrabas para no usar las funciones incorrectamente\n\nMenos código para lograr un resultado\nGrámatica y estructuras de datos compartidas\nTareas divididas entre funciones y paquetes\nUso de ‘pipes’"
+  },
+  {
+    "objectID": "presentaciones/1-flujos_trabajo.html",
+    "href": "presentaciones/1-flujos_trabajo.html",
+    "title": "Flujos de trabajo y análisis",
+    "section": "",
+    "text": "Organización de proyectos y archivos\n\nBuenas prácticas para nombrar archivos y objetos\n\nTrabajando con rutas\n\nEstructuras y organización de datos Objetos\n\nRepaso\nExploración rápida de datos"
+  },
+  {
+    "objectID": "presentaciones/1-flujos_trabajo.html#readr-y-readxl",
+    "href": "presentaciones/1-flujos_trabajo.html#readr-y-readxl",
+    "title": "Flujos de trabajo y análisis",
+    "section": "readr y readxl",
+    "text": "readr y readxl\nPaquetes adicionales para importar datos rectangulares desde archivos de texto y hojas de cálculo\n\nMenos errores al importar\nMayor flexibilidad al leer archivos\nLectura más rápida\nFunciones adicionales para limpiar los valores en las columnas"
+  },
+  {
+    "objectID": "presentaciones/1.1-exploracion_rapida_datos.html",
+    "href": "presentaciones/1.1-exploracion_rapida_datos.html",
+    "title": "Exploración rápida de datos",
+    "section": "",
+    "text": "here() starts at /home/luisd/Dropbox/darcyDB/PDRF/curso-R-biodiversidad"
   }
 ]

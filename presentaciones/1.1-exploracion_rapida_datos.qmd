@@ -28,7 +28,7 @@ library(here)
 
 Vamos a utilizar los siguientes paquetes en R
 
--   `skimR`
+-   `skimr`
 -   `janitor`
 -   `report`
 

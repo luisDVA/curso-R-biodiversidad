@@ -505,7 +505,7 @@ How to use the here package [(2018)](http://jenrichmond.rbind.io/post/how-to-use
 -   Con alguna función `read`
 
 
-## `readr` y `readlx`
+## `readr` y `readxl`
 
 Paquetes adicionales para importar datos rectangulares desde archivos de texto y hojas de cálculo
 

@@ -5,6 +5,7 @@ toc: false
 
 Este sitio contiene los materiales prácticos y las presentaciones para todos los temas. Se actualizará diariamiente durante la semana del curso.
 
+
 ::: columns
 ::: {.column width="40%"}
 ![](presentaciones/imgs/herramientas2023.jpg){width="90%"}
