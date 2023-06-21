@@ -922,6 +922,23 @@ paises_m %>%
 ```
 :::
 
+## `rename()`
+
+
+#### Cambiar nombres de columnas
+
+Nombre nuevo primero _luego_ variable objetivo
+
+:::{.med-code}
+```{r}
+paises_m %>% 
+  rename(country=pais,
+         species=especies, threatened=amenazadas) %>% 
+  head()
+
+```
+:::
+
 ## Ejercicio - Datos desde paquetes (1) {background-color="#a4c5ff"}
 
 </br>

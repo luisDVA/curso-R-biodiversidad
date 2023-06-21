@@ -93,6 +93,9 @@ Rafael A. Irizarry (2020)
 # Galería
 
 Compilada por Cédric Scherer
+:::{style="text-align:center"}  
+[curso de diseño gráfico con ggplot2 - 2022](https://rstudio-conf-2022.github.io/ggplot2-graphic-design/)
+:::
 
 
 

@@ -5885,6 +5885,30 @@ An educator’s perspective of the tidyverse</p>
 </div>
 </div>
 </section>
+<section id="rename" class="slide level2">
+<h2><code>rename()</code></h2>
+<h4 id="cambiar-nombres-de-columnas">Cambiar nombres de columnas</h4>
+<p>Nombre nuevo primero <em>luego</em> variable objetivo</p>
+<div class="med-code">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-20_adf6afac9c1cceede521c658da7fb85c">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">rename</span>(<span class="at">country=</span>pais,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>         <span class="at">species=</span>especies, <span class="at">threatened=</span>amenazadas) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country   species threatened region 
+  &lt;chr&gt;       &lt;int&gt;      &lt;int&gt; &lt;chr&gt;  
+1 Indonesia     670        191 Asia   
+2 Brasil        648         80 America
+3 China         551         73 Asia   
+4 Mexico        523         96 America
+5 Peru          467         53 America
+6 Congo         430         15 Africa </code></pre>
+</div>
+</div>
+</div>
+</section>
 <section id="ejercicio---datos-desde-paquetes-1" class="slide level2" data-background-color="#a4c5ff">
 <h2>Ejercicio - Datos desde paquetes (1)</h2>
 <p><br></p>
@@ -5904,12 +5928,12 @@ An educator’s perspective of the tidyverse</p>
 <blockquote>
 <p>Debe estar cargado el paquete que contiene los datos</p>
 </blockquote>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-20_ea0815c7cd49f9db3f9c0bbab38de96b">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">data</span>(economics)</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">data</span>(<span class="st">"nba_players_19"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-21_51bd7f690c87d0ef2d78f80bb1934531">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">data</span>(economics)</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">data</span>(<span class="st">"nba_players_19"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ejercicio---manipulación-de-datos" class="slide level2" data-background-color="#a4c5ff">
@@ -5947,10 +5971,10 @@ An educator’s perspective of the tidyverse</p>
 <section class="slide level2">
 
 <p><br></p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-21_3e97a0fce9b9976a5fd0702bdd8bc2f0">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(especies, amenazadas), <span class="st">`</span><span class="at">*</span><span class="st">`</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-22_7b6ae0464f812787872fae5ad01d0837">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(especies, amenazadas), <span class="st">`</span><span class="at">*</span><span class="st">`</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   pais      especies amenazadas region 
@@ -5979,9 +6003,9 @@ An educator’s perspective of the tidyverse</p>
 <h2><code>everything()</code></h2>
 <p>Todas las variables</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-22_d54e9315fa01b9165485a97ebf962398">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.character)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-23_cc3f7083784f9a68f1d2cf19dfbbbbdf">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.character)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   pais      especies amenazadas region 
@@ -5997,9 +6021,9 @@ An educator’s perspective of the tidyverse</p>
 <h2><code>!</code></h2>
 <p>Devuelve el complemento de un conjunto de variables</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-23_5f8ad99ef08679e7c0f16caf86558367">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(region,amenazadas)) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-24_742c8170b1ae3cd65d86b16f6db06e24">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(region,amenazadas)) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   pais      especies
@@ -6020,9 +6044,9 @@ An educator’s perspective of the tidyverse</p>
 <blockquote>
 <p>ej: transformar todas las variables de tipo numérico, identificadas con <code>is.numeric()</code></p>
 </blockquote>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-24_33a9ea2f3dc97c1fa1a14074491601af">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), log2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-25_1ce770dc4fe065caffd9a0ddae44f504">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), log2)) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   pais      especies amenazadas region 
@@ -6039,9 +6063,9 @@ An educator’s perspective of the tidyverse</p>
 <blockquote>
 <p>ej: quitar variables que contengan “prec”</p>
 </blockquote>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-25_39d59d1087605a8d61aa752d68ab316c">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">matches</span>(<span class="st">"p..s"</span>), toupper)) <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-26_6369bf475649f6d4773d150067556af8">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">matches</span>(<span class="st">"p..s"</span>), toupper)) <span class="sc">%&gt;%</span> head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   pais      especies amenazadas region 
@@ -6059,9 +6083,9 @@ An educator’s perspective of the tidyverse</p>
 <h2><code>:</code></h2>
 <p>Selecciona variables contiguas</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-26_722d0695e11ad8e8b2c7ee2b5dbec06a">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">select</span>(pais<span class="sc">:</span>amenazadas) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-27_4398ca2e061053a2b43018b97a5ac558">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">select</span>(pais<span class="sc">:</span>amenazadas) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   pais      especies amenazadas
@@ -6081,9 +6105,9 @@ An educator’s perspective of the tidyverse</p>
 <p>Excluir variables</p>
 <p>(devuleve todos los elementos excepto el que sigue el operador de resta)</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-27_750a476df776559083822d369f136865">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>region) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-28_109072456a0515ae7b3fb5a9a67e0311">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>region) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   pais      especies amenazadas
@@ -6101,10 +6125,10 @@ An educator’s perspective of the tidyverse</p>
 <section id="across-sin-funciones-auxiliares" class="slide level2">
 <h2><code>across</code> sin funciones auxiliares</h2>
 <p>Raíz cuadarada (<code>sqrt()</code>) de <code>especies</code> y <code>amenazadas</code></p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-28_aebc3a6baa3d9fe55255bfd520d0375b">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>paises_m <span class="sc">%&gt;%</span>  </span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(especies, amenazadas), sqrt)) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-29_159798191d101a426b7f55ab3cca30e4">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>paises_m <span class="sc">%&gt;%</span>  </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(especies, amenazadas), sqrt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   pais      especies amenazadas region 
@@ -6120,10 +6144,10 @@ An educator’s perspective of the tidyverse</p>
 </section>
 <section id="raíz-cuadrada-sqrt-de-todas-las-variables-numéricas" class="slide level2">
 <h2>Raíz cuadrada (<code>sqrt()</code>) de todas las variables numéricas</h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-29_32b3c7a5ef00fd18243a398b2b86a5e3">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), sqrt)) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-30_9354a4d16883f40be7e853bfa0845cad">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), sqrt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   pais      especies amenazadas region 
@@ -6140,10 +6164,10 @@ An educator’s perspective of the tidyverse</p>
 <section id="funciones-auxiliares-para-descartar-variables" class="slide level2">
 <h2>Funciones auxiliares para descartar variables</h2>
 <p>Dejar solo variables numéricas</p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-30_572039b970a33ea132660466dbee63dd">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-31_9e92f154596e7085399e23ba696fb88d">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>paises_m <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   especies amenazadas
@@ -6183,14 +6207,14 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2>Reestructurando datos con 📦 <code>tidyr</code></h2>
 <p><br> ancho a largo: <code>pivot_longer()</code></p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-31_b70f7b9e328dfa9974134228918adf75">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">pivot_longer</span>(data, cols, names_to, values_to)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-32_0eb6a72189fc2b416864e357edadf0ef">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">pivot_longer</span>(data, cols, names_to, values_to)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p><br> largo a ancho: <code>pivot_wider()</code></p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-32_e07082c29f21ef70a96626eebbe96515">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">pivot_longer</span>(data, cols, names_from, values_from)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-33_ad4640807b29b08d0e9c619e788012cb">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">pivot_longer</span>(data, cols, names_from, values_from)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -6200,7 +6224,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">colonias</a></li><li><a href="#tabset-2-2">Datos</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-34_23aadfc84a4692b5647724dc4316531d">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-35_9859ecaf43b1d516a95b2528c78600c2">
 <div class="cell-output-display">
 <div id="fcmcsanfcs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#fcmcsanfcs table {
@@ -6695,15 +6719,15 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/panel-chunk-cols_8d9f450b08cbdda048b80c5cb627db91">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>colonias <span class="ot">&lt;-</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb41-3"><a href="#cb41-3"></a>    <span class="sc">~</span>Asentamiento,                 <span class="sc">~</span>Tipo,    <span class="sc">~</span>CP, <span class="sc">~</span>Abarrotes, <span class="sc">~</span>Supermercado, <span class="sc">~</span>Minisuper,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>  <span class="st">"Arroyo Blanco"</span>,             <span class="st">"Colonia"</span>, 91025L,         7L,            2L,         1L,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>         <span class="st">"Atenas"</span>,     <span class="st">"Fraccionamiento"</span>, 91184L,         1L,            0L,         2L,</span>
-<span id="cb41-6"><a href="#cb41-6"></a>       <span class="st">"Colibris"</span>,             <span class="st">"Colonia"</span>, 91067L,         8L,            3L,         2L,</span>
-<span id="cb41-7"><a href="#cb41-7"></a>      <span class="st">"Del Valle"</span>, <span class="st">"Unidad Habitacional"</span>, 91097L,         2L,            1L,         1L,</span>
-<span id="cb41-8"><a href="#cb41-8"></a>     <span class="st">"El Cafetal"</span>,     <span class="st">"Fraccionamiento"</span>, 91150L,         2L,            0L,         0L</span>
-<span id="cb41-9"><a href="#cb41-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>colonias <span class="ot">&lt;-</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb43-3"><a href="#cb43-3"></a>    <span class="sc">~</span>Asentamiento,                 <span class="sc">~</span>Tipo,    <span class="sc">~</span>CP, <span class="sc">~</span>Abarrotes, <span class="sc">~</span>Supermercado, <span class="sc">~</span>Minisuper,</span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="st">"Arroyo Blanco"</span>,             <span class="st">"Colonia"</span>, 91025L,         7L,            2L,         1L,</span>
+<span id="cb43-5"><a href="#cb43-5"></a>         <span class="st">"Atenas"</span>,     <span class="st">"Fraccionamiento"</span>, 91184L,         1L,            0L,         2L,</span>
+<span id="cb43-6"><a href="#cb43-6"></a>       <span class="st">"Colibris"</span>,             <span class="st">"Colonia"</span>, 91067L,         8L,            3L,         2L,</span>
+<span id="cb43-7"><a href="#cb43-7"></a>      <span class="st">"Del Valle"</span>, <span class="st">"Unidad Habitacional"</span>, 91097L,         2L,            1L,         1L,</span>
+<span id="cb43-8"><a href="#cb43-8"></a>     <span class="st">"El Cafetal"</span>,     <span class="st">"Fraccionamiento"</span>, 91150L,         2L,            0L,         0L</span>
+<span id="cb43-9"><a href="#cb43-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -6713,12 +6737,12 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </section>
 <section id="ancho-a-largo" class="slide level2">
 <h2>Ancho a largo</h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-35_76f570723dc2c6e6f7c17fb60ec106a2">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>colonias_largo <span class="ot">&lt;-</span> colonias <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
-<span id="cb42-4"><a href="#cb42-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-36_c839a323c2c7a43af630d9462d9f9c12">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>colonias_largo <span class="ot">&lt;-</span> colonias <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb44-3"><a href="#cb44-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
+<span id="cb44-5"><a href="#cb44-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><code>cols</code></strong> Las columnas cuyos nombres son datos</p>
 <p><strong><code>names_to</code></strong> Nombre para la nueva varible que se crea a partir de los nombres de cada <code>cols</code></p>
@@ -6726,22 +6750,22 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </section>
 <section id="section-13" class="slide level2">
 <h2></h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-37_e553290125b1f11fbdeeb448a8f37bda">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>colonias <span class="sc">%&gt;%</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb43-3"><a href="#cb43-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
-<span id="cb43-4"><a href="#cb43-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
-<span id="cb43-5"><a href="#cb43-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-38_2ba625d631aed510c56031445fc9b725">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>colonias <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb45-3"><a href="#cb45-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-38_36b75fddd6e90f6c5f08a44de0b66edb">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>colonias <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb44-3"><a href="#cb44-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
-<span id="cb44-4"><a href="#cb44-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
-<span id="cb44-5"><a href="#cb44-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-39_6de589d95a9a3d5030a7c7e1fbd0155e">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>colonias <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Abarrotes,Supermercado,Minisuper),</span>
+<span id="cb46-4"><a href="#cb46-4"></a>    <span class="at">names_to =</span> <span class="st">"tipo_negocio"</span>,</span>
+<span id="cb46-5"><a href="#cb46-5"></a>    <span class="at">values_to =</span> <span class="st">"n_negocios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 5
    Asentamiento  Tipo                   CP tipo_negocio n_negocios
@@ -6766,20 +6790,20 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </section>
 <section id="largo-a-ancho" class="slide level2">
 <h2>Largo a ancho</h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-39_ead66e9378389520340939ff1262777a">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>colonias_largo <span class="sc">%&gt;%</span> </span>
-<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> tipo_negocio, </span>
-<span id="cb46-3"><a href="#cb46-3"></a>              <span class="at">values_from =</span> n_negocios)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-40_ce84811fb2fc8775549ed848edf2e3e2">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>colonias_largo <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> tipo_negocio, </span>
+<span id="cb48-3"><a href="#cb48-3"></a>              <span class="at">values_from =</span> n_negocios)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><code>names_from</code></strong> De cuáles columnas vamos a tomar valores para los nombres de las nuevas variables</p>
 <p><strong><code>values_from</code></strong> Cuál columna tiene los valores de celda para las nuevas variables creadas</p>
 </section>
 <section id="section-15" class="slide level2">
 <h2></h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-40_6d3afbbf4ea20cdbca856717ca7b8016">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>colonias_largo <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> tipo_negocio, </span>
-<span id="cb47-3"><a href="#cb47-3"></a>              <span class="at">values_from =</span> n_negocios)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-41_adec37d8f9f4c4be5f82fbe21b34c94f">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>colonias_largo <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> tipo_negocio, </span>
+<span id="cb49-3"><a href="#cb49-3"></a>              <span class="at">values_from =</span> n_negocios)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
   Asentamiento  Tipo                   CP Abarrotes Supermercado Minisuper
@@ -6823,16 +6847,16 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="section-17" class="slide level2">
 <h2></h2>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-41_3dc618eb65494cff360118676550c3c6">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb49-2"><a href="#cb49-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb49-3"><a href="#cb49-3"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-42_455a045e70ea6f42d8c2276fd0f16c6d">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb51-2"><a href="#cb51-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Vectores numéricos del mismo largo, hay valores faltantes.</p>
 <div class="big-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-42_5965767f2b6c3b1fd67879f090ea9da4">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">coalesce</span>(x, y, z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-43_a77deb4b1db0af2e0b3d331c0247a1f5">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">coalesce</span>(x, y, z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
@@ -6845,15 +6869,15 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="section-18" class="slide level2">
 <h2></h2>
 <div class="big-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-43_d071362107ceffdd26c3149269e8d314">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb52-2"><a href="#cb52-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb52-3"><a href="#cb52-3"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-44_24663fd325cc65faf8688ad6dbf75425">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb54-2"><a href="#cb54-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb54-3"><a href="#cb54-3"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="big-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-44_6a89990816ca567dbce2a9558068ffcd">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">coalesce</span>(z,x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-45_3c8243ef21e2636cd20e9f7126c8da41">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">coalesce</span>(z,x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 4 3 5 3</code></pre>
 </div>
@@ -6866,7 +6890,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">humedad suelo</a></li><li><a href="#tabset-3-2">Datos</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-46_1b680976aee2712915fc91010dd8613b">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-47_6dc0309861b82985b49380c6089f42ca">
 <div class="cell-output-display">
 <div id="rvvtbcxgqg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#rvvtbcxgqg table {
@@ -7348,16 +7372,16 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </div>
 </div>
 <div id="tabset-3-2">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-47_c9662eb54669744b9c4c6ec684b01d09">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>humedad <span class="ot">&lt;-</span> </span>
-<span id="cb55-2"><a href="#cb55-2"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb55-3"><a href="#cb55-3"></a>         <span class="sc">~</span>muestra, <span class="sc">~</span>sensor_1, <span class="sc">~</span>sensor_respaldo, <span class="sc">~</span>literatura,</span>
-<span id="cb55-4"><a href="#cb55-4"></a>     <span class="st">"ladera sur"</span>,        <span class="cn">NA</span>,              <span class="fl">4.9</span>,         <span class="fl">2.6</span>,</span>
-<span id="cb55-5"><a href="#cb55-5"></a>   <span class="st">"ladera norte"</span>,       <span class="fl">2.2</span>,               <span class="cn">NA</span>,         <span class="fl">4.3</span>,</span>
-<span id="cb55-6"><a href="#cb55-6"></a>         <span class="st">"urbano"</span>,       <span class="fl">4.5</span>,                <span class="dv">5</span>,         <span class="fl">3.4</span>,</span>
-<span id="cb55-7"><a href="#cb55-7"></a>  <span class="st">"invernadero A"</span>,        <span class="cn">NA</span>,              <span class="fl">2.7</span>,         <span class="fl">3.5</span>,</span>
-<span id="cb55-8"><a href="#cb55-8"></a>  <span class="st">"invernadero B"</span>,       <span class="fl">2.5</span>,               <span class="cn">NA</span>,         <span class="fl">2.3</span></span>
-<span id="cb55-9"><a href="#cb55-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-48_7422bf6a717236d740099627390994b3">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>humedad <span class="ot">&lt;-</span> </span>
+<span id="cb57-2"><a href="#cb57-2"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb57-3"><a href="#cb57-3"></a>         <span class="sc">~</span>muestra, <span class="sc">~</span>sensor_1, <span class="sc">~</span>sensor_respaldo, <span class="sc">~</span>literatura,</span>
+<span id="cb57-4"><a href="#cb57-4"></a>     <span class="st">"ladera sur"</span>,        <span class="cn">NA</span>,              <span class="fl">4.9</span>,         <span class="fl">2.6</span>,</span>
+<span id="cb57-5"><a href="#cb57-5"></a>   <span class="st">"ladera norte"</span>,       <span class="fl">2.2</span>,               <span class="cn">NA</span>,         <span class="fl">4.3</span>,</span>
+<span id="cb57-6"><a href="#cb57-6"></a>         <span class="st">"urbano"</span>,       <span class="fl">4.5</span>,                <span class="dv">5</span>,         <span class="fl">3.4</span>,</span>
+<span id="cb57-7"><a href="#cb57-7"></a>  <span class="st">"invernadero A"</span>,        <span class="cn">NA</span>,              <span class="fl">2.7</span>,         <span class="fl">3.5</span>,</span>
+<span id="cb57-8"><a href="#cb57-8"></a>  <span class="st">"invernadero B"</span>,       <span class="fl">2.5</span>,               <span class="cn">NA</span>,         <span class="fl">2.3</span></span>
+<span id="cb57-9"><a href="#cb57-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -7366,9 +7390,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="section-20" class="slide level2">
 <h2></h2>
 <p><br></p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-48_91aca1fb0d660d87037c51520b5f0423">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>humedad <span class="sc">%&gt;%</span> </span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">mutate</span>(<span class="at">val_completo =</span> <span class="fu">coalesce</span>(sensor_1, sensor_respaldo, literatura))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-49_f7f5244daaca961a0936bf27bd25619c">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>humedad <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">mutate</span>(<span class="at">val_completo =</span> <span class="fu">coalesce</span>(sensor_1, sensor_respaldo, literatura))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   muestra       sensor_1 sensor_respaldo literatura val_completo
@@ -7385,7 +7409,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2><code>tidyr::fill()</code></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-50_3f2fcd16dcf0a5d45eadabc68f99f771">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-51_3f105e54b0e3f13ba93ef5a94a60acde">
 <div class="cell-output-display">
 <div id="ecpcorqhow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ecpcorqhow table {
@@ -7874,8 +7898,8 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-51_158de262dc2fc774b0c50f39a533cc2f">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>carbon_mamiferos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-52_77feadfb119b6bfc464e2855fd6b2a4b">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>carbon_mamiferos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   mamiferos biomasa
@@ -7892,9 +7916,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-52_f29690f3cf1fb17dde7c6b612fb8e8aa">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>carbon_mamiferos <span class="sc">%&gt;%</span> </span>
-<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">fill</span>(mamiferos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-53_6d4205bd4893199921b91faf4672c9b9">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>carbon_mamiferos <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">fill</span>(mamiferos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   mamiferos biomasa
@@ -7940,14 +7964,14 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2>Cadenas de texto (🧶Strings)</h2>
 <p>Un conjunto de caracteres que componen un elemento de un vector:</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-53_a2a6375ee35caf9ea02fb6aecdf3ca59">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>cadena_de_texto <span class="ot">&lt;-</span> <span class="st">"Esta oración es una cadena"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-54_bbafd437d145c580332b0b078769c74a">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>cadena_de_texto <span class="ot">&lt;-</span> <span class="st">"Esta oración es una cadena"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Podemos almacenar varias cadenas en un vector de texto:</p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-54_4457ad28a28462527c1fe545cbd6b7de">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>mascotas <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"perro"</span>,<span class="st">"gato"</span>,<span class="st">"loro"</span>,<span class="st">"perro"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-55_1fa2190efc29398d8717e74a47caf8e1">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>mascotas <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"perro"</span>,<span class="st">"gato"</span>,<span class="st">"loro"</span>,<span class="st">"perro"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -7957,7 +7981,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <div class="column" style="width:50%;">
 <p>Los nombres de variables, objetos, y los valores en un data frame también pueden ser cadenas de texto:</p>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-56_a3b5fdb89a5cc974d67245b2058502f3">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-57_d396c26d2bf562ffe4f3c84503dd00ab">
 <div class="cell-output-display">
 <div id="yjrxfbxvck" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#yjrxfbxvck table {
@@ -8428,14 +8452,14 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2>R distingue entre mayúsculas y minúsculas</h2>
 <p>La misma letra en mayúscula y mínuscula se trata como un caracter diferente</p>
 <div class="big-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-57_e3e204041d7e079f19fb76232c594598">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="st">"rata"</span><span class="sc">==</span><span class="st">"RATA"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-58_f5b350e0ec7522404f8e28b0db276580">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="st">"rata"</span><span class="sc">==</span><span class="st">"RATA"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-58_daa95d4c545b9ab0caddfb35950379b0">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="st">"rata"</span><span class="sc">==</span><span class="st">"raTa"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-59_1e83d3a6b4d982bbeef4e2bdbba0cc06">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="st">"rata"</span><span class="sc">==</span><span class="st">"raTa"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -8773,16 +8797,16 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2><code>stringr</code> - ejemplos</h2>
 <p><strong>¿Coincidencias?</strong></p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-59_6a58ab58686e02b953dc56dc8bea42c8">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">str_detect</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"catalogo"</span>, <span class="st">"aguacate"</span>,</span>
-<span id="cb68-2"><a href="#cb68-2"></a><span class="st">"pera"</span>),</span>
-<span id="cb68-3"><a href="#cb68-3"></a> <span class="at">pattern =</span> <span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-60_734a7f9d53e0bfc4134f23a75573afc4">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">str_detect</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"catalogo"</span>, <span class="st">"aguacate"</span>,</span>
+<span id="cb70-2"><a href="#cb70-2"></a><span class="st">"pera"</span>),</span>
+<span id="cb70-3"><a href="#cb70-3"></a> <span class="at">pattern =</span> <span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </div>
 <p>Regresa un vector V/F de la misma longitud que la entrada</p>
 </section>
-<section id="stringr---ejemplos-output" class="slide level2 output-location-slide"><h2><code>stringr</code> - ejemplos</h2><div class="cell output-location-slide" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-59_6a58ab58686e02b953dc56dc8bea42c8">
+<section id="stringr---ejemplos-output" class="slide level2 output-location-slide"><h2><code>stringr</code> - ejemplos</h2><div class="cell output-location-slide" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-60_734a7f9d53e0bfc4134f23a75573afc4">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE FALSE</code></pre>
 </div>
@@ -8790,24 +8814,24 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2><code>stringr</code> - más ejemplos</h2>
 <p><strong>¿Cuáles elementos coinciden?</strong></p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-60_11cc78fa8b651f5929404d4a5c8a0294">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">str_which</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"catalogo"</span>, <span class="st">"aguacate"</span>, <span class="st">"pera"</span>), <span class="at">pattern =</span> <span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-61_e0dfcd55707a4bf1423cfb08f68bba46">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">str_which</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"catalogo"</span>, <span class="st">"aguacate"</span>, <span class="st">"pera"</span>), <span class="at">pattern =</span> <span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </div>
 <p>Regresa el índice de los elemenots con coincidencias</p>
 </section>
-<section id="stringr---más-ejemplos-output" class="slide level2 output-location-slide"><h2><code>stringr</code> - más ejemplos</h2><div class="cell output-location-slide" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-60_11cc78fa8b651f5929404d4a5c8a0294">
+<section id="stringr---más-ejemplos-output" class="slide level2 output-location-slide"><h2><code>stringr</code> - más ejemplos</h2><div class="cell output-location-slide" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-61_e0dfcd55707a4bf1423cfb08f68bba46">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2</code></pre>
 </div>
 </div></section><section id="stringr---reemplazar-coincidencias" class="slide level2">
 <h2><code>stringr</code> - reemplazar coincidencias</h2>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-61_4b7846909421f2959762bea39a1040cc">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">str_replace</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"anthonyi"</span>, <span class="st">"daviesi"</span>, <span class="st">"jonesi"</span>),</span>
-<span id="cb72-2"><a href="#cb72-2"></a>            <span class="at">pattern =</span> <span class="st">"i$"</span>,</span>
-<span id="cb72-3"><a href="#cb72-3"></a>            <span class="at">replacement =</span> <span class="st">"ii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-62_4a4917fd93539ab834c59c6bbc187c06">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">str_replace</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"anthonyi"</span>, <span class="st">"daviesi"</span>, <span class="st">"jonesi"</span>),</span>
+<span id="cb74-2"><a href="#cb74-2"></a>            <span class="at">pattern =</span> <span class="st">"i$"</span>,</span>
+<span id="cb74-3"><a href="#cb74-3"></a>            <span class="at">replacement =</span> <span class="st">"ii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "anthonyii" "daviesii"  "jonesii"  </code></pre>
 </div>
@@ -8817,10 +8841,10 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="stringr---función-regex" class="slide level2">
 <h2><code>stringr</code> - función <code>regex()</code></h2>
 <p><strong>Sin distinción entre MAYUSCULAS y minúsculas</strong></p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-62_1a3dccb167fb404075e5c561f944b04c">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">str_replace</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"anthonyI"</span>, <span class="st">"daviesi"</span>, <span class="st">"jonesi"</span>),</span>
-<span id="cb74-2"><a href="#cb74-2"></a>            <span class="at">pattern =</span> <span class="fu">regex</span>(<span class="st">"i$"</span>,<span class="at">ignore_case =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb74-3"><a href="#cb74-3"></a>            <span class="at">replacement =</span> <span class="st">"ii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-63_ffb0a746ed5158dca70e030b3d2f04e8">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="fu">str_replace</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">"anthonyI"</span>, <span class="st">"daviesi"</span>, <span class="st">"jonesi"</span>),</span>
+<span id="cb76-2"><a href="#cb76-2"></a>            <span class="at">pattern =</span> <span class="fu">regex</span>(<span class="st">"i$"</span>,<span class="at">ignore_case =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb76-3"><a href="#cb76-3"></a>            <span class="at">replacement =</span> <span class="st">"ii"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "anthonyii" "daviesii"  "jonesii"  </code></pre>
 </div>
@@ -8837,10 +8861,10 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </li>
 <li>\d</li>
 </ol>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-63_b40d11f63fea6f90ef8ec479f1b05b2d">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>vec_texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aves y reptiles"</span>,<span class="st">"hamburguesa"</span>,</span>
-<span id="cb76-2"><a href="#cb76-2"></a>                 <span class="st">"34"</span>,<span class="st">"(34)"</span>,<span class="st">"rAta"</span>,<span class="st">"avenida"</span>,</span>
-<span id="cb76-3"><a href="#cb76-3"></a>                 <span class="st">"2011_julio"</span>,<span class="st">"inecol"</span>,<span class="st">"INECOL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-64_b437571e131dcf6d3ef7ae4a7600dd16">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>vec_texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aves y reptiles"</span>,<span class="st">"hamburguesa"</span>,</span>
+<span id="cb78-2"><a href="#cb78-2"></a>                 <span class="st">"34"</span>,<span class="st">"(34)"</span>,<span class="st">"rAta"</span>,<span class="st">"avenida"</span>,</span>
+<span id="cb78-3"><a href="#cb78-3"></a>                 <span class="st">"2011_julio"</span>,<span class="st">"inecol"</span>,<span class="st">"INECOL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="manipulando-datos-con-expresiones-regulares" class="slide level2">
@@ -8859,10 +8883,10 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2>Seleccionando variables</h2>
 <p>Datos de pingüinos <code>pinguinos</code> de 📦 <code>datos</code></p>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-64_281542786477f57bc730906a2b3b5533">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb77-2"><a href="#cb77-2"></a><span class="fu">data</span>(pinguinos)</span>
-<span id="cb77-3"><a href="#cb77-3"></a><span class="fu">names</span>(pinguinos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-65_e5c5965635ffa25e96ca296292b78377">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb79-2"><a href="#cb79-2"></a><span class="fu">data</span>(pinguinos)</span>
+<span id="cb79-3"><a href="#cb79-3"></a><span class="fu">names</span>(pinguinos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "especie"         "isla"            "largo_pico_mm"   "alto_pico_mm"   
 [5] "largo_aleta_mm"  "masa_corporal_g" "sexo"            "anio"           </code></pre>
@@ -8873,10 +8897,10 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="section-26" class="slide level2">
 <h2></h2>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-65_716916f64d97dc83cbc5d7e1a9ccd83e">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>pinguinos <span class="sc">%&gt;%</span> </span>
-<span id="cb79-2"><a href="#cb79-2"></a>  <span class="fu">select</span>(especie, <span class="fu">matches</span>(<span class="st">"larg"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb79-3"><a href="#cb79-3"></a>  <span class="fu">sample_n</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-66_2d29172413ad47a97b70f6cb5bc96d0a">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>pinguinos <span class="sc">%&gt;%</span> </span>
+<span id="cb81-2"><a href="#cb81-2"></a>  <span class="fu">select</span>(especie, <span class="fu">matches</span>(<span class="st">"larg"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-3"><a href="#cb81-3"></a>  <span class="fu">sample_n</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   especie largo_pico_mm largo_aleta_mm
@@ -8891,14 +8915,14 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="filtrando-filas" class="slide level2">
 <h2>Filtrando filas</h2>
 <p>Datos de paises del paquete 📦 <code>datos</code></p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-66_8e681d23042a631326177b1e27ac28ce">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">library</span>(datos)</span>
-<span id="cb81-2"><a href="#cb81-2"></a><span class="fu">data</span>(paises)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-67_e297533d12e33551c2399d90b3a47141">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="fu">library</span>(datos)</span>
+<span id="cb83-2"><a href="#cb83-2"></a><span class="fu">data</span>(paises)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="med-code">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-67_a75b48c0ceb256b8e2434c5d84526585">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>paises <span class="sc">%&gt;%</span> <span class="fu">select</span>(pais,continente) <span class="sc">%&gt;%</span> </span>
-<span id="cb82-2"><a href="#cb82-2"></a>  <span class="fu">sample_n</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-68_8d1b442d35430169213cbb33b19b8435">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>paises <span class="sc">%&gt;%</span> <span class="fu">select</span>(pais,continente) <span class="sc">%&gt;%</span> </span>
+<span id="cb84-2"><a href="#cb84-2"></a>  <span class="fu">sample_n</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   pais        continente
@@ -8914,10 +8938,10 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="coincidencias-en-filas" class="slide level2">
 <h2>Coincidencias en filas</h2>
 <p>Paises con “z” en su nombre</p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-68_82b2471191807d49b085475b6b6ced44">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>paises <span class="sc">%&gt;%</span> <span class="fu">select</span>(pais,continente) <span class="sc">%&gt;%</span> </span>
-<span id="cb84-2"><a href="#cb84-2"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(pais,<span class="st">"z"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb84-3"><a href="#cb84-3"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-69_488d2a764efca5a6a36c103061d64a86">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>paises <span class="sc">%&gt;%</span> <span class="fu">select</span>(pais,continente) <span class="sc">%&gt;%</span> </span>
+<span id="cb86-2"><a href="#cb86-2"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(pais,<span class="st">"z"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb86-3"><a href="#cb86-3"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 2
   pais                 continente
@@ -8970,7 +8994,7 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">ordenes_pizza</a></li><li><a href="#tabset-4-2">datos</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-69_f18e233a999c17290fb1b507a5307a02">
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-70_97935b29dd382ba659f717fa7547f6c7">
 <div class="cell-output-display">
 <div id="safetgaqfh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#safetgaqfh table {
@@ -9467,9 +9491,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 </section>
 <section id="identificar-con-get_dupes" class="slide level2">
 <h2>Identificar con <code>get_dupes()</code></h2>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-71_744ebef736b1ed06ce9f576a89e370b7">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb86-2"><a href="#cb86-2"></a>  <span class="fu">get_dupes</span>() <span class="co"># todas las variables (por defecto)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-72_12bc63bf75dd3dad11d42dee4835b1ac">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb88-2"><a href="#cb88-2"></a>  <span class="fu">get_dupes</span>() <span class="co"># todas las variables (por defecto)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   IDusuario Direccion   Colonia   Alcaldia   dupe_count
@@ -9487,9 +9511,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2></h2>
 <p><code>get_dupes()</code> asignando una variable para definir nuestra unidad observacional</p>
 <p>¿Alguien ordenó más de una vez?</p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-72_d4c0779889338fdfa4e27fb0391fbf4e">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb88-2"><a href="#cb88-2"></a>  <span class="fu">get_dupes</span>(IDusuario)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-73_a06873870ca539e3f68b53a6df0c70af">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a>  <span class="fu">get_dupes</span>(IDusuario)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   IDusuario dupe_count Direccion   Colonia   Alcaldia  
@@ -9508,9 +9532,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <blockquote>
 <p>accepta funciones auxiliares de 📦 <code>tidyselect</code></p>
 </blockquote>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-73_a83b2f671f13245eb06fcbcfd4f525c4">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb90-2"><a href="#cb90-2"></a>  <span class="fu">get_dupes</span>(Direccion, <span class="fu">starts_with</span>(<span class="st">"Col"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-74_d42cc67e43b8bb86c806bc566fd40290">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a>  <span class="fu">get_dupes</span>(Direccion, <span class="fu">starts_with</span>(<span class="st">"Col"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   Direccion           Colonia   dupe_count IDusuario  Alcaldia  
@@ -9527,9 +9551,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <h2></h2>
 <p>Descartar con <code>distinct()</code> de 📦 <code>dplyr</code></p>
 <div class="fragment">
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-74_be7c10cf679366d68d37011a39ce1926">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb92-2"><a href="#cb92-2"></a>  <span class="fu">distinct</span>() <span class="co"># todas las variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-75_6cc86bf4176e2c6ceae1ddf9cd2fc334">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a>  <span class="fu">distinct</span>() <span class="co"># todas las variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   IDusuario  Direccion           Colonia   Alcaldia  
@@ -9547,9 +9571,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <section id="section-31" class="slide level2">
 <h2></h2>
 <p><code>distinct()</code> con la variables que definen las unidades observacionales</p>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-75_90bd9cb3535dd1c38448be6deed4e551">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb94-2"><a href="#cb94-2"></a>  <span class="fu">distinct</span>(IDusuario, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-76_9500a202f724bb3bf788e21e47537ca1">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a>  <span class="fu">distinct</span>(IDusuario, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   IDusuario  Direccion           Colonia   Alcaldia  
@@ -9572,9 +9596,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <ul>
 <li>Combinaciones únicas de dirección * colonia</li>
 </ul>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-76_e3d3be53bee455921f702b54e64eaebd">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb96-2"><a href="#cb96-2"></a>  <span class="fu">distinct</span>(Direccion,Colonia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-77_bf961d3813bd2a03b6082626ba67a661">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a>  <span class="fu">distinct</span>(Direccion,Colonia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   Direccion           Colonia  
@@ -9591,9 +9615,9 @@ Se vinculan directamente con parámetros estéticos en un gráfico</p>
 <blockquote>
 <p>⚠️ Si <code>.keep_all = TRUE</code> y hay valores duplicados en otras variables, <code>distinct</code> solo retiene la primera fila</p>
 </blockquote>
-<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-77_1927288f4add0a981ea390592b8d3acd">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="#cb98-2"></a>  <span class="fu">distinct</span>(Direccion,Colonia, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="2-manipulacion_y_limpieza_cache/revealjs/unnamed-chunk-78_7a3863b0d2a41973e083bb68130f015e">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a>ordenes_pizza <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="#cb100-2"></a>  <span class="fu">distinct</span>(Direccion,Colonia, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   IDusuario  Direccion           Colonia   Alcaldia  
