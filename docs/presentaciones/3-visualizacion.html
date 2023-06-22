@@ -2039,8 +2039,8 @@ Rafael A. Irizarry (2020)</p>
 <code>scale_shape_*</code><br>
 <code>scale_color_*</code></p>
 </div><div class="column" style="width:70%;">
-<p>rótulos para ejes, títulos, subtítulos, etc. colores de bordes<br>
-colores de rellenos<br>
+<p>rótulos para ejes, títulos, subtítulos, etc. colores de rellenos<br>
+colores de bordes<br>
 tamaño o grueso de elementos<br>
 apariencias predefinidas</p>
 <p>control manual sobre mapeos estéticos (colores, rellenos, formas)</p>
@@ -2459,7 +2459,7 @@ apariencias predefinidas</p>
 <ul>
 <li>Símbolo <code>+</code> para acomodar dos gráficos juntos</li>
 <li>Símbolo <code>|</code> para figuras lado a lado</li>
-<li>Símbolo <code>\</code> para apilar figuras</li>
+<li>Símbolo <code>/</code> para apilar figuras</li>
 </ul>
 </div>
 </div>
@@ -2557,6 +2557,33 @@ apariencias predefinidas</p>
 
 </div>
 <img data-src="3-visualizacion_files/figure-revealjs/unnamed-chunk-29-1.png" width="2000" class="r-stretch"><p><code>tag_levels</code> genera diferentes secuencias alfabéticas o numéricas para identificar a cada elemento</p>
+</section>
+<section id="texto-con-formato" class="slide level2">
+<h2>Texto con formato</h2>
+<p>Podemos usar <em>markdown</em> para darle formato al texto que aparece en diferentes elementos de nuestras gráficas, a través de la función <code>element_markdown()</code> del paquete <strong><code>ggtext</code></strong></p>
+<p><a href="https://wilkelab.org/ggtext/">Documentación del paquete</a></p>
+<div class="cell" data-hash="3-visualizacion_cache/revealjs/unnamed-chunk-30_def07496125d8022f0435e6eaa150783">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(ggtext)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">ggplot</span>(cafeteria,<span class="fu">aes</span>(carbohidratos,grasa,<span class="at">color=</span>bajo_grasa))<span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Chatarra  **Grasienta**"</span>,<span class="st">"light"</span>))<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_markdown</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<div class="cell" data-hash="3-visualizacion_cache/revealjs/unnamed-chunk-31_dea2bda59b010cd8f4bade5bcc3cbdd0">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(cafeteria,<span class="fu">aes</span>(carbohidratos,grasa,<span class="at">color=</span>bajo_grasa))<span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Chatarra  **Grasienta**"</span>,<span class="st">"light"</span>))<span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_markdown</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="3-visualizacion_files/figure-revealjs/unnamed-chunk-31-1.png" width="2000" class="r-stretch"></section>
+<section id="extensiones-para-ggplot2" class="slide level2">
+<h2>Extensiones para <code>ggplot2</code></h2>
+<p><a href="https://luisdva.github.io/ggmas/">Taller LatinR</a></p>
+<p><a href="https://exts.ggplot2.tidyverse.org/">Galería oficial de extensiones</a></p>
 
 <div class="footer footer-default">
 

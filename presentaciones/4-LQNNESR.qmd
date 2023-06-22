@@ -195,6 +195,7 @@ Con la versión agrupada de nuestra tabla, las funciones de `dplyr` trabajan sob
 RStudio (2021)\
 [Data transformation with dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 :::
+:::
 
 ## Opciones para datos agrupados
 
@@ -253,7 +254,7 @@ msleep %>% group_by(order) %>%
 #| output-location: fragment
 
 msleep %>% group_by(order) %>% 
-  summarize(mediana_slp = mean(sleep_total),
+  summarize(mediana_slp = median(sleep_total),
             media_brainwt=mean(brainwt))
 ```
 :::

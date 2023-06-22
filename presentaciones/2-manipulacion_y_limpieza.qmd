@@ -2188,7 +2188,7 @@ tibble::tribble(
 
 ```{r}
 #| eval: true
-#| echo: false
+#| echo: true
 
 ordenes_pizza <- 
 tibble::tribble(

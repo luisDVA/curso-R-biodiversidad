@@ -324,8 +324,8 @@ Datos sobre tamaño corporal, frecuencia dominante, y hábitat de 176 especies d
 
 ::: {.column width="70%"}
 rótulos para ejes, títulos, subtítulos, etc.
-colores de bordes     
-colores de rellenos    
+colores de rellenos     
+colores de bordes    
 tamaño o grueso de elementos  
 apariencias predefinidas 
   
@@ -734,7 +734,7 @@ Datos sobre la edad (semanas) de gateo en relación a temperatura y mes de nacim
 ::: {.column width="80%"}
 - Símbolo `+` para acomodar dos gráficos juntos
 - Símbolo `|` para figuras lado a lado
-- Símbolo `\` para apilar figuras 
+- Símbolo `/` para apilar figuras 
 :::
 :::   
 
@@ -823,3 +823,40 @@ Anidando:
 
 `tag_levels` genera diferentes secuencias alfabéticas o numéricas para identificar a cada elemento
 
+## Texto con formato
+
+Podemos usar _markdown_ para darle formato al texto que aparece en diferentes elementos de nuestras gráficas, a través de la función `element_markdown()` del paquete **`ggtext`**
+
+[Documentación del paquete](https://wilkelab.org/ggtext/)
+
+  
+
+
+```{r}
+#| eval: false
+#| echo: true
+library(ggtext)
+ggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+
+geom_point()+
+  scale_color_discrete(labels=c("Chatarra  **Grasienta**","light"))+
+  theme(legend.text = element_markdown())
+```
+
+
+##
+
+```{r}
+ggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+
+geom_point()+
+  scale_color_discrete(labels=c("Chatarra  **Grasienta**","light"))+
+  theme(legend.text = element_markdown())
+```
+
+
+## Extensiones para `ggplot2`
+
+
+[Taller LatinR](https://luisdva.github.io/ggmas/)
+  
+
+[Galería oficial de extensiones](https://exts.ggplot2.tidyverse.org/)
