@@ -16,14 +16,14 @@ highlight-style: arrow-light
 library(here)
 ```
 
-
 # Matrices
+- hola
 
 ## Matrices en Ecología
 
 ![](https://i.imgflip.com/lnf8o.jpg)
 
-##
+## 
 
 -   Es el formato más comun de representación de datos ecológicos
 -   Se torno popular en ecologia con el desarollo de mejores computadoras
@@ -35,12 +35,11 @@ library(here)
 
 ## Diferentes tipos de matrices
 
-- Cuadrada (número de filas igual al numero de columnas)
-- Diagonal (todos valores además de las diagonal son ceros)
-- Triangular (valores en cero en una de las mitades)
-- Identidad (valores de la diagonal son 1 y los demás, 0)
-- Escalar (valores de la diagonal son iguales y los demás, 0)
-
+-   Cuadrada (número de filas igual al numero de columnas)
+-   Diagonal (todos valores además de las diagonal son ceros)
+-   Triangular (valores en cero en una de las mitades)
+-   Identidad (valores de la diagonal son 1 y los demás, 0)
+-   Escalar (valores de la diagonal son iguales y los demás, 0)
 
 ## Son muy usadas en los análisis de ecologia
 
@@ -82,7 +81,7 @@ a <- matrix(1:6, ncol = 3, nrow = 2)
 b <- array(1:12, c(2, 3, 4))
 ```
 
-##
+## 
 
 ::: columns
 ::: {.column width="50%"}
@@ -164,6 +163,7 @@ diag(a)
  b
 
 ```
+
 . . .
 
 ```{r}
@@ -207,7 +207,6 @@ d
 #| echo: true
 a + d
 ```
-
 :::
 
 ::: {.column width="50%"}
@@ -224,9 +223,11 @@ a + d
 :::
 
 ## pero...
+
 ::: columns
 ::: {.column width="50%"}
 -   a + b y a + b2 son iguales?
+
 ```{r}
 #| eval: true
 #| echo: true
@@ -235,9 +236,9 @@ a + d
  b <- 1
  a + b
 ```
-
 :::
-:::{.column width="50%"}
+
+::: {.column width="50%"}
 -Y esta suma, ¿sale bien?
 
 ```{r}
@@ -267,7 +268,7 @@ b
 d
 ```
 
-##
+## 
 
 ```{r}
 #| eval: true
@@ -280,7 +281,7 @@ d <- matrix(c(0,0,1), nrow=3)
  a %*% b # ¿Salió bien?
 ```
 
-##
+## 
 
 ```{r}
 #| eval: true
@@ -293,7 +294,7 @@ d <- matrix(c(0,0,1), nrow=3)
  a %*% d # ¿esta?
 ```
 
-##
+## 
 
 ```{r}
 #| eval: false
@@ -307,9 +308,10 @@ d <- matrix(c(0,0,1), nrow=3)
 ```
 
 ## La división de matrices no existe, se las multiplica por su inverso
+
 ![](imgs/invma.png)
 
-##
+## 
 
 -   La función `solve()` calcula el inverso
 -   No confundir con `t()`, que es la función para trasponer la matriz
@@ -330,7 +332,7 @@ ainv
 
 ```
 
-##
+## 
 
 -   Pueden mirar el resultado usando la función `round()`...queda mejor
 
@@ -354,7 +356,7 @@ M = matrix(c(2,3,4,0,1,2), nrow=2,ncol=3,byrow=T,
 M
 ```
 
-##
+## 
 
 -   Si un herbívoro se alimenta de estas 3 especies en las seguientes cantidades por día:
 
@@ -368,7 +370,7 @@ N = matrix(c(5,3,1), nrow=3,ncol=1,byrow=F,
 N
 ```
 
-##
+## 
 
 -   ¿Cuántos contaminantes I y II consume diariamente?
 -   Tip: Mirar el producto de M x N
@@ -403,7 +405,7 @@ M%*%N
 -   Funciones aplicadas a ambos tipos de matrices producen los mismos resultados
 -   Ventajas en el tiempo de procesamiento de datos
 
-##
+## 
 
 ::: columns
 ::: {.column width="50%"}
@@ -457,7 +459,7 @@ sM
 -   Para datos de comunidades (sitios x species)
 -   [Phyloregion](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13478g)
 
-##
+## 
 
 ![](imgs/phylo.jpg)
 
@@ -473,7 +475,7 @@ y=dist(x)
 y
 ```
 
-##
+## 
 
 ```{r}
 #| eval: true
@@ -590,10 +592,9 @@ ggballoonplot(t(molu.ord))
 
 -   Ver el github de Cristian Dambros, de la UFSM-BRA
 -   La función [poncho](https://raw.githubusercontent.com/csdambros/R-functions/master/poncho.R)
-- para llamar la función directamente a su script usar:
-source("https://raw.githubusercontent.com/csdambros/R-functions/master/poncho.R")
+-   para llamar la función directamente a su script usar: source("https://raw.githubusercontent.com/csdambros/R-functions/master/poncho.R")
 
-##
+## 
 
 ![](imgs/poncho.png)
 
