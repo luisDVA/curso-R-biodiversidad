@@ -165,7 +165,8 @@ Para esto primero debemos encontrar el nodo del ancestro en común más reciente
 ```{r}
 #| eval: true
 #| echo: true
-as_tibble(ictree) %>%
+ictree %>%
+as_tibble %>%
   filter(grepl("Quiscalus",label))
 ```
 
@@ -176,7 +177,9 @@ Después usando la función *MRCA* podemos encontrar el ancestro en común de es
 ```{r}
 #| eval: true
 #| echo: true
-MRCA(as_tibble(ictree),41,43)
+ictree %>%
+as_tibble %>%
+MRCA(41,43)
 ```
 
 . . .
@@ -184,7 +187,9 @@ MRCA(as_tibble(ictree),41,43)
 ```{r}
 #| eval: true
 #| echo: true
-MRCA(as_tibble(ictree),"Quiscalus_quiscula","Quiscalus_mexicanus")
+ictree %>%
+as_tibble %>%
+MRCA("Quiscalus_quiscula","Quiscalus_mexicanus")
 ```
 
 ## 
@@ -207,7 +212,8 @@ y que tal el genero que tiene el nombre de la familia: *Icterus*:
 ```{r}
 #| eval: true
 #| echo: true
-as_tibble(ictree) %>%
+ictree %>%
+  as_tibble %>%
   filter(grepl("Icterus",label))
 ```
 
@@ -216,7 +222,9 @@ as_tibble(ictree) %>%
 ```{r}
 #| eval: true
 #| echo: true
-MRCA(as_tibble(ictree),25,14)
+ictree %>%
+as_tibble %>%
+MRCA(25,14)
 ```
 
 ## 
@@ -406,7 +414,8 @@ Entonces, primero recuperamos un representante de cada grupo, *ape* es muy bueno
 ```{r}
 #| eval: true
 #| echo: true
-grouptree<-keep.tip(ictree,c("Quiscalus_mexicanus", "Icterus_galbula","Molothrus_aeneus","Agelaius_phoeniceus","Psarocolius_montezuma"))
+grouptree<-ictree %>%
+keep.tip(c("Quiscalus_mexicanus", "Icterus_galbula","Molothrus_aeneus","Agelaius_phoeniceus","Psarocolius_montezuma"))
 
 grouptree$tip.label<-c("Calandrias","Sargentos","Zanates","Tordos","Oropendolas")
 
@@ -447,7 +456,8 @@ Volveremos a usar nuestra filogenia de grupos y le agregaremos dos especies de *
 ```{r}
 #| eval: true
 #| echo: true
-grouptree<-keep.tip(ictree,c("Quiscalus_mexicanus", "Icterus_galbula","Molothrus_aeneus","Agelaius_phoeniceus","Psarocolius_montezuma"))
+grouptree<-ictree %>%
+keep.tip(c("Quiscalus_mexicanus", "Icterus_galbula","Molothrus_aeneus","Agelaius_phoeniceus","Psarocolius_montezuma"))
 ggtree(grouptree)+
   xlim(0,15)+
   geom_tiplab(color="blue")
@@ -501,7 +511,8 @@ Una vez cargados los datos, la manera más fácil de utilizarlos es uniendolos a
 names(hwi)<-c("label","hwi")
 names(migrants)<-c("label","migratory")
 
-hwimigrants<-merge(hwi,migrants,by="label")
+hwimigrants<-hwi%>%
+left_join(migrants,by="label")
 datatree<-full_join(ictree,hwimigrants,by="label")
 datatree
 ```
@@ -561,3 +572,4 @@ px<- py%<+% migrants + geom_tippoint(aes(color=migratory),shape=15)+
 px+ geom_facet(panel="HWI",data = hwi,geom=geom_col,mapping=aes(x=hwi,color=migratory,fill=migratory),orientation='y')+
     theme_tree2()
 ```
+##
