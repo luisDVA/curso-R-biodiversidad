@@ -53,7 +53,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#pipes-2",
     "title": "Manipulacion y limpieza de datos",
     "section": "Pipes",
-    "text": "Pipes\n\nReducen la necesidad de guardar resultados intermedios o de anidar código\nCódigo más fácil de leer\nMás fácil quitar o agregar pasos a la secuencia\n\n\nInsertamos con ctrl + shift + M\n\n\n\nAdolfo Álvarez (2021)\nThe (updated) history of the pipe operator in R\n\n\n\n\n\n\nlibrary(magrittr)\n\n\nAttaching package: 'magrittr'\n\n\nThe following object is masked from 'package:tidyr':\n\n    extract\n\nnotas %&gt;% \n  mean() %&gt;% \n  round(digits=2)\n\n[1] 7.78\n\n\n\n\n\nnotas %&gt;% \n  mean %&gt;% \n  round(digits=2)\n\n[1] 7.78\n\n\n\n\n\n\nLHS |&gt; RHS(argument = 12)\nse convierte en\nRHS(LHS, argument = 12)"
+    "text": "Pipes\n\nReducen la necesidad de guardar resultados intermedios o de anidar código\nCódigo más fácil de leer\nMás fácil quitar o agregar pasos a la secuencia\n\n\nInsertamos con ctrl + shift + M\n\n\n\nAdolfo Álvarez (2021)\nThe (updated) history of the pipe operator in R"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#tidyverse",
@@ -74,7 +74,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#tibbles-tibls",
     "title": "Manipulacion y limpieza de datos",
     "section": "tibbles (/tibls/)",
-    "text": "tibbles (/tibls/)\nModernizando el data.frame\nImplementado para todo el tidyverse a través de 📦 tibble\n\ntibble(\n  x = c(\"a\", \"b\", \"c\"),\n  y = c(1, 2, 3)\n)\n\n# A tibble: 3 × 2\n  x         y\n  &lt;chr&gt; &lt;dbl&gt;\n1 a         1\n2 b         2\n3 c         3\n\n\n. . .\nObjeto rectangular común para todos los paquetes del tidyverse"
+    "text": "tibbles (/tibls/)\nModernizando el data.frame\nImplementado para todo el tidyverse a través de 📦 tibble\n\ntibble(\n  x = c(\"a\", \"b\", \"c\"),\n  y = c(1, 2, 3)\n)\n\n# A tibble: 3 × 2\n  x         y\n  &lt;chr&gt; &lt;dbl&gt;\n1 a         1\n2 b         2\n3 c         3\n\n\n\nObjeto rectangular común para todos los paquetes del tidyverse"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#funciones-de-tidyverse",
@@ -95,7 +95,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#tibbles",
     "title": "Manipulacion y limpieza de datos",
     "section": "tibbles",
-    "text": "tibbles\nPara menos ambigüedad:\n. . .\n\n\nNo asignan nombres a las filas\nNo modifican los nombres de las columnas\nNo convierten caracteres en factores\nExigen nombres completos para seleccionar subconjuntos de variables con $"
+    "text": "tibbles\nPara menos ambigüedad:\n\n\n\nNo asignan nombres a las filas\nNo modifican los nombres de las columnas\nNo convierten caracteres en factores\nExigen nombres completos para seleccionar subconjuntos de variables con $"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#impresión-de-tibbles",
@@ -207,7 +207,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#para-qué-1",
     "title": "Manipulacion y limpieza de datos",
     "section": "¿Para qué?",
-    "text": "¿Para qué?\n\nTrabajando con filas\nLos valores de cada observación quedan juntos"
+    "text": "¿Para qué?\nTrabajando con filas\nLos valores de cada observación quedan juntos"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#section-4",
@@ -235,7 +235,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#valores-faltantes",
     "title": "Manipulacion y limpieza de datos",
     "section": "Valores faltantes",
-    "text": "Valores faltantes\nNo se registraron, no aplican, se perdieron, etc.\n. . .\n Los datos faltantes siguen siendo datos \nEn R usamos NA, una constante especial que indica valores faltantes\n\n\nTratar los valores NA consistentemente\nEvitar ambigüedad\n\n\n¿Falta un valor, se dejó una celda en blanco intencionalmente, o la medición no aplica?\n\n\nNo usar celdas vacías como relleno para alinear datos o con fines estéticos-estructurales\nEvitar valores NA en nombres de variables"
+    "text": "Valores faltantes\nNo se registraron, no aplican, se perdieron, etc.\n\n Los datos faltantes siguen siendo datos \nEn R usamos NA, una constante especial que indica valores faltantes"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#encabezados-utilizables-nombres-de-las-columnas",
@@ -298,28 +298,28 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#select",
     "title": "Manipulacion y limpieza de datos",
     "section": "select()",
-    "text": "select()\n\n\n\nSeleccionar columnas\n\npor nombre\n\npor posición\n\npor tipo\n\n\n\n\n\n\npaises_m %&gt;% \n  select(pais,\n         amenazadas) %&gt;% \n  head(4)\n\n# A tibble: 4 × 2\n  pais      amenazadas\n  &lt;chr&gt;          &lt;int&gt;\n1 Indonesia        191\n2 Brasil            80\n3 China             73\n4 Mexico            96"
+    "text": "select()\n\n\nSeleccionar columnas\n\npor nombre\n\npor posición\n\npor tipo\n\n\n\n\n\npaises_m %&gt;% \n  select(pais,\n         amenazadas) %&gt;% \n  head(4)\n\n# A tibble: 4 × 2\n  pais      amenazadas\n  &lt;chr&gt;          &lt;int&gt;\n1 Indonesia        191\n2 Brasil            80\n3 China             73\n4 Mexico            96"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#mutate",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#mutate",
     "title": "Manipulacion y limpieza de datos",
     "section": "mutate()",
-    "text": "mutate()\n\n\n\nCrea o modifica columnas\n\nCrear nuevas\n\n‘sobre-escribir’ existentes\n\n\n\n\n\npaises_m %&gt;%\n  select(pais, amenazadas) %&gt;% \n  mutate(amenazadas_log = log(amenazadas)) %&gt;% \n  head(5)\n\n# A tibble: 5 × 3\n  pais      amenazadas amenazadas_log\n  &lt;chr&gt;          &lt;int&gt;          &lt;dbl&gt;\n1 Indonesia        191           5.25\n2 Brasil            80           4.38\n3 China             73           4.29\n4 Mexico            96           4.56\n5 Peru              53           3.97\n\n\n\n\nPodemos contrar en dónde aparece la nueva columna con los argumentos .before y .after"
+    "text": "mutate()\n\n\nCrea o modifica columnas\n\nCrear nuevas\n\n‘sobre-escribir’ existentes\n\n\n\n\npaises_m %&gt;%\n  select(pais, amenazadas) %&gt;% \n  mutate(amenazadas_log = log(amenazadas)) %&gt;% \n  head(5)\n\n# A tibble: 5 × 3\n  pais      amenazadas amenazadas_log\n  &lt;chr&gt;          &lt;int&gt;          &lt;dbl&gt;\n1 Indonesia        191           5.25\n2 Brasil            80           4.38\n3 China             73           4.29\n4 Mexico            96           4.56\n5 Peru              53           3.97\n\n\n\n\nPodemos contrar en dónde aparece la nueva columna con los argumentos .before y .after"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#filter",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#filter",
     "title": "Manipulacion y limpieza de datos",
     "section": "filter()",
-    "text": "filter()\n\nSeleccionar filas\nRetiene solamente las filas que cumplen una condición\n\n\npaises_m %&gt;% \n  select(pais, especies, amenazadas) %&gt;% \n  filter(amenazadas &gt; 75)\n\n# A tibble: 4 × 3\n  pais      especies amenazadas\n  &lt;chr&gt;        &lt;int&gt;      &lt;int&gt;\n1 Indonesia      670        191\n2 Brasil         648         80\n3 Mexico         523         96\n4 India          412         93"
+    "text": "filter()\nSeleccionar filas\nRetiene solamente las filas que cumplen una condición\n\n\npaises_m %&gt;% \n  select(pais, especies, amenazadas) %&gt;% \n  filter(amenazadas &gt; 75)\n\n# A tibble: 4 × 3\n  pais      especies amenazadas\n  &lt;chr&gt;        &lt;int&gt;      &lt;int&gt;\n1 Indonesia      670        191\n2 Brasil         648         80\n3 Mexico         523         96\n4 India          412         93"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#rename",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#rename",
     "title": "Manipulacion y limpieza de datos",
     "section": "rename()",
-    "text": "rename()\n\nCambiar nombres de columnas\nNombre nuevo primero luego variable objetivo\n\n\npaises_m %&gt;% \n  rename(country=pais,\n         species=especies, threatened=amenazadas) %&gt;% \n  head()\n\n# A tibble: 6 × 4\n  country   species threatened region \n  &lt;chr&gt;       &lt;int&gt;      &lt;int&gt; &lt;chr&gt;  \n1 Indonesia     670        191 Asia   \n2 Brasil        648         80 America\n3 China         551         73 Asia   \n4 Mexico        523         96 America\n5 Peru          467         53 America\n6 Congo         430         15 Africa"
+    "text": "rename()\nCambiar nombres de columnas\nNombre nuevo primero luego variable objetivo\n\n\npaises_m %&gt;% \n  rename(country=pais,\n         species=especies, threatened=amenazadas) %&gt;% \n  head()\n\n# A tibble: 6 × 4\n  country   species threatened region \n  &lt;chr&gt;       &lt;int&gt;      &lt;int&gt; &lt;chr&gt;  \n1 Indonesia     670        191 Asia   \n2 Brasil        648         80 America\n3 China         551         73 Asia   \n4 Mexico        523         96 America\n5 Peru          467         53 America\n6 Congo         430         15 Africa"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#ejercicio---datos-desde-paquetes-1",
@@ -361,7 +361,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#argumentos-de-across",
     "title": "Manipulacion y limpieza de datos",
     "section": "argumentos de across():",
-    "text": "argumentos de across():\n.cols Columnas para transformar\n.fns Función a aplicarse a cada una\n\nacross espera una función entonces el nombre y sus argumentos se pueden pasar por separado\n\n\n\n\npaises_m %&gt;% \n  mutate(across(c(especies, amenazadas), `*`, 2)) %&gt;% \n  head(3)\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `across(c(especies, amenazadas), `*`, 2)`.\nCaused by warning:\n! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.\nSupply arguments directly to `.fns` through an anonymous function instead.\n\n  # Previously\n  across(a:b, mean, na.rm = TRUE)\n\n  # Now\n  across(a:b, \\(x) mean(x, na.rm = TRUE))\n\n\n# A tibble: 3 × 4\n  pais      especies amenazadas region \n  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  \n1 Indonesia     1340        382 Asia   \n2 Brasil        1296        160 America\n3 China         1102        146 Asia   \n\n\n\n.cols es un vector con los nombres de las dos columnas que nos interesan\n* es la función para aplicar, 2 es su argumento"
+    "text": "argumentos de across():\n.cols Columnas para transformar\n.fns Función a aplicarse a cada una\n\nacross espera una función entonces el nombre y sus argumentos se pueden pasar por separado"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#funciones-adicionales-para-referirnos-a-columnas",
@@ -438,7 +438,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#section-11",
     "title": "Manipulacion y limpieza de datos",
     "section": "",
-    "text": "Datos anchos\nLectura y captura más fácil\nÚtil para edición interactiva en hojas de cálculo\n\n\n\n\nDatos largos\nTiende a seguir principios de Datos Ordenados\nListos para analizar\nSe vinculan directamente con parámetros estéticos en un gráfico"
+    "text": "Datos anchos\nLectura y captura más fácil\nÚtil para edición interactiva en hojas de cálculo\n\n\nDatos largos\nTiende a seguir principios de Datos Ordenados\nListos para analizar\nSe vinculan directamente con parámetros estéticos en un gráfico"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#reestructurando-datos-con-tidyr",
@@ -557,7 +557,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#expresiones-regulares",
     "title": "Manipulacion y limpieza de datos",
     "section": "¿Expresiones regulares?",
-    "text": "¿Expresiones regulares?\n. . .\n\nConocidas como regex, R.E., E.R., o regexp (singular)\nLenguaje conciso para describir patrones de texto\n\n\n\nCadenas (🧶strings) de caracteres codificadas especificamente para empatar patrones en otras cadenas de texto"
+    "text": "¿Expresiones regulares?\n\n\nConocidas como regex, R.E., E.R., o regexp (singular)\nLenguaje conciso para describir patrones de texto\n\n\nCadenas (🧶strings) de caracteres codificadas especificamente para empatar patrones en otras cadenas de texto"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#expresiones-regulares-1",
@@ -599,14 +599,14 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#para-qué-aprender-a-escribir-expresiones-regulares",
     "title": "Manipulacion y limpieza de datos",
     "section": "¿Para qué aprender a escribir expresiones regulares?",
-    "text": "¿Para qué aprender a escribir expresiones regulares?\n. . .\n\n\nAhorrar tiempo al buscar patrones, transformar texto, describir patrones, extraer partes de palabras, etc.\nUna sola expresión regular puede reemplazar decenas de líneas de código\nSirven en prácticamente cualquier lenguaje de programación o aplicación de línea de comandos"
+    "text": "¿Para qué aprender a escribir expresiones regulares?\n\n\n\nAhorrar tiempo al buscar patrones, transformar texto, describir patrones, extraer partes de palabras, etc.\nUna sola expresión regular puede reemplazar decenas de líneas de código\nSirven en prácticamente cualquier lenguaje de programación o aplicación de línea de comandos"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#primeros-pasos-con-regex",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#primeros-pasos-con-regex",
     "title": "Manipulacion y limpieza de datos",
     "section": "Primeros pasos con regex",
-    "text": "Primeros pasos con regex\n\n\n\nExpresión regular\n gato\n\n\n\nEntrada\n “Ese gato feo”\n\n\n\nResultado\n Ese gato feo\n\n\n\nLa expresión regular para encontrar una secuencia fija de caracteres es esa misma secuencia\n\nbusca una g seguida de una a luego t y o (todos estos caracteres juntos y en ese orden de izq. a der.)"
+    "text": "Primeros pasos con regex\n\n\nExpresión regular\n gato\n\nEntrada\n “Ese gato feo”\n\nResultado\n Ese gato feo\n\n\nLa expresión regular para encontrar una secuencia fija de caracteres es esa misma secuencia\n\nbusca una g seguida de una a luego t y o (todos estos caracteres juntos y en ese orden de izq. a der.)"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#probando-regex",
@@ -648,7 +648,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#section-22",
     "title": "Manipulacion y limpieza de datos",
     "section": "",
-    "text": "Note\n\n\n\nEl poder y la flexibilidad de las expresiones regulares viene de su capacidad de describir patrones complejos\n\n\n Si un patron de texto se puede describir verbalmente, seguramente se puede codificar en una expresión regular"
+    "text": "El poder y la flexibilidad de las expresiones regulares viene de su capacidad de describir patrones complejos\n\n\n\n Si un patron de texto se puede describir verbalmente, seguramente se puede codificar en una expresión regular"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#patrones-posibles",
@@ -823,7 +823,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#stringr---ejemplos",
     "title": "Manipulacion y limpieza de datos",
     "section": "stringr - ejemplos",
-    "text": "stringr - ejemplos\n¿Coincidencias?\n\n\nstr_detect(string = c(\"catalogo\", \"aguacate\",\n\"pera\"),\n pattern = \"cat\")\n\n[1]  TRUE  TRUE FALSE\n\n\n\nRegresa un vector V/F de la misma longitud que la entrada"
+    "text": "stringr - ejemplos\n¿Coincidencias?\n\n\nstr_detect(string = c(\"catalogo\", \"aguacate\",\n\"pera\"),\n pattern = \"cat\")\n\n\n\nRegresa un vector V/F de la misma longitud que la entrada"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#stringr---ejemplos-output",
@@ -837,7 +837,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#stringr---más-ejemplos",
     "title": "Manipulacion y limpieza de datos",
     "section": "stringr - más ejemplos",
-    "text": "stringr - más ejemplos\n¿Cuáles elementos coinciden?\n\n\nstr_which(string = c(\"catalogo\", \"aguacate\", \"pera\"), pattern = \"cat\")\n\n[1] 1 2\n\n\n\nRegresa el índice de los elemenots con coincidencias"
+    "text": "stringr - más ejemplos\n¿Cuáles elementos coinciden?\n\n\nstr_which(string = c(\"catalogo\", \"aguacate\", \"pera\"), pattern = \"cat\")\n\n\n\nRegresa el índice de los elemenots con coincidencias"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#stringr---más-ejemplos-output",
@@ -914,7 +914,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#valores-repetidos",
     "title": "Manipulacion y limpieza de datos",
     "section": "Valores repetidos",
-    "text": "Valores repetidos\n\nDefinición variable pero generalmente dos o más copias del mismo registro u observación\n\n\nProblemas posibles\n\nInflán datos\nCostos de repetición no intencional\nResultados imprecisos"
+    "text": "Valores repetidos\n\nDefinición variable pero generalmente dos o más copias del mismo registro u observación\n\nProblemas posibles\n\nInflán datos\nCostos de repetición no intencional\nResultados imprecisos"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#identificando-y-eliminando-duplicados",
@@ -963,7 +963,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#section-30",
     "title": "Manipulacion y limpieza de datos",
     "section": "",
-    "text": "Descartar con distinct() de 📦 dplyr\n. . .\n\nordenes_pizza %&gt;%\n  distinct() # todas las variables\n\n# A tibble: 6 × 4\n  IDusuario  Direccion           Colonia   Alcaldia  \n  &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;     &lt;chr&gt;     \n1 Pablitoo   Cafetal 395 Casa 2  San Angel A. Obregón\n2 susana24   Fresnos 114         San Angel A. Obregón\n3 jd.adriana Cafetal 395 Casa 8  San Angel A. Obregón\n4 JuanManuel Hidalgo 11 Depto 1B Campestre A. Obregón\n5 JoaquinED  Hidalgo 11 Depto 1B Campestre A. Obregón\n6 e_ric2     Hidalgo 11 Depto 1B Campestre A. Obregón"
+    "text": "Descartar con distinct() de 📦 dplyr\n\n\nordenes_pizza %&gt;%\n  distinct() # todas las variables\n\n# A tibble: 6 × 4\n  IDusuario  Direccion           Colonia   Alcaldia  \n  &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;     &lt;chr&gt;     \n1 Pablitoo   Cafetal 395 Casa 2  San Angel A. Obregón\n2 susana24   Fresnos 114         San Angel A. Obregón\n3 jd.adriana Cafetal 395 Casa 8  San Angel A. Obregón\n4 JuanManuel Hidalgo 11 Depto 1B Campestre A. Obregón\n5 JoaquinED  Hidalgo 11 Depto 1B Campestre A. Obregón\n6 e_ric2     Hidalgo 11 Depto 1B Campestre A. Obregón"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#section-31",
@@ -1351,11 +1351,11 @@
     "text": "Agregar la leyenda\n\nmap + leg\nmap2 + leg2"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#matrices-en-ecología",
-    "href": "presentaciones/4.1-matricesv2.html#matrices-en-ecología",
+    "objectID": "presentaciones/4.1-matricesv2.html#matrices-1",
+    "href": "presentaciones/4.1-matricesv2.html#matrices-1",
     "title": "Matrices en Ecología",
-    "section": "Matrices en Ecología",
-    "text": "Matrices en Ecología"
+    "section": "Matrices",
+    "text": "Matrices"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#section",
@@ -1363,20 +1363,6 @@
     "title": "Matrices en Ecología",
     "section": "",
     "text": "Es el formato más comun de representación de datos ecológicos\nMás popular en ecología con el desarollo de mejores computadoras\nGran parte del lenguaje de los softwares está basada en notaciones de matrices"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#la-matriz",
-    "href": "presentaciones/4.1-matricesv2.html#la-matriz",
-    "title": "Matrices en Ecología",
-    "section": "La matriz",
-    "text": "La matriz"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#diferentes-tipos-de-matrices",
-    "href": "presentaciones/4.1-matricesv2.html#diferentes-tipos-de-matrices",
-    "title": "Matrices en Ecología",
-    "section": "Diferentes tipos de matrices",
-    "text": "Diferentes tipos de matrices\n\nCuadrada (número de filas igual al numero de columnas)\nDiagonal (todos valores además de las diagonal son ceros)\nTriangular (valores en cero en una de las mitades)\nIdentidad (valores de la diagonal son 1 y los demás, 0)\nEscalar (valores de la diagonal son iguales y los demás, 0)"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#son-muy-usadas-en-los-análisis-de-ecologia",
@@ -1400,11 +1386,11 @@
     "text": "Estructura de la matriz\n\nUna matriz es un tipo especial de array()\nUna matriz tiene 2 dimensiones, formadas por filas y columnas\n\n\nmatrix(data=NA, nrow = 2, ncol=2)\n\n     [,1] [,2]\n[1,]   NA   NA\n[2,]   NA   NA"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#pueden-encontrar-las-diferencias-entre-matrix-y-array",
-    "href": "presentaciones/4.1-matricesv2.html#pueden-encontrar-las-diferencias-entre-matrix-y-array",
+    "objectID": "presentaciones/4.1-matricesv2.html#diferencias-entre-matrix-y-array",
+    "href": "presentaciones/4.1-matricesv2.html#diferencias-entre-matrix-y-array",
     "title": "Matrices en Ecología",
-    "section": "Pueden encontrar las diferencias entre matrix() y array()?",
-    "text": "Pueden encontrar las diferencias entre matrix() y array()?\n\n¿Qué diferencia(s) encontraron?\n\n\na &lt;- matrix(1:6, ncol = 3, nrow = 2)\nb &lt;- array(1:12, c(2, 3, 4))"
+    "section": "Diferencias entre matrix() y array()",
+    "text": "Diferencias entre matrix() y array()\n\na &lt;- matrix(1:6, ncol = 3, nrow = 2)\nb &lt;- array(1:12, c(2, 3, 4))"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#section-1",
@@ -1442,11 +1428,32 @@
     "text": "diag()\n\nEs la función para extraer la diagonal de una matriz\n\n\na &lt;- matrix(1:6, ncol = 3, nrow = 2)\na\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\ndiag(a)\n\n[1] 1 4"
   },
   {
+    "objectID": "presentaciones/4.1-matricesv2.html#la-matriz",
+    "href": "presentaciones/4.1-matricesv2.html#la-matriz",
+    "title": "Matrices en Ecología",
+    "section": "La matriz",
+    "text": "La matriz"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#diferentes-tipos-de-matrices",
+    "href": "presentaciones/4.1-matricesv2.html#diferentes-tipos-de-matrices",
+    "title": "Matrices en Ecología",
+    "section": "Diferentes tipos de matrices",
+    "text": "Diferentes tipos de matrices\n\nCuadrada (número de filas igual al numero de columnas)\nDiagonal (todos valores además de las diagonal son ceros)\nTriangular (valores en cero en una de las mitades)\nIdentidad (valores de la diagonal son 1 y los demás, 0)\nEscalar (valores de la diagonal son iguales y los demás, 0)"
+  },
+  {
     "objectID": "presentaciones/4.1-matricesv2.html#operaciones-con-matrices-sumatoria",
     "href": "presentaciones/4.1-matricesv2.html#operaciones-con-matrices-sumatoria",
     "title": "Matrices en Ecología",
     "section": "Operaciones con matrices: Sumatoria",
     "text": "Operaciones con matrices: Sumatoria\n\n a &lt;- matrix(1:9, nrow=3)\n b &lt;- diag(rep(1,3))\n\n a\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n b\n\n     [,1] [,2] [,3]\n[1,]    1    0    0\n[2,]    0    1    0\n[3,]    0    0    1"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-3",
+    "href": "presentaciones/4.1-matricesv2.html#section-3",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "a &lt;- matrix(1:9, nrow=3)\n b &lt;- diag(rep(1,3))\n\n a + b\n\n     [,1] [,2] [,3]\n[1,]    2    4    7\n[2,]    2    6    8\n[3,]    3    6   10"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#operaciones-con-matrices-diferencia",
@@ -1477,32 +1484,11 @@
     "text": "Multiplicación de matrices\n\nEl comando %*% se aplica par las multiplicaciones\n\n\na &lt;- matrix(1:4, nrow=2)\nb &lt;- diag(rep(1,2))\nd &lt;- matrix(c(0,1), nrow=2)\na\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\nb\n\n     [,1] [,2]\n[1,]    1    0\n[2,]    0    1\n\nd\n\n     [,1]\n[1,]    0\n[2,]    1"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-2",
-    "href": "presentaciones/4.1-matricesv2.html#section-2",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "a &lt;- matrix(1:9, nrow=3)\nb &lt;- diag(rep(1,3))\nd &lt;- matrix(c(0,0,1), nrow=3)\n\n a %*% b # ¿Salió bien?\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-3",
-    "href": "presentaciones/4.1-matricesv2.html#section-3",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "a &lt;- matrix(1:9, nrow=3)\n b &lt;- diag(rep(1,3))\n\n a + b\n\n     [,1] [,2] [,3]\n[1,]    2    4    7\n[2,]    2    6    8\n[3,]    3    6   10"
-  },
-  {
     "objectID": "presentaciones/4.1-matricesv2.html#section-4",
     "href": "presentaciones/4.1-matricesv2.html#section-4",
     "title": "Matrices en Ecología",
     "section": "",
     "text": "a &lt;- matrix(1:4, nrow=2)\nb &lt;- diag(rep(1,2))\nd &lt;- matrix(c(0,1), nrow=2)\n\n a %*% b # ¿Salió bien?\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#la-división-de-matrices-no-existe-se-las-multiplica-por-su-inverso",
-    "href": "presentaciones/4.1-matricesv2.html#la-división-de-matrices-no-existe-se-las-multiplica-por-su-inverso",
-    "title": "Matrices en Ecología",
-    "section": "La división de matrices no existe, se las multiplica por su inverso",
-    "text": "La división de matrices no existe, se las multiplica por su inverso"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#section-5",
@@ -1519,11 +1505,18 @@
     "text": "a &lt;- matrix(1:4, nrow=2)\nb &lt;- diag(rep(1,2))\nd &lt;- matrix(c(0,1), nrow=2)\n\n d %*% a # ¿y esta?"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#quiz",
-    "href": "presentaciones/4.1-matricesv2.html#quiz",
+    "objectID": "presentaciones/4.1-matricesv2.html#la-división-de-matrices-no-existe-se-las-multiplica-por-su-inverso",
+    "href": "presentaciones/4.1-matricesv2.html#la-división-de-matrices-no-existe-se-las-multiplica-por-su-inverso",
     "title": "Matrices en Ecología",
-    "section": "QUIZ",
-    "text": "QUIZ\n\nUn pesticida tiene 2 compuestos tóxicos I y II que se acumulan en 3 especies de plantas A, B y C\n\n\nM = matrix(c(2,3,4,0,1,2), nrow=2,ncol=3,byrow=T,\n           dimnames = \n             list(c(\"I\",\"II\"),\n             c(\"A\", \"B\",\"C\")))\nM\n\n   A B C\nI  2 3 4\nII 0 1 2"
+    "section": "La división de matrices no existe, se las multiplica por su inverso",
+    "text": "La división de matrices no existe, se las multiplica por su inverso"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#la-función-det",
+    "href": "presentaciones/4.1-matricesv2.html#la-función-det",
+    "title": "Matrices en Ecología",
+    "section": "la función det()",
+    "text": "la función det()\n\nPara calcular el inverso es necesario conocer el determinante\n\n\na &lt;- matrix(1:4, nrow=2)\na\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n(1*4) - (3*2)\n\n[1] -2"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#section-7",
@@ -1540,6 +1533,41 @@
     "text": "Dividir cada elemento de la matriz inversa por por el determinante\n\n\ninva &lt;-  matrix(c(4,-3,-2,1), nrow=2)\ninva\n\n     [,1] [,2]\n[1,]    4   -2\n[2,]   -3    1\n\n(4/det(a))\n\n[1] -2\n\n(-3/det(a))\n\n[1] 1.5\n\n(-2/det(a))\n\n[1] 1\n\n(1/det(a))\n\n[1] -0.5"
   },
   {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-9",
+    "href": "presentaciones/4.1-matricesv2.html#section-9",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "La función solve() calcula el inverso\nNo confundir con t(), que es la función para transponer la matriz\n\n\na &lt;- matrix(1:4, nrow=2)\nainv &lt;- solve(a)\nainv\n\n     [,1] [,2]\n[1,]   -2  1.5\n[2,]    1 -0.5"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-10",
+    "href": "presentaciones/4.1-matricesv2.html#section-10",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "a %*% ainv\n\n     [,1] [,2]\n[1,]    1    0\n[2,]    0    1"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#quiz",
+    "href": "presentaciones/4.1-matricesv2.html#quiz",
+    "title": "Matrices en Ecología",
+    "section": "QUIZ",
+    "text": "QUIZ\n\nUn pesticida tiene 2 compuestos tóxicos I y II que se acumulan en 3 especies de plantas A, B y C\n\n\nM = matrix(c(2,3,4,0,1,2), nrow=2,ncol=3,byrow=T,\n           dimnames = \n             list(c(\"I\",\"II\"),\n             c(\"A\", \"B\",\"C\")))\nM\n\n   A B C\nI  2 3 4\nII 0 1 2"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-11",
+    "href": "presentaciones/4.1-matricesv2.html#section-11",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "Si un herbívoro se alimenta de estas 3 especies en las seguientes cantidades por día:\n\n\nN = matrix(c(5,3,1), nrow=3,ncol=1,byrow=F,\n           dimnames = list(c(\"A\",\"B\",\"C\")))\n\nN\n\n  [,1]\nA    5\nB    3\nC    1"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-12",
+    "href": "presentaciones/4.1-matricesv2.html#section-12",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "¿Cuántos contaminantes I y II consume diariamente?\nTip: Mirar el producto de M x N\n\n\nM = matrix(c(2,3,4,0,1,2), nrow=2,ncol=3,byrow=T,\n           dimnames = list(c(\"I\",\"II\"),\n                                                                   c(\"A\", \"B\",\"C\")))\nN = matrix(c(5,3,1), nrow=3,ncol=1,byrow=F,\n           dimnames = list(c(\"A\",\"B\",\"C\")))\n\n\n\n\n   [,1]\nI    23\nII    5"
+  },
+  {
     "objectID": "presentaciones/4.1-matricesv2.html#sparse-vs.-dense-matrices",
     "href": "presentaciones/4.1-matricesv2.html#sparse-vs.-dense-matrices",
     "title": "Matrices en Ecología",
@@ -1554,11 +1582,11 @@
     "text": "Sparse vs. Dense matrices\n\nFunciones aplicadas a ambos tipos de matrices producen los mismos resultados\nVentajas en el tiempo de procesamiento de datos"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-9",
-    "href": "presentaciones/4.1-matricesv2.html#section-9",
+    "objectID": "presentaciones/4.1-matricesv2.html#section-13",
+    "href": "presentaciones/4.1-matricesv2.html#section-13",
     "title": "Matrices en Ecología",
     "section": "",
-    "text": "La función solve() calcula el inverso\nNo confundir con t(), que es la función para transponer la matriz\n\n\na &lt;- matrix(1:4, nrow=2)\nainv &lt;- solve(a)\nainv\n\n     [,1] [,2]\n[1,]   -2  1.5\n[2,]    1 -0.5"
+    "text": "Dense\n\n\nM &lt;- matrix(10 + 1:28, 4, 7) # crear matrix\nM &lt;- cbind(-1, M) # poner una columna con -1\nM[2, c(2,4:6)] &lt;- 0 # agregar unos ceros\nM &lt;- rbind(0, M, 0) #agregar más ceros\nM[1:2,2]  &lt;- NA # agregar NAs\nM[2:6,8]  &lt;- 0 # agregar otros ceros\nM\n\n     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]\n[1,]    0   NA    0    0    0    0    0    0\n[2,]   -1   NA   15   19   23   27   31    0\n[3,]   -1    0   16    0    0    0   32    0\n[4,]   -1   13   17   21   25   29   33    0\n[5,]   -1   14   18   22   26   30   34    0\n[6,]    0    0    0    0    0    0    0    0\n\n\n\n\nSparse\n\n\nlibrary(Matrix)\n\nsM &lt;- as(M, \"sparseMatrix\")\nsM\n\n6 x 8 sparse Matrix of class \"dgCMatrix\"\n                           \n[1,]  . NA  .  .  .  .  . .\n[2,] -1 NA 15 19 23 27 31 .\n[3,] -1  . 16  .  .  . 32 .\n[4,] -1 13 17 21 25 29 33 .\n[5,] -1 14 18 22 26 30 34 .\n[6,]  .  .  .  .  .  .  . ."
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#en-ecología-de-comunidades",
@@ -1568,11 +1596,11 @@
     "text": "En ecología de comunidades\n\nMatrices son usadas para guardar los elementos de analisis de diversidad\nTiene muchos ceros (presencia-ausencia)\nR tiene que guardar cada valor en matrices del tipo dense\nMatrices del tipo sparse no guardan los ceros"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#ejemplo-funciones-útiles-en-el-paquete-phyloregion",
-    "href": "presentaciones/4.1-matricesv2.html#ejemplo-funciones-útiles-en-el-paquete-phyloregion",
+    "objectID": "presentaciones/4.1-matricesv2.html#funciones-útiles-en-el-paquete-phyloregion",
+    "href": "presentaciones/4.1-matricesv2.html#funciones-útiles-en-el-paquete-phyloregion",
     "title": "Matrices en Ecología",
-    "section": "Ejemplo: funciones útiles en el paquete phyloregion",
-    "text": "Ejemplo: funciones útiles en el paquete phyloregion\n\nPara datos de comunidades (sitios x species)\nPhyloregion"
+    "section": "Funciones útiles en el paquete phyloregion",
+    "text": "Funciones útiles en el paquete phyloregion\n\nPara datos de comunidades (sitios x species)\nPhyloregion"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#matrices-de-distancia",
@@ -1582,11 +1610,11 @@
     "text": "Matrices de distancia\n\nPueden ser transformadas en objetos de distancias dist()\nPor defecto calcula distancias euclidianas\n\n\nx &lt;- matrix(1:6, nrow = 3)\ndist(x)\n\n         1        2\n2 1.414214         \n3 2.828427 1.414214"
   },
   {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-11",
-    "href": "presentaciones/4.1-matricesv2.html#section-11",
+    "objectID": "presentaciones/4.1-matricesv2.html#section-15",
+    "href": "presentaciones/4.1-matricesv2.html#section-15",
     "title": "Matrices en Ecología",
     "section": "",
-    "text": "Si un herbívoro se alimenta de estas 3 especies en las seguientes cantidades por día:\n\n\nN = matrix(c(5,3,1), nrow=3,ncol=1,byrow=F,\n           dimnames = list(c(\"A\",\"B\",\"C\")))\n\nN\n\n  [,1]\nA    5\nB    3\nC    1"
+    "text": "class(x)\n\n[1] \"matrix\" \"array\""
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#funciones-del-paquete-vegan",
@@ -1594,6 +1622,20 @@
     "title": "Matrices en Ecología",
     "section": "Funciones del paquete vegan()",
     "text": "Funciones del paquete vegan()\n\nAnálisis comunes en ecología de comunidades usan el formato dist\nvegdist()\n\n\nlibrary(vegan)\n\ndata(varespec)\n\nvare.dist &lt;- vegdist(varespec)\nvare.dist\n\n          18        15        24        27        23        19        22\n15 0.5310021                                                            \n24 0.6680661 0.3597783                                                  \n27 0.5621247 0.4055610 0.4934947                                        \n23 0.3747078 0.3652097 0.5020306 0.4286111                              \n19 0.5094738 0.4560757 0.5092318 0.4878190 0.3606242                    \n22 0.6234419 0.3579517 0.5010050 0.4655224 0.4812706 0.4726483          \n16 0.5337610 0.3976674 0.5907623 0.5683930 0.4094312 0.4496731 0.2678031\n28 0.8418209 0.5225414 0.5736665 0.3027802 0.6979519 0.6431734 0.5985666\n13 0.3453347 0.6063846 0.7576747 0.7543736 0.6221471 0.5739244 0.6948736\n14 0.5449810 0.4803756 0.6533606 0.7467915 0.5645808 0.6331942 0.5357609\n20 0.3879069 0.3784188 0.4346892 0.4957833 0.2877014 0.3953776 0.4627020\n25 0.6318891 0.3376115 0.3369098 0.5001593 0.4258617 0.4311299 0.3822981\n7  0.3603697 0.6717391 0.7931069 0.7792917 0.6390838 0.6958570 0.7459886\n5  0.4955699 0.7178612 0.8561753 0.8732190 0.7295255 0.7898205 0.8611451\n6  0.3382309 0.6355122 0.7441373 0.7496935 0.6252483 0.5684030 0.7249162\n3  0.5277480 0.7578503 0.8382119 0.8090236 0.7128798 0.5302756 0.8026152\n4  0.4694018 0.6843974 0.8309875 0.8413800 0.7117919 0.5177604 0.8015314\n2  0.5724092 0.8206269 0.8372551 0.7581924 0.7249869 0.5389222 0.8321464\n9  0.6583569 0.7761039 0.7590517 0.7415898 0.6693889 0.5393143 0.7725082\n12 0.4688038 0.6794199 0.6894538 0.6253616 0.5384762 0.4288556 0.7051751\n10 0.6248996 0.7644564 0.7842829 0.7096540 0.6625476 0.5059910 0.7875328\n11 0.4458523 0.4716274 0.5677373 0.6322919 0.4710280 0.3293493 0.5812219\n21 0.5560864 0.7607281 0.7272727 0.5456001 0.4951221 0.5315894 0.6771167\n          16        28        13        14        20        25         7\n15                                                                      \n24                                                                      \n27                                                                      \n23                                                                      \n19                                                                      \n22                                                                      \n16                                                                      \n28 0.7015360                                                            \n13 0.5514941 0.8600122                                                  \n14 0.4826350 0.8239667 0.5547565                                        \n20 0.3737797 0.6963560 0.5785542 0.5115258                              \n25 0.4306058 0.6086150 0.7412605 0.5541517 0.4518556                    \n7  0.6596144 0.8960202 0.4533054 0.6550830 0.5959162 0.7556726          \n5  0.7184789 0.9539592 0.5148988 0.7257681 0.7153827 0.8600858 0.3237446\n6  0.6509879 0.9014440 0.3515673 0.6227473 0.5439118 0.7343872 0.1754713\n3  0.6837953 0.9234485 0.4965478 0.7836661 0.6690479 0.8168684 0.5154487\n4  0.6462648 0.9381169 0.3881748 0.6734743 0.6771854 0.8400134 0.5601721\n2  0.7354202 0.9053213 0.5968691 0.8592489 0.6951539 0.8179089 0.6465777\n9  0.8185866 0.8686670 0.7292530 0.8282497 0.6982486 0.7884243 0.8318435\n12 0.6342166 0.8543167 0.5902386 0.7507074 0.5182426 0.7062564 0.6991666\n10 0.7656598 0.9016604 0.7160439 0.8304088 0.6706349 0.7845955 0.7697453\n11 0.5172825 0.7544064 0.4272808 0.6743277 0.4461712 0.6175930 0.5262233\n21 0.7474559 0.7248773 0.7212772 0.8096450 0.6320431 0.7466232 0.7933350\n           5         6         3         4         2         9        12\n15                                                                      \n24                                                                      \n27                                                                      \n23                                                                      \n19                                                                      \n22                                                                      \n16                                                                      \n28                                                                      \n13                                                                      \n14                                                                      \n20                                                                      \n25                                                                      \n7                                                                       \n5                                                                       \n6  0.3984538                                                            \n3  0.5634432 0.4517627                                                  \n4  0.5377506 0.4665100 0.3592689                                        \n2  0.7257597 0.5552754 0.2099203 0.4841145                              \n9  0.9014583 0.7223126 0.3885811 0.6222340 0.2330286                    \n12 0.7808641 0.5762462 0.2641851 0.4870742 0.1846147 0.2277228          \n10 0.8504191 0.6567926 0.3413378 0.5776062 0.1456729 0.1117280 0.1793368\n11 0.5563798 0.4077948 0.3002597 0.3215966 0.4209596 0.5145260 0.3688102\n21 0.8888316 0.6720141 0.7507773 0.7641304 0.6779661 0.5952563 0.5602137\n          10        11\n15                    \n24                    \n27                    \n23                    \n19                    \n22                    \n16                    \n28                    \n13                    \n14                    \n20                    \n25                    \n7                     \n5                     \n6                     \n3                     \n4                     \n2                     \n9                     \n12                    \n10                    \n11 0.5043578          \n21 0.6147874 0.6713363"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#transformar-objetos-dist-en-objetos-de-formato-ancho",
+    "href": "presentaciones/4.1-matricesv2.html#transformar-objetos-dist-en-objetos-de-formato-ancho",
+    "title": "Matrices en Ecología",
+    "section": "Transformar objetos dist() en objetos de formato ancho",
+    "text": "Transformar objetos dist() en objetos de formato ancho\n\nlibrary(tidyr)\nlibrary(tidyverse)\n\nx &lt;- matrix(1:6, nrow = 3)\ndx = dist(x)"
+  },
+  {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-16",
+    "href": "presentaciones/4.1-matricesv2.html#section-16",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "dx |&gt; \n  as.matrix() |&gt; \n  as.data.frame() |&gt; \n  mutate(sites = c(\"1\",\"2\",\"3\")) |&gt; \n  pivot_longer(cols = c(1:3),\n               names_to = \"sites2\",\n               values_to = \"distances\") |&gt; \n  \n  head()\n\n# A tibble: 6 × 3\n  sites sites2 distances\n  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 1     1           0   \n2 1     2           1.41\n3 1     3           2.83\n4 2     1           1.41\n5 2     2           0   \n6 2     3           1.41"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#visualizar-datos-crudos",
@@ -1652,6 +1694,13 @@
     "text": "Ejemplo usando dados de abundancia de moluscos\n\nImportar el archivo moluscos.txt\n\n\nlibrary(readr)\nlibrary(here)\nmoluscos = read_table(file=here(\"dados\",\"moluscos.txt\"))\n\n\n# importar los datos ambientales\nambi = read_table(file=here(\"dados\",\"ambi.txt\"))"
   },
   {
+    "objectID": "presentaciones/4.1-matricesv2.html#editar-la-tabla-de-moluscos-quitar-la-columna-sites",
+    "href": "presentaciones/4.1-matricesv2.html#editar-la-tabla-de-moluscos-quitar-la-columna-sites",
+    "title": "Matrices en Ecología",
+    "section": "Editar la tabla de moluscos, quitar la columna “sites”",
+    "text": "Editar la tabla de moluscos, quitar la columna “sites”\n\nlibrary(tidyverse)\n\nmoluscos &lt;- \n  moluscos |&gt; \n    select(c(sp1:sp6))\nmoluscos\n\n# A tibble: 10 × 6\n     sp1   sp2   sp3   sp4   sp5   sp6\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1    10     9    15     2     1     0\n 2     0     0     0     0    13    12\n 3     7     4     0     0     0     0\n 4     0     1     0     3    14    20\n 5     0     0     0    10     8     6\n 6     0     0     2     5     4     0\n 7     0     4    11     0     0     0\n 8     0     0     7     3     0     0\n 9     0     0     0     9     5     0\n10     0     0     1    15    10     8"
+  },
+  {
     "objectID": "presentaciones/4.1-matricesv2.html#calcular-las-medias",
     "href": "presentaciones/4.1-matricesv2.html#calcular-las-medias",
     "title": "Matrices en Ecología",
@@ -1666,6 +1715,13 @@
     "text": "Visualizar\n\nAlgunos ajustes..\n\n\nambi2 &lt;- ambi[order(ambi$lluvia,decreasing=F),]\n\nmolu.ord2 &lt;- cbind(molu.ord1,ambi2)"
   },
   {
+    "objectID": "presentaciones/4.1-matricesv2.html#section-17",
+    "href": "presentaciones/4.1-matricesv2.html#section-17",
+    "title": "Matrices en Ecología",
+    "section": "",
+    "text": "Qué vemos en la gráfica abajo? Hay algun patrón?\n\n\nmolu.ord2 |&gt; \n  pivot_longer(cols = c(sp1:sp6)) |&gt; \n  ggplot(aes(x=factor(lluvia),y=fct_rev(name),size=ifelse(value==0,NA,value)))+\n  geom_point(shape=15)"
+  },
+  {
     "objectID": "presentaciones/4.1-matricesv2.html#otras-opiciones-de-gráficos-genéricos",
     "href": "presentaciones/4.1-matricesv2.html#otras-opiciones-de-gráficos-genéricos",
     "title": "Matrices en Ecología",
@@ -1678,41 +1734,6 @@
     "title": "Matrices en Ecología",
     "section": "Cuando no hay variables ambientales",
     "text": "Cuando no hay variables ambientales\n\nIgual se pueden ordenar las matrices para visualizar los patrones\nIndirect gradient analysis\nDe este tipo se análisis se derivan técnicas más complejas como RA, CA y PCA"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#transformar-matrices-formatos-long-y-wide",
-    "href": "presentaciones/4.1-matricesv2.html#transformar-matrices-formatos-long-y-wide",
-    "title": "Matrices en Ecología",
-    "section": "Transformar matrices: formatos long y wide",
-    "text": "Transformar matrices: formatos long y wide\n\nHabía un excelente paquete con buena documentación aqui\nSin emmbargo el paquete reshape2 ya no se va actualizar..\nSu funciones fueron incorporadas por el paqute tidyr\nTambién hay opciones en el paquete data.table"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#formatos-long-y-wide",
-    "href": "presentaciones/4.1-matricesv2.html#formatos-long-y-wide",
-    "title": "Matrices en Ecología",
-    "section": "Formatos long y wide",
-    "text": "Formatos long y wide"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#en-tidyr",
-    "href": "presentaciones/4.1-matricesv2.html#en-tidyr",
-    "title": "Matrices en Ecología",
-    "section": "En tidyr",
-    "text": "En tidyr\n\nde long para wide : tidyr::pivot_wider()\nde wide para long : tidyr::pivot_longer()\nDocumentación aqui"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#wide-to-long",
-    "href": "presentaciones/4.1-matricesv2.html#wide-to-long",
-    "title": "Matrices en Ecología",
-    "section": "Wide to long",
-    "text": "Wide to long\n\nlibrary(rio)\nlibrary(tidyr)\n\n\nAttaching package: 'tidyr'\n\n\nThe following objects are masked from 'package:Matrix':\n\n    expand, pack, unpack\n\nmoluscos$sites = rownames(moluscos)\n\nmol_long =\nmoluscos %&gt;%\n  pivot_longer(\n    cols = !sites,\n    names_to = \"species\",\n    values_to = \"abundances\")\nmol_long %&gt;%\n  head()\n\n# A tibble: 6 × 3\n  sites species abundances\n  &lt;chr&gt; &lt;chr&gt;        &lt;int&gt;\n1 P1    sp1             10\n2 P1    sp2              9\n3 P1    sp3             15\n4 P1    sp4              2\n5 P1    sp5              1\n6 P1    sp6              0"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#long-to-wide",
-    "href": "presentaciones/4.1-matricesv2.html#long-to-wide",
-    "title": "Matrices en Ecología",
-    "section": "Long to wide:",
-    "text": "Long to wide:\n\nCómo quedaria?…\nUsen la función pivot_wider()\n\n\nmol_long %&gt;%\n  pivot_wider(\n    names_from = xxx,\n    values_from = xx\n  )"
   },
   {
     "objectID": "presentaciones/4.1-matricesv2.html#en-resumen",
@@ -2483,6 +2504,27 @@
     "title": "Visualización de datos",
     "section": "Anotaciones",
     "text": "Anotaciones\n\n((grasaCarb/protEnergia)|puntos_ranas)+\n  plot_annotation(title=\"Mi figura de tres elementos\",\n                  subtitle = \"ejemplo de patchwork\",\n                  tag_levels = \"A\")\n\n\ntag_levels genera diferentes secuencias alfabéticas o numéricas para identificar a cada elemento"
+  },
+  {
+    "objectID": "presentaciones/3-visualizacion.html#texto-con-formato",
+    "href": "presentaciones/3-visualizacion.html#texto-con-formato",
+    "title": "Visualización de datos",
+    "section": "Texto con formato",
+    "text": "Texto con formato\nPodemos usar markdown para darle formato al texto que aparece en diferentes elementos de nuestras gráficas, a través de la función element_markdown() del paquete ggtext\nDocumentación del paquete\n\nlibrary(ggtext)\nggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+\ngeom_point()+\n  scale_color_discrete(labels=c(\"Chatarra  **Grasienta**\",\"light\"))+\n  theme(legend.text = element_markdown())"
+  },
+  {
+    "objectID": "presentaciones/3-visualizacion.html#section-14",
+    "href": "presentaciones/3-visualizacion.html#section-14",
+    "title": "Visualización de datos",
+    "section": "",
+    "text": "ggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+\ngeom_point()+\n  scale_color_discrete(labels=c(\"Chatarra  **Grasienta**\",\"light\"))+\n  theme(legend.text = element_markdown())"
+  },
+  {
+    "objectID": "presentaciones/3-visualizacion.html#extensiones-para-ggplot2",
+    "href": "presentaciones/3-visualizacion.html#extensiones-para-ggplot2",
+    "title": "Visualización de datos",
+    "section": "Extensiones para ggplot2",
+    "text": "Extensiones para ggplot2\nTaller LatinR\nGalería oficial de extensiones"
   },
   {
     "objectID": "temario.html",
@@ -3329,7 +3371,7 @@
     "href": "presentaciones/4-LQNNESR.html#temas-de-este-bloque",
     "title": "Lo que nadie nos enseñó sobre R",
     "section": "Temas de este bloque:",
-    "text": "Temas de este bloque:\n– Entornos de trabajo y configuración\n– Iteración y vectorización para evitar repetición\n– Trabajando con listas\n– Manejo de matrices\n– Atajos y herramientas para mayor eficiencia\n– Errores comunes y cómo buscar soluciones"
+    "text": "Temas de este bloque:\n– Entornos de trabajo y configuración\n– Iteración y vectorización para evitar repetición\n– Trabajando con listas\n– Manejo de matrices\n– Atajos y herramientas para mayor eficiencia\n– Errores comunes y cómo buscar soluciones\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union"
   },
   {
     "objectID": "presentaciones/4-LQNNESR.html#personalización",
@@ -3392,7 +3434,7 @@
     "href": "presentaciones/4-LQNNESR.html#trabajando-con-datos-agrupados",
     "title": "Lo que nadie nos enseñó sobre R",
     "section": "Trabajando con datos agrupados",
-    "text": "Trabajando con datos agrupados\nCon la versión agrupada de nuestra tabla, las funciones de dplyr trabajan sobre cada grupo por separado y después se combinan los resultados.\n\n::::{.rightref} :::{.refbox} RStudio (2021)\nData transformation with dplyr cheatsheet :::"
+    "text": "Trabajando con datos agrupados\nCon la versión agrupada de nuestra tabla, las funciones de dplyr trabajan sobre cada grupo por separado y después se combinan los resultados.\n\n\n\nRStudio (2021)\nData transformation with dplyr cheatsheet"
   },
   {
     "objectID": "presentaciones/4-LQNNESR.html#opciones-para-datos-agrupados",
@@ -3420,14 +3462,14 @@
     "href": "presentaciones/4-LQNNESR.html#muestrar-una-fila-al-azar-de-cada-grupo",
     "title": "Lo que nadie nos enseñó sobre R",
     "section": "Muestrar una fila al azar de cada grupo",
-    "text": "Muestrar una fila al azar de cada grupo\n\n\nmsleep %&gt;% group_by(order) %&gt;% \n  slice_sample(n=1)\n\n\n\n# A tibble: 19 × 11\n# Groups:   order [19]\n   name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n 1 Tenrec Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA       8.4\n 2 Pig    Sus   omni  Arti… domesticated         9.1       2.4       0.5    14.9\n 3 Red f… Vulp… carni Carn… &lt;NA&gt;                 9.8       2.4       0.35   14.2\n 4 Commo… Phoc… carni Ceta… vu                   5.6      NA        NA      18.4\n 5 Littl… Myot… inse… Chir… &lt;NA&gt;                19.9       2         0.2     4.1\n 6 Giant… Prio… inse… Cing… en                  18.1       6.1      NA       5.9\n 7 North… Dide… omni  Dide… lc                  18         4.9       0.333   6  \n 8 Potor… Poto… herbi Dipr… &lt;NA&gt;                11.1       1.5      NA      12.9\n 9 Europ… Erin… omni  Erin… lc                  10.1       3.5       0.283  13.9\n10 Tree … Dend… herbi Hyra… lc                   5.3       0.5      NA      18.7\n11 Rabbit Oryc… herbi Lago… domesticated         8.4       0.9       0.417  15.6\n12 Short… Tach… inse… Mono… &lt;NA&gt;                 8.6      NA        NA      15.4\n13 Brazi… Tapi… herbi Peri… vu                   4.4       1         0.9    19.6\n14 Three… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n15 Human  Homo  omni  Prim… &lt;NA&gt;                 8         1.9       1.5    16  \n16 Asian… Elep… herbi Prob… en                   3.9      NA        NA      20.1\n17 Chinc… Chin… herbi Rode… domesticated        12.5       1.5       0.117  11.5\n18 Tree … Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233  15.1\n19 Musk … Sunc… &lt;NA&gt;  Sori… &lt;NA&gt;                12.8       2         0.183  11.2\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;"
+    "text": "Muestrar una fila al azar de cada grupo\n\n\nmsleep %&gt;% group_by(order) %&gt;% \n  slice_sample(n=1)\n\n\n\n# A tibble: 19 × 11\n# Groups:   order [19]\n   name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n 1 Tenrec Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA       8.4\n 2 Roe d… Capr… herbi Arti… lc                   3        NA        NA      21  \n 3 Arcti… Vulp… carni Carn… &lt;NA&gt;                12.5      NA        NA      11.5\n 4 Pilot… Glob… carni Ceta… cd                   2.7       0.1      NA      21.4\n 5 Littl… Myot… inse… Chir… &lt;NA&gt;                19.9       2         0.2     4.1\n 6 Giant… Prio… inse… Cing… en                  18.1       6.1      NA       5.9\n 7 North… Dide… omni  Dide… lc                  18         4.9       0.333   6  \n 8 Potor… Poto… herbi Dipr… &lt;NA&gt;                11.1       1.5      NA      12.9\n 9 Deser… Para… &lt;NA&gt;  Erin… lc                  10.3       2.7      NA      13.7\n10 Rock … Proc… &lt;NA&gt;  Hyra… lc                   5.4       0.5      NA      18.6\n11 Rabbit Oryc… herbi Lago… domesticated         8.4       0.9       0.417  15.6\n12 Short… Tach… inse… Mono… &lt;NA&gt;                 8.6      NA        NA      15.4\n13 Horse  Equus herbi Peri… domesticated         2.9       0.6       1      21.1\n14 Three… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n15 Macaq… Maca… omni  Prim… &lt;NA&gt;                10.1       1.2       0.75   13.9\n16 Afric… Loxo… herbi Prob… vu                   3.3      NA        NA      20.7\n17 Weste… Euta… herbi Rode… &lt;NA&gt;                14.9      NA        NA       9.1\n18 Tree … Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233  15.1\n19 Lesse… Cryp… omni  Sori… lc                   9.1       1.4       0.15   14.9\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;"
   },
   {
     "objectID": "presentaciones/4-LQNNESR.html#resumiendo-valores",
     "href": "presentaciones/4-LQNNESR.html#resumiendo-valores",
     "title": "Lo que nadie nos enseñó sobre R",
     "section": "Resumiendo valores",
-    "text": "Resumiendo valores\n\n\nmsleep %&gt;% group_by(order) %&gt;% \n  summarize(mediana_slp = mean(sleep_total),\n            media_brainwt=mean(brainwt))\n\n\n\n# A tibble: 19 × 3\n   order           mediana_slp media_brainwt\n   &lt;chr&gt;                 &lt;dbl&gt;         &lt;dbl&gt;\n 1 Afrosoricida          15.6       0.0026  \n 2 Artiodactyla           4.52     NA       \n 3 Carnivora             10.1      NA       \n 4 Cetacea                4.5      NA       \n 5 Chiroptera            19.8       0.000275\n 6 Cingulata             17.8       0.0459  \n 7 Didelphimorphia       18.7      NA       \n 8 Diprotodontia         12.4      NA       \n 9 Erinaceomorpha        10.2       0.00295 \n10 Hyracoidea             5.67      0.0152  \n11 Lagomorpha             8.4       0.0121  \n12 Monotremata            8.6       0.025   \n13 Perissodactyla         3.47      0.414   \n14 Pilosa                14.4      NA       \n15 Primates              10.5      NA       \n16 Proboscidea            3.6       5.16    \n17 Rodentia              12.5      NA       \n18 Scandentia             8.9       0.0025  \n19 Soricomorpha          11.1       0.000592"
+    "text": "Resumiendo valores\n\n\nmsleep %&gt;% group_by(order) %&gt;% \n  summarize(mediana_slp = median(sleep_total),\n            media_brainwt=mean(brainwt))\n\n\n\n# A tibble: 19 × 3\n   order           mediana_slp media_brainwt\n   &lt;chr&gt;                 &lt;dbl&gt;         &lt;dbl&gt;\n 1 Afrosoricida           15.6      0.0026  \n 2 Artiodactyla            3.9     NA       \n 3 Carnivora              10.2     NA       \n 4 Cetacea                 5.2     NA       \n 5 Chiroptera             19.8      0.000275\n 6 Cingulata              17.8      0.0459  \n 7 Didelphimorphia        18.7     NA       \n 8 Diprotodontia          12.4     NA       \n 9 Erinaceomorpha         10.2      0.00295 \n10 Hyracoidea              5.4      0.0152  \n11 Lagomorpha              8.4      0.0121  \n12 Monotremata             8.6      0.025   \n13 Perissodactyla          3.1      0.414   \n14 Pilosa                 14.4     NA       \n15 Primates                9.9     NA       \n16 Proboscidea             3.6      5.16    \n17 Rodentia               12.9     NA       \n18 Scandentia              8.9      0.0025  \n19 Soricomorpha           10.3      0.000592"
   },
   {
     "objectID": "presentaciones/4-LQNNESR.html#bucles-for-loops",
@@ -3995,117 +4037,5 @@
     "title": "Materiales del curso",
     "section": "Profesores",
     "text": "Profesores\nDr. Fabricio Villalobos Camacho\nDr. Gabriel Massaine Moulatlet\nDr. Luis D. Verde Arregoitia"
-  },
-  {
-    "objectID": "presentaciones/3-visualizacion.html#texto-con-formato",
-    "href": "presentaciones/3-visualizacion.html#texto-con-formato",
-    "title": "Visualización de datos",
-    "section": "Texto con formato",
-    "text": "Texto con formato\nPodemos usar markdown para darle formato al texto que aparece en diferentes elementos de nuestras gráficas, a través de la función element_markdown() del paquete ggtext\nDocumentación del paquete\n\nlibrary(ggtext)\nggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+\ngeom_point()+\n  scale_color_discrete(labels=c(\"Chatarra  **Grasienta**\",\"light\"))+\n  theme(legend.text = element_markdown())"
-  },
-  {
-    "objectID": "presentaciones/3-visualizacion.html#section-14",
-    "href": "presentaciones/3-visualizacion.html#section-14",
-    "title": "Visualización de datos",
-    "section": "",
-    "text": "ggplot(cafeteria,aes(carbohidratos,grasa,color=bajo_grasa))+\ngeom_point()+\n  scale_color_discrete(labels=c(\"Chatarra  **Grasienta**\",\"light\"))+\n  theme(legend.text = element_markdown())"
-  },
-  {
-    "objectID": "presentaciones/3-visualizacion.html#extensiones-para-ggplot2",
-    "href": "presentaciones/3-visualizacion.html#extensiones-para-ggplot2",
-    "title": "Visualización de datos",
-    "section": "Extensiones para ggplot2",
-    "text": "Extensiones para ggplot2\nTaller LatinR\nGalería oficial de extensiones"
-  },
-  {
-    "objectID": "presentaciones/2-manipulacion_y_limpieza.html",
-    "href": "presentaciones/2-manipulacion_y_limpieza.html",
-    "title": "Manipulacion y limpieza de datos",
-    "section": "",
-    "text": "Attaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#matrices-1",
-    "href": "presentaciones/4.1-matricesv2.html#matrices-1",
-    "title": "Matrices en Ecología",
-    "section": "Matrices",
-    "text": "Matrices"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#diferencias-entre-matrix-y-array",
-    "href": "presentaciones/4.1-matricesv2.html#diferencias-entre-matrix-y-array",
-    "title": "Matrices en Ecología",
-    "section": "Diferencias entre matrix() y array()",
-    "text": "Diferencias entre matrix() y array()\n\na &lt;- matrix(1:6, ncol = 3, nrow = 2)\nb &lt;- array(1:12, c(2, 3, 4))"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#la-función-det",
-    "href": "presentaciones/4.1-matricesv2.html#la-función-det",
-    "title": "Matrices en Ecología",
-    "section": "la función det()",
-    "text": "la función det()\n\nPara calcular el inverso es necesario conocer el determinante\n\n\na &lt;- matrix(1:4, nrow=2)\na\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n(1*4) - (3*2)\n\n[1] -2"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-10",
-    "href": "presentaciones/4.1-matricesv2.html#section-10",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "a %*% ainv\n\n     [,1] [,2]\n[1,]    1    0\n[2,]    0    1"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-12",
-    "href": "presentaciones/4.1-matricesv2.html#section-12",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "¿Cuántos contaminantes I y II consume diariamente?\nTip: Mirar el producto de M x N\n\n\nM = matrix(c(2,3,4,0,1,2), nrow=2,ncol=3,byrow=T,\n           dimnames = list(c(\"I\",\"II\"),\n                                                                   c(\"A\", \"B\",\"C\")))\nN = matrix(c(5,3,1), nrow=3,ncol=1,byrow=F,\n           dimnames = list(c(\"A\",\"B\",\"C\")))\n\n\n\n\n   [,1]\nI    23\nII    5"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-13",
-    "href": "presentaciones/4.1-matricesv2.html#section-13",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "Dense\n\n\nM &lt;- matrix(10 + 1:28, 4, 7) # crear matrix\nM &lt;- cbind(-1, M) # poner una columna con -1\nM[2, c(2,4:6)] &lt;- 0 # agregar unos ceros\nM &lt;- rbind(0, M, 0) #agregar más ceros\nM[1:2,2]  &lt;- NA # agregar NAs\nM[2:6,8]  &lt;- 0 # agregar otros ceros\nM\n\n     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]\n[1,]    0   NA    0    0    0    0    0    0\n[2,]   -1   NA   15   19   23   27   31    0\n[3,]   -1    0   16    0    0    0   32    0\n[4,]   -1   13   17   21   25   29   33    0\n[5,]   -1   14   18   22   26   30   34    0\n[6,]    0    0    0    0    0    0    0    0\n\n\n\n\nSparse\n\n\nlibrary(Matrix)\n\nsM &lt;- as(M, \"sparseMatrix\")\nsM\n\n6 x 8 sparse Matrix of class \"dgCMatrix\"\n                           \n[1,]  . NA  .  .  .  .  . .\n[2,] -1 NA 15 19 23 27 31 .\n[3,] -1  . 16  .  .  . 32 .\n[4,] -1 13 17 21 25 29 33 .\n[5,] -1 14 18 22 26 30 34 .\n[6,]  .  .  .  .  .  .  . ."
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#funciones-útiles-en-el-paquete-phyloregion",
-    "href": "presentaciones/4.1-matricesv2.html#funciones-útiles-en-el-paquete-phyloregion",
-    "title": "Matrices en Ecología",
-    "section": "Funciones útiles en el paquete phyloregion",
-    "text": "Funciones útiles en el paquete phyloregion\n\nPara datos de comunidades (sitios x species)\nPhyloregion"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-15",
-    "href": "presentaciones/4.1-matricesv2.html#section-15",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "class(x)\n\n[1] \"matrix\" \"array\""
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#transformar-objetos-dist-en-objetos-de-formato-ancho",
-    "href": "presentaciones/4.1-matricesv2.html#transformar-objetos-dist-en-objetos-de-formato-ancho",
-    "title": "Matrices en Ecología",
-    "section": "Transformar objetos dist() en objetos de formato ancho",
-    "text": "Transformar objetos dist() en objetos de formato ancho\n\nlibrary(tidyr)\nlibrary(tidyverse)\n\nx &lt;- matrix(1:6, nrow = 3)\ndx = dist(x)"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-16",
-    "href": "presentaciones/4.1-matricesv2.html#section-16",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "dx |&gt; \n  as.matrix() |&gt; \n  as.data.frame() |&gt; \n  mutate(sites = c(\"1\",\"2\",\"3\")) |&gt; \n  pivot_longer(cols = c(1:3),\n               names_to = \"sites2\",\n               values_to = \"distances\") |&gt; \n  \n  head()\n\n# A tibble: 6 × 3\n  sites sites2 distances\n  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 1     1           0   \n2 1     2           1.41\n3 1     3           2.83\n4 2     1           1.41\n5 2     2           0   \n6 2     3           1.41"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#editar-la-tabla-de-moluscos-quitar-la-columna-sites",
-    "href": "presentaciones/4.1-matricesv2.html#editar-la-tabla-de-moluscos-quitar-la-columna-sites",
-    "title": "Matrices en Ecología",
-    "section": "Editar la tabla de moluscos, quitar la columna “sites”",
-    "text": "Editar la tabla de moluscos, quitar la columna “sites”\n\nlibrary(tidyverse)\n\nmoluscos &lt;- \n  moluscos |&gt; \n    select(c(sp1:sp6))\nmoluscos\n\n# A tibble: 10 × 6\n     sp1   sp2   sp3   sp4   sp5   sp6\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1    10     9    15     2     1     0\n 2     0     0     0     0    13    12\n 3     7     4     0     0     0     0\n 4     0     1     0     3    14    20\n 5     0     0     0    10     8     6\n 6     0     0     2     5     4     0\n 7     0     4    11     0     0     0\n 8     0     0     7     3     0     0\n 9     0     0     0     9     5     0\n10     0     0     1    15    10     8"
-  },
-  {
-    "objectID": "presentaciones/4.1-matricesv2.html#section-17",
-    "href": "presentaciones/4.1-matricesv2.html#section-17",
-    "title": "Matrices en Ecología",
-    "section": "",
-    "text": "Qué vemos en la gráfica abajo? Hay algun patrón?\n\n\nmolu.ord2 |&gt; \n  pivot_longer(cols = c(sp1:sp6)) |&gt; \n  ggplot(aes(x=factor(lluvia),y=fct_rev(name),size=ifelse(value==0,NA,value)))+\n  geom_point(shape=15)"
   }
 ]
