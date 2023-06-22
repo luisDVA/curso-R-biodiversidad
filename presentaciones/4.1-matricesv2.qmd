@@ -17,35 +17,22 @@ library(here)
 ```
 
 # Matrices
-- hola
 
-## Matrices en Ecología
+
+## Matrices
 
 ![](https://i.imgflip.com/lnf8o.jpg)
 
 ## 
 
 -   Es el formato más comun de representación de datos ecológicos
--   Se torno popular en ecologia con el desarollo de mejores computadoras
+-   Más popular en ecología con el desarollo de mejores computadoras
 -   Gran parte del lenguaje de los softwares está basada en notaciones de matrices
-
-## La matriz
-
-![](imgs/matrix.jpg)
-
-## Diferentes tipos de matrices
-
--   Cuadrada (número de filas igual al numero de columnas)
--   Diagonal (todos valores además de las diagonal son ceros)
--   Triangular (valores en cero en una de las mitades)
--   Identidad (valores de la diagonal son 1 y los demás, 0)
--   Escalar (valores de la diagonal son iguales y los demás, 0)
 
 ## Son muy usadas en los análisis de ecologia
 
 -   Análisis multivariados en ecologia de comunidades
 -   Para resumir grandes conjuntos de datos
--   En las estadísticas empleadas en modelos estadísticos (lm, pglm, gls etc)
 -   Comunes en macroecología (matriz de presencia-ausencia)
 -   Correlación entre variables
 
@@ -69,9 +56,7 @@ matrix(data=NA, nrow = 2, ncol=2)
 
 ```
 
-## Pueden encontrar las diferencias entre `matrix()` y `array()`?
-
--   ¿Qué diferencia(s) encontraron?
+## Diferencias entre `matrix()` y `array()`
 
 ```{r}
 #| eval: true
@@ -81,7 +66,7 @@ a <- matrix(1:6, ncol = 3, nrow = 2)
 b <- array(1:12, c(2, 3, 4))
 ```
 
-## 
+##
 
 ::: columns
 ::: {.column width="50%"}
@@ -120,7 +105,7 @@ matrix(data=NA, nrow = 2, ncol=2,dimnames = list(c("row1","row2"),
 
 -   *byrow*
 -   Define como se da el llenado de la matrix
--   Si `byrow=T`, el llenad se da por filas
+-   Si `byrow=T`, el llenado se da por filas
 
 ```{r}
 #| eval: true
@@ -146,10 +131,28 @@ matrix(vec, nrow = 3, byrow = F )
 #| eval: true
 #| echo: true
 a <- matrix(1:6, ncol = 3, nrow = 2)
+a
 diag(a)
 ```
 
 # Algebra de matrices
+
+## La matriz
+
+![](imgs/matrix.jpg)
+
+## Diferentes tipos de matrices
+
+-   Cuadrada (número de filas igual al numero de columnas)
+-   Diagonal (todos valores además de las diagonal son ceros)
+-   Triangular (valores en cero en una de las mitades)
+-   Identidad (valores de la diagonal son 1 y los demás, 0)
+-   Escalar (valores de la diagonal son iguales y los demás, 0)
+
+##
+
+![](imgs/matrices.png)
+
 
 ## Operaciones con matrices: Sumatoria
 
@@ -164,7 +167,7 @@ diag(a)
 
 ```
 
-. . .
+##
 
 ```{r}
 #| eval: true
@@ -183,6 +186,8 @@ diag(a)
 #| echo: true
  a <- matrix(1:9, nrow=3)
  b <- diag(rep(1,3))
+ a
+ b
 
  a - b
 ```
@@ -200,8 +205,6 @@ a
 d
 ```
 
-. . .
-
 ```{r}
 #| eval: true
 #| echo: true
@@ -214,7 +217,6 @@ a + d
 #| eval: true
 #| echo: true
  a <- matrix(1:9, nrow=3)
- d <- c(0,0,1)
 
  a + 1
 
@@ -234,19 +236,20 @@ a + d
 
  a <- matrix(1:9, nrow=3)
  b <- 1
+ a
  a + b
 ```
 :::
 
 ::: {.column width="50%"}
--Y esta suma, ¿sale bien?
+- Y esta suma, ¿sale bien?
 
 ```{r}
 #| eval: false
 #| echo: true
  a <- matrix(1:9, nrow=3)
  b2 <- matrix(b, nrow=1)
-
+ b2
  a + b2
 ```
 :::
@@ -260,9 +263,9 @@ a + d
 #| eval: true
 #| echo: true
 
-a <- matrix(1:9, nrow=3)
-b <- diag(rep(1,3))
-d <- matrix(c(0,0,1), nrow=3)
+a <- matrix(1:4, nrow=2)
+b <- diag(rep(1,2))
+d <- matrix(c(0,1), nrow=2)
 a
 b
 d
@@ -274,9 +277,9 @@ d
 #| eval: true
 #| echo: true
 
-a <- matrix(1:9, nrow=3)
-b <- diag(rep(1,3))
-d <- matrix(c(0,0,1), nrow=3)
+a <- matrix(1:4, nrow=2)
+b <- diag(rep(1,2))
+d <- matrix(c(0,1), nrow=2)
 
  a %*% b # ¿Salió bien?
 ```
@@ -287,9 +290,9 @@ d <- matrix(c(0,0,1), nrow=3)
 #| eval: true
 #| echo: true
 
-a <- matrix(1:9, nrow=3)
-b <- diag(rep(1,3))
-d <- matrix(c(0,0,1), nrow=3)
+a <- matrix(1:4, nrow=2)
+b <- diag(rep(1,2))
+d <- matrix(c(0,1), nrow=2)
 
  a %*% d # ¿esta?
 ```
@@ -300,42 +303,71 @@ d <- matrix(c(0,0,1), nrow=3)
 #| eval: false
 #| echo: true
 
-a <- matrix(1:9, nrow=3)
-b <- diag(rep(1,3))
-d <- matrix(c(0,0,1), nrow=3)
+a <- matrix(1:4, nrow=2)
+b <- diag(rep(1,2))
+d <- matrix(c(0,1), nrow=2)
 
- d%*%a # ¿y esta?
+ d %*% a # ¿y esta?
 ```
 
 ## La división de matrices no existe, se las multiplica por su inverso
 
 ![](imgs/invma.png)
 
-## 
+## la función `det()`
 
--   La función `solve()` calcula el inverso
--   No confundir con `t()`, que es la función para trasponer la matriz
-
+- Para calcular el inverso es necesario conocer el *determinante*
 ```{r}
 #| eval: true
 #| echo: true
 
-a <- rbind(c(10,5,5), c(5,10,2), c(5,2,10))
+a <- matrix(1:4, nrow=2)
 a
+(1*4) - (3*2)
+
 ```
 
+##
 ```{r}
 #| eval: true
 #| echo: true
+
+d <- det(a)
+d
+
+```
+
+##
+- Dividir cada elemento de la matriz inversa por por el determinante
+
+```{r}
+#| eval: true
+#| echo: true
+
+inva <-  matrix(c(4,-3,-2,1), nrow=2)
+inva
+
+(4/det(a))
+(-3/det(a))
+(-2/det(a))
+(1/det(a))
+
+```
+
+##
+-   La función `solve()` calcula el inverso
+-   No confundir con `t()`, que es la función para transponer la matriz
+
+```{r}
+#| eval: true
+#| echo: true
+
+a <- matrix(1:4, nrow=2)
 ainv <- solve(a)
 ainv
 
 ```
-
 ## 
-
--   Pueden mirar el resultado usando la función `round()`...queda mejor
-
 ```{r}
 #| eval: true
 #| echo: true
@@ -414,16 +446,14 @@ M%*%N
 ```{r}
 #| eval: true
 #| echo: true
-library(Matrix)
-M <- Matrix(10 + 1:28, 4, 7)
-M2 <- cbind(-1, M)
 
-M2[, c(2,4:6)] <- 0
-M2[2, ] <- 0
-M2 <- rbind(0, M2, 0)
-M2[1:2,2] <- M2[3,4:5] <- NA
-
-M2
+M <- matrix(10 + 1:28, 4, 7) # crear matrix
+M <- cbind(-1, M) # poner una columna con -1
+M[2, c(2,4:6)] <- 0 # agregar unos ceros
+M <- rbind(0, M, 0) #agregar más ceros
+M[1:2,2]  <- NA # agregar NAs
+M[2:6,8]  <- 0 # agregar otros ceros
+M
 ```
 :::
 
@@ -434,14 +464,8 @@ M2
 #| eval: true
 #| echo: true
 library(Matrix)
-M <- Matrix(10 + 1:28, 4, 7)
-M2 <- cbind(-1, M)
 
-M2[, c(2,4:6)] <- 0
-M2[2, ] <- 0
-M2 <- rbind(0, M2, 0)
-M2[1:2,2] <- M2[3,4:5] <- NA
-sM <- as(M2, "sparseMatrix")
+sM <- as(M, "sparseMatrix")
 sM
 ```
 :::
@@ -454,7 +478,7 @@ sM
 -   R tiene que guardar cada valor en matrices del tipo *dense*
 -   Matrices del tipo *sparse* no guardan los ceros
 
-## Ejemplo: funciones útiles en el paquete `phyloregion`
+## Funciones útiles en el paquete `phyloregion`
 
 -   Para datos de comunidades (sitios x species)
 -   [Phyloregion](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13478g)
@@ -466,23 +490,23 @@ sM
 ## Matrices de distancia
 
 -   Pueden ser transformadas en objetos de distancias `dist()`
+-   Por defecto calcula distancias euclidianas 
 
 ```{r}
 #| eval: true
 #| echo: true
-x <- matrix(rnorm(25), nrow = 5)
-y=dist(x)
-y
+x <- matrix(1:6, nrow = 3)
+dist(x)
+
 ```
 
-## 
+##
 
 ```{r}
 #| eval: true
 #| echo: true
-x <- matrix(rnorm(25), nrow = 5)
-y=dist(x)
-class(y)
+
+class(x)
 ```
 
 ## Funciones del paquete `vegan()`
@@ -496,9 +520,41 @@ class(y)
 library(vegan)
 
 data(varespec)
+
 vare.dist <- vegdist(varespec)
 vare.dist
 ```
+
+## Transformar objetos `dist()` en objetos de formato *ancho*
+
+
+```{r}
+#| eval: true
+#| echo: true
+library(tidyr)
+library(tidyverse)
+
+x <- matrix(1:6, nrow = 3)
+dx = dist(x)
+
+```
+
+##
+```{r}
+#| eval: true
+#| echo: true
+dx |> 
+  as.matrix() |> 
+  as.data.frame() |> 
+  mutate(sites = c("1","2","3")) |> 
+  pivot_longer(cols = c(1:3),
+               names_to = "sites2",
+               values_to = "distances") |> 
+  
+  head()
+
+```
+
 
 # Visualización de matrices
 
@@ -539,21 +595,33 @@ vare.dist
 ```{r}
 #| eval: true
 #| echo: true
-library(rio)
-moluscos = import(file=here("dados","moluscos.txt"),
-                  setclass = "data.frame")
+library(readr)
+library(here)
+moluscos = read_table(file=here("dados","moluscos.txt"))
 
-rownames(moluscos) = moluscos[,1]
-moluscos = moluscos[,-1]
 
 # importar los datos ambientales
-ambi = import(file=here("dados","ambi.txt"),setclass = "data.frame")
+ambi = read_table(file=here("dados","ambi.txt"))
+
+```
+## Editar la tabla de moluscos, quitar la columna "sites"
+
+```{r}
+#| eval: true
+#| echo: true
+library(tidyverse)
+
+moluscos <- 
+  moluscos |> 
+    select(c(sp1:sp6))
+moluscos
 
 ```
 
+
 ## calcular las medias
 
--   usar el gradiente de precipitacion
+-   Usar el gradiente de precipitacion
 
 ```{r}
 #| eval: true
@@ -570,23 +638,37 @@ molu.medias <-colSums(moluscos*ambi$lluvia)/colSums(moluscos)
 #| echo: true
 
 
-molu.ord1<-moluscos[order(ambi$lluvia,decreasing=F),]
-molu.ord<-molu.ord1[,order(molu.medias,decreasing=T)]
+molu.ord<-moluscos[order(ambi$lluvia,decreasing=F),]
+molu.ord1<-molu.ord[,order(molu.medias,decreasing=T)]
 
 ```
 
 ## Visualizar
 
--   Qué vemos en la gráfica abajo? Hay algun patrón?
 
+-   Algunos ajustes..
 ```{r}
 #| eval: true
 #| echo: true
 
-library(ggpubr)
-ggballoonplot(t(molu.ord))
+ambi2 <- ambi[order(ambi$lluvia,decreasing=F),]
+
+molu.ord2 <- cbind(molu.ord1,ambi2)
 
 ```
+
+##
+-   Qué vemos en la gráfica abajo? Hay algun patrón?
+```{r}
+#| eval: true
+#| echo: true
+
+molu.ord2 |> 
+  pivot_longer(cols = c(sp1:sp6)) |> 
+  ggplot(aes(x=factor(lluvia),y=fct_rev(name),size=ifelse(value==0,NA,value)))+
+  geom_point(shape=15)
+```
+
 
 ## Otras opiciones de gráficos genéricos
 
@@ -603,60 +685,6 @@ ggballoonplot(t(molu.ord))
 -   Igual se pueden ordenar las matrices para visualizar los patrones
 -   *Indirect* gradient analysis
 -   De este tipo se análisis se derivan técnicas más complejas como RA, CA y PCA
-
-## Transformar matrices: formatos *long* y *wide*
-
--   Había un excelente paquete con buena documentación [aqui](https://seananderson.ca/2013/10/19/reshape/)
--   Sin emmbargo el paquete `reshape2` ya no se va actualizar..
--   Su funciones fueron incorporadas por el paqute *tidyr*
--   También hay opciones en el paquete [`data.table`](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html)
-
-## Formatos *long* y *wide*
-
-![](imgs/reshape.png)
-
-## En `tidyr`
-
--   de *long* para *wide* : `tidyr::pivot_wider()`
--   de *wide* para *long* : `tidyr::pivot_longer()`
--   Documentación [aqui](https://tidyr.tidyverse.org/articles/pivot.html)
-
-## Wide to long
-
-```{r}
-#| eval: true
-#| echo: true
-
-library(rio)
-library(tidyr)
-moluscos$sites = rownames(moluscos)
-
-mol_long =
-moluscos %>%
-  pivot_longer(
-    cols = !sites,
-    names_to = "species",
-    values_to = "abundances")
-mol_long %>%
-  head()
-
-```
-
-## Long to wide:
-
--   Cómo quedaria?...
--   Usen la función `pivot_wider()`
-
-```{r}
-#| eval: false
-#| echo: true
-
-mol_long %>%
-  pivot_wider(
-    names_from = xxx,
-    values_from = xx
-  )
-```
 
 ## En Resumen
 
