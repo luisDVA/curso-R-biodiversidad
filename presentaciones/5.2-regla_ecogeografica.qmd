@@ -47,9 +47,10 @@ Limpiar los registros, asegurándonos que no haya ningún NA ni registros repeti
 ```{r}
 #| eval: true
 #| echo: true
-ict<-na.omit(ict)
-ict<-unique(ict)
-names(ict)<-c("taxon","x","y")
+ict<-ict %>% 
+  na.omit %>% 
+  unique %>% 
+  rename(taxon=sp,x=longitude,y=latitude)
 ```
 
 . . .
@@ -59,7 +60,8 @@ Finalmente, cambiaremos los espacios por guiones bajos en los nombres de las esp
 ```{r}
 #| eval: true
 #| echo: true
-ict$taxon<-gsub(" ","_",ict$taxon)
+ict<-ict %>% 
+  mutate(taxon=gsub(" ","_",taxon))
 head(ict)
 ```
 
@@ -108,8 +110,9 @@ Ahora que tenemos los datos, podemos poner a prueba la relación esperada por la
 ```{r}
 #| eval: true
 #| echo: true
-letsrap<-lm(log(ranges)~abs(midp$y))
-summary(letsrap)
+lm(log(ranges)~abs(midp$y)) %>% 
+summary
+
 ```
 
 ## 
@@ -203,7 +206,8 @@ Ahora ya tenemos los datos necesarios para evaluar la relación esperada por la 
 ```{r}
 #| eval: true
 #| echo: true
-summary(lm(log(Cellcount$cell)~abs(midst$Y)))
+lm(log(Cellcount$cell)~abs(midst$Y)) %>% 
+  summary
 ```
 
 ## 
@@ -232,7 +236,11 @@ Ahora crearemos un *data.frame* el cual contenga el área de distribución y los
 ```{r}
 #| eval: true
 #| echo: true
-rapp<-data.frame(midst,Cellcount$cell,row.names = NULL);names(rapp)<-c("sp","x","y","area")
+rapp<-midst %>% 
+  cbind(Cellcount) %>% 
+  as.data.frame() %>% 
+  rename(x=X,y=Y,area=cell)
+
 head(rapp)
 ```
 
@@ -253,8 +261,8 @@ Ahora ya podemos ajustar un modelo de regresión considerando las relaciones fil
 ```{r}
 #| eval: true
 #| echo: true
-raprule<-pgls(log(area)~abs(y),data=compict,lambda="ML")
-summary(raprule)
+pgls(log(area)~abs(y),data=compict,lambda="ML") %>% 
+summary()
 ```
 
 ## 
@@ -356,13 +364,15 @@ Obtengamos las coordenadas de cada celda y su valor de filoendemismos:
 ```{r}
 #| eval: true
 #| echo: true
-grdtemp<-grix$grid$gridTemplate
-stcen<-st_centroid(grdtemp)
-stcoor<-st_coordinates(stcen)
-coordsx<-as.data.frame(stcoor)
-phylem<-as.data.frame(phyendm$grid$phyloWeightedEndemism)
-endmcoords<-cbind(coordsx,phylem); names(endmcoords)<-c("x","y","phyloendemism")
-endmcoords<-na.omit(endmcoords)
+coordsx<-grix$grid$gridTemplate %>% 
+  st_centroid %>% 
+  st_coordinates %>% 
+  as.data.frame
+endmcoords<-phyendm$grid$phyloWeightedEndemism %>% 
+  cbind(coordsx) %>% 
+  as.data.frame %>% 
+  na.omit 
+names(endmcoords)<-c("phyloendemism","x","y")
 head(endmcoords)
 ```
 
@@ -373,8 +383,9 @@ Ahora, pongamos a prueba la pregunta:
 ```{r}
 #| eval: true
 #| echo: true
-latendm<-lm(log(phyloendemism)~abs(y),data= endmcoords)
-summary(latendm)
+lm(log(phyloendemism)~abs(y),data= endmcoords) %>% 
+  summary
+
 ```
 
 ## 
