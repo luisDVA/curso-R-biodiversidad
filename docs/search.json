@@ -990,36 +990,36 @@
     "objectID": "presentaciones/5.1-mapas_bivariados.html#paquetes",
     "href": "presentaciones/5.1-mapas_bivariados.html#paquetes",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Vamos a utilizar los seguientes paquetes en R\n\nbivariate\nggplot2"
+    "section": "Paquetes",
+    "text": "Paquetes\nVamos a utilizar los seguientes paquetes en R\n\nbivariate\nggplot2"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#biscale",
     "href": "presentaciones/5.1-mapas_bivariados.html#biscale",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Paquete para producir mapas bivariados (i.e. dos variables en el mismo layout)\n\nSirve para producir leyendas bivariadas\nHerramientas para classificación de datos en categorías usando diferentes técnicas\nDocumentación"
+    "section": "Biscale",
+    "text": "Biscale\n\n\n\n\n\nPaquete para producir mapas bivariados (i.e. dos variables en el mismo layout)\n\nSirve para producir leyendas bivariadas\nHerramientas para classificación de datos en categorías usando diferentes técnicas\nDocumentación"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#según-la-wikipedia..",
     "href": "presentaciones/5.1-mapas_bivariados.html#según-la-wikipedia..",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Mapas bivariados también son conocidos por Mapa coropleto o Mapa de coropletas\n\n\nEs un tipo de mapa temático en el que las áreas se sombrean de distintos colores, frecuentemente de la misma gama cromática, que representan distintos valores de una variable estadística característica."
+    "section": "Según la wikipedia..",
+    "text": "Según la wikipedia..\n\nMapas bivariados también son conocidos por Mapa coropleto o Mapa de coropletas\n\n\nEs un tipo de mapa temático en el que las áreas se sombrean de distintos colores, frecuentemente de la misma gama cromática, que representan distintos valores de una variable estadística característica."
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#dos-o-más-variables",
     "href": "presentaciones/5.1-mapas_bivariados.html#dos-o-más-variables",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Mapas bivariados son útiles para graficar dos variables\nAjuste de colores, transparencias y formas"
+    "section": "Dos o más variables…",
+    "text": "Dos o más variables…\n\nMapas bivariados son útiles para graficar dos variables\nAjuste de colores, transparencias y formas"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#también-usados-para-reportar-indicadores-socio-económicos",
     "href": "presentaciones/5.1-mapas_bivariados.html#también-usados-para-reportar-indicadores-socio-económicos",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "{fig-align=“center fig-size=”82%““}"
+    "section": "También usados para reportar indicadores socio-económicos",
+    "text": "También usados para reportar indicadores socio-económicos\n{fig-align=“center, fig-size=”22%““}"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#hay-otros-ejemplos-colores-y-marcas",
@@ -1046,8 +1046,8 @@
     "objectID": "presentaciones/5.1-mapas_bivariados.html#formatos-complejos",
     "href": "presentaciones/5.1-mapas_bivariados.html#formatos-complejos",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Sabatini et al. 2022"
+    "section": "Formatos complejos",
+    "text": "Formatos complejos\nSabatini et al. 2022"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#mapas-rgb",
@@ -1060,15 +1060,15 @@
     "objectID": "presentaciones/5.1-mapas_bivariados.html#leyendas-rectangulares-con-varias-categorias",
     "href": "presentaciones/5.1-mapas_bivariados.html#leyendas-rectangulares-con-varias-categorias",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Peixoto et al. 2017"
+    "section": "Leyendas rectangulares con varias categorias",
+    "text": "Leyendas rectangulares con varias categorias\nPeixoto et al. 2017"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#pero-lo-más-importante-es-que-la-información-esté-clara",
     "href": "presentaciones/5.1-mapas_bivariados.html#pero-lo-más-importante-es-que-la-información-esté-clara",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "¿Cuál de los dos mapas transmite mejor la información?"
+    "section": "Pero lo más importante es que la información esté clara",
+    "text": "Pero lo más importante es que la información esté clara\n\n¿Cuál de los dos mapas transmite mejor la información?"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#teoría",
@@ -1089,7 +1089,7 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#section",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "library(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\n# Categorizar de acuerdo a los quantiles\nci = cut(iris$Sepal.Length,breaks = c(4.3,5.1,5.8,6.4, max(iris$Sepal.Length)))\n\n# Explorar los resultados\ntabyl(ci)\n\n        ci  n     percent valid_percent\n (4.3,5.1] 40 0.266666667     0.2684564\n (5.1,5.8] 39 0.260000000     0.2617450\n (5.8,6.4] 35 0.233333333     0.2348993\n (6.4,7.9] 35 0.233333333     0.2348993\n      &lt;NA&gt;  1 0.006666667            NA"
+    "text": "library(janitor)\n\n# Categorizar de acuerdo a los quantiles\nci = cut(iris$Sepal.Length,breaks = c(4.3,5.1,5.8,6.4, max(iris$Sepal.Length)))\n\n# Explorar los resultados\ntabyl(ci)\n\n        ci  n     percent valid_percent\n (4.3,5.1] 40 0.266666667     0.2684564\n (5.1,5.8] 39 0.260000000     0.2617450\n (5.8,6.4] 35 0.233333333     0.2348993\n (6.4,7.9] 35 0.233333333     0.2348993\n      &lt;NA&gt;  1 0.006666667            NA"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#la-función-classintervals",
@@ -1173,35 +1173,35 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#section-8",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "Qué chulada!"
+    "text": "La leyenda se hace con la función expand_grid() del paquete tidyr\n\n\nlibrary(tidyr)\n\nd=expand.grid(x=1:3,y=1:3)\nd\n\n  x y\n1 1 1\n2 2 1\n3 3 1\n4 1 2\n5 2 2\n6 3 2\n7 1 3\n8 2 3\n9 3 3"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#section-9",
     "href": "presentaciones/5.1-mapas_bivariados.html#section-9",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "La leyenda se hace con la función expand_grid() del paquete tidyr\n\n\nlibrary(tidyr)\n\nd=expand.grid(x=1:3,y=1:3)\nd\n\n  x y\n1 1 1\n2 2 1\n3 3 1\n4 1 2\n5 2 2\n6 3 2\n7 1 3\n8 2 3\n9 3 3"
+    "text": "library(ggplot2)\nggplot(d, aes(x,y))+\n  geom_tile(aes(alpha=x+y,fill=atan(y/x)))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#section-10",
     "href": "presentaciones/5.1-mapas_bivariados.html#section-10",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "library(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.3.1\n\nggplot(d, aes(x,y))+\n  geom_tile(aes(alpha=x+y,fill=atan(y/x)))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()"
+    "text": "Lo importante aqui es usar el geom geom_tile\nPermite usar varios colores\nVamos jugar con los valores de alpha (transparencia) y fill"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#section-11",
     "href": "presentaciones/5.1-mapas_bivariados.html#section-11",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "Lo importante aqui es usar el geom geom_tile\nPermite usar varios colores\nVamos jugar con los valores de alpha (transparencia) y fill"
+    "text": "ggplot(d, aes(x,y))+\n  geom_tile(aes(fill=atan(y/x)))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()\n\n\n\n\n\n\nggplot(d, aes(x,y))+\n  geom_tile(aes(fill=atan(y/x),alpha=x+y))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#section-12",
     "href": "presentaciones/5.1-mapas_bivariados.html#section-12",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "ggplot(d, aes(x,y))+\n  geom_tile(aes(fill=atan(y/x)))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()\n\n\n\n\n\n\nggplot(d, aes(x,y))+\n  geom_tile(aes(fill=atan(y/x),alpha=x+y))+\n  scale_fill_viridis_c()+\n  theme(legend.position=\"none\",\n        axis.text.y = element_blank(),\n        axis.text.x = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_blank())+\n  coord_equal()"
+    "text": "Agregar los valores calculados a la tabla stl_race_income\n\n\nstl_race_income$x = classInt::findCols(x)\nstl_race_income$y = classInt::findCols(y)"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#categorizar-los-datos",
@@ -1215,7 +1215,7 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#section-13",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "Agregar los valores calculados a la tabla stl_race_income ::: {.cell}\n\nstl_race_income$x = classInt::findCols(x)\nstl_race_income$y = classInt::findCols(y)\n:::"
+    "text": "map"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#crar-un-objeto-para-el-alpha-y-otro-para-el-fill",
@@ -1229,7 +1229,7 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#graficar-el-mapa",
     "title": "Mapas bivariados",
     "section": "Graficar el mapa",
-    "text": "Graficar el mapa\n\nmap = ggplot()+\n  geom_sf(data = stl_race_income,aes(fill=color,alpha=alpha),shape=15, size=11,show.legend = FALSE)+\n  scale_fill_viridis_d()+\n  theme_bw()"
+    "text": "Graficar el mapa\n\nmap = ggplot()+\n  geom_sf(data = stl_race_income,aes(fill=color,alpha=alpha),shape=15, size=11,show.legend = FALSE)+\n  scale_fill_viridis_d()+\n  theme_void()"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#graficar-la-leyenda",
@@ -1243,14 +1243,14 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#juntar-los-dos",
     "title": "Mapas bivariados",
     "section": "Juntar los dos",
-    "text": "Juntar los dos\n\n\nWarning: Using alpha for a discrete variable is not advised."
+    "text": "Juntar los dos\n\nlibrary(patchwork)\n\nmap + inset_element(leg, -1, 0.7, 0.7, 1)"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#se-parecen",
     "href": "presentaciones/5.1-mapas_bivariados.html#se-parecen",
     "title": "Mapas bivariados",
     "section": "Se parecen?",
-    "text": "Se parecen?\n\n\n\n\nWarning: Using alpha for a discrete variable is not advised."
+    "text": "Se parecen?"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#vamos-hacer-el-mapa-bivariado-de-la-diversidad-filogenetica-de-angiospermas-en-la-peninsula-de-yucatán",
@@ -4106,14 +4106,14 @@
     "href": "presentaciones/5.1-mapas_bivariados.html",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "Vamos a utilizar los seguientes paquetes en R\n\nbivariate\nggplot2\n\n\n\n\n\n\n\n\n\nPaquete para producir mapas bivariados (i.e. dos variables en el mismo layout)\n\nSirve para producir leyendas bivariadas\nHerramientas para classificación de datos en categorías usando diferentes técnicas\nDocumentación\n\n\n\n\n\n\n\n\nMapas bivariados también son conocidos por Mapa coropleto o Mapa de coropletas\n\n\nEs un tipo de mapa temático en el que las áreas se sombrean de distintos colores, frecuentemente de la misma gama cromática, que representan distintos valores de una variable estadística característica.\n\n\n\n\n\nMapas bivariados son útiles para graficar dos variables\nAjuste de colores, transparencias y formas\n\n\n\n\n\n\n\n\n\n\n\n\n\n{fig-align=“center fig-size=”82%““}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTres variables Sabatini et al. 2022 \n\n\n\n\nSabatini et al. 2022 \n\n\n\n\n\n\n\n\n\n\n\nPeixoto et al. 2017 \n\n\n\n\n¿Cuál de los dos mapas transmite mejor la información?"
+    "text": "Vamos a utilizar los seguientes paquetes en R\n\nbivariate\nggplot2\n\n\n\n\n\n\n\n\n\nPaquete para producir mapas bivariados (i.e. dos variables en el mismo layout)\n\nSirve para producir leyendas bivariadas\nHerramientas para classificación de datos en categorías usando diferentes técnicas\nDocumentación\n\n\n\n\n\n\n\n\nMapas bivariados también son conocidos por Mapa coropleto o Mapa de coropletas\n\n\nEs un tipo de mapa temático en el que las áreas se sombrean de distintos colores, frecuentemente de la misma gama cromática, que representan distintos valores de una variable estadística característica.\n\n\n\n\n\nMapas bivariados son útiles para graficar dos variables\nAjuste de colores, transparencias y formas\n\n\n\n\n\n\n\n\n\n\n\n\n\n{fig-align=“center fig-size=”52%““}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTres variables Sabatini et al. 2022 \n\n\n\n\nSabatini et al. 2022 \n\n\n\n\n\n\n\n\n\n\n\nPeixoto et al. 2017 \n\n\n\n\n¿Cuál de los dos mapas transmite mejor la información?"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#leyendas-triangulares",
     "href": "presentaciones/5.1-mapas_bivariados.html#leyendas-triangulares",
     "title": "Mapas bivariados",
-    "section": "",
-    "text": "Tres variables Sabatini et al. 2022"
+    "section": "Leyendas triangulares",
+    "text": "Leyendas triangulares\n\nTres variables Sabatini et al. 2022"
   },
   {
     "objectID": "presentaciones/5.1-mapas_bivariados.html#section-3",
@@ -4134,6 +4134,13 @@
     "href": "presentaciones/5.1-mapas_bivariados.html#section-14",
     "title": "Mapas bivariados",
     "section": "",
-    "text": "map\n\nWarning: Using alpha for a discrete variable is not advised."
+    "text": "leg"
+  },
+  {
+    "objectID": "presentaciones/5.1-mapas_bivariados.html#son-bastante-comunes-para-reportar-resultados-de-elecciones",
+    "href": "presentaciones/5.1-mapas_bivariados.html#son-bastante-comunes-para-reportar-resultados-de-elecciones",
+    "title": "Mapas bivariados",
+    "section": "Son bastante comunes para reportar resultados de elecciones",
+    "text": "Son bastante comunes para reportar resultados de elecciones\n{fig-align=“center”, fig-size=“22%”}"
   }
 ]

@@ -1,4 +1,4 @@
-  ---
+---
 title: "Mapas bivariados"
 author: "Gabriel Massaine Moulatlet"
 institute: Instituto de Ecología, A.C.
@@ -45,15 +45,15 @@ Vamos a utilizar los seguientes paquetes en R
 -   Mapas bivariados son útiles para graficar dos variables
 -   Ajuste de colores, transparencias y formas
 
-![](https://www.joshuastevens.net/images/js_finalBivariateMap.png) 
+![](https://www.joshuastevens.net/images/js_finalBivariateMap.png)
 
 ## Son bastante comunes para reportar resultados de elecciones
 
-![](imgs/para.png){fig-align="center" fig-size="82%"}
+![](imgs/para.png){fig-align="center", fig-size="22%"}
 
 ## También usados para reportar indicadores socio-económicos
 
-![](imgs/dengue.png){fig-align="center fig-size="82%""}
+![](imgs/dengue.png){fig-align="center, fig-size="22%""}
 
 ## Hay otros ejemplos: colores y marcas
 
@@ -61,12 +61,13 @@ Vamos a utilizar los seguientes paquetes en R
 
 ## Hay otros ejemplos: colores y area ![](imgs/happy.png){fig-align="center" fig-size="82%"}
 
-## Leyendas triangulares 
-- Tres variables [Sabatini et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13158) ![](imgs/sabatini.jpg){fig-align="center"}
+## Leyendas triangulares
+
+-   Tres variables [Sabatini et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13158) ![](imgs/sabatini.jpg){fig-align="center" fig-size="52%"}
 
 ## Formatos complejos
 
-[Sabatini et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13158) ![](imgs/forest.jpg){fig-align="center" fig-size="82%"}
+[Sabatini et al. 2022](https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13158) ![](imgs/forest.jpg){fig-align="center" fig-size="52%"}
 
 ## Mapas RGB
 
@@ -200,7 +201,6 @@ head(data$bi_class)
 
 ![](imgs/mix.gif)
 
-
 ## La función `bi_legend()`
 
 -   Para ver las paletas disponibles [aquí](https://chris-prener.github.io/biscale/articles/bivariate_palettes.html)
@@ -224,7 +224,6 @@ bi_legend(pal = "GrPink",
 -   Vamos usar las columnas `pctWhite` y `medInc` para hacer el mapa.
 -   Vamos usar 3 dimensiones y categorizar los datos usando `quantiles`
 
-
 ## Manos a la obra!
 
 -   El mapa se construye usando ggplot
@@ -232,7 +231,8 @@ bi_legend(pal = "GrPink",
 -   El `bi_class` debe ser la categorización que hemos visto anteriormente con usando la justamente a función `bi_class()`
 -   Una de las capas del ggplot debe ser `bi_scale_fill`, donde van a poner el argumento `pal` - que es la paleta de colores y `dim` - que es el numero de categorías utilizadas para categorizar los datos.
 
-##
+## 
+
 ```{r}
 #| eval: false
 #| echo: true
@@ -247,7 +247,6 @@ map <- ggplot() +
   geom_sf(data = data, mapping = aes(fill = bi_class), color = "white", size = 0.1, show.legend = FALSE) +
   bi_scale_fill(pal = "GrPink", dim = 3)
 ```
-
 
 ## 
 
@@ -295,9 +294,6 @@ p1 + inset_element(p2, 0.6, 0.6, 1, 1) \# left, top, right, bottom
 
 ![](http://lenkiefer.com/post/2017-04-24-bivariate-map_files/figure-html/04-24-2017-setup-2-1.png)
 
-## 
-
-![](imgs/map.png)
 
 ## 
 
@@ -391,7 +387,9 @@ ggplot(d, aes(x,y))+
 ```
 
 ## 
-- Agregar los valores calculados a la tabla *stl_race_income*
+
+-   Agregar los valores calculados a la tabla *stl_race_income*
+
 ```{r}
 #| eval: true
 #| echo: true
@@ -421,11 +419,12 @@ stl_race_income$color = as.character(atan(stl_race_income$y/stl_race_income$x))
 map = ggplot()+
   geom_sf(data = stl_race_income,aes(fill=color,alpha=alpha),shape=15, size=11,show.legend = FALSE)+
   scale_fill_viridis_d()+
-  theme_bw()
+  theme_void()
 
 ```
 
-##
+## 
+
 ```{r}
 #| eval: true
 #| echo: true
@@ -433,7 +432,6 @@ map = ggplot()+
 map
 
 ```
-
 
 ## Graficar la leyenda
 
@@ -453,7 +451,7 @@ leg = ggplot(d, aes(x,y))+
   coord_equal()
 ```
 
-##
+## 
 
 ```{r}
 #| eval: true
@@ -463,34 +461,19 @@ leg
 
 ```
 
-
 ## Juntar los dos
 
 ```{r}
 #| eval: true
-#| echo: false
+#| echo: true
 library(patchwork)
 
-map + inset_element(leg, 0.1, 0.7, 0.7, 1)
+map + inset_element(leg, -1, 0.7, 0.7, 1)
 
 
 ```
 
 
-## Se parecen?
+## 
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| eval: true
-#| echo: false
-
-map + inset_element(leg, 0.1, 0.7, 0.7, 1)
-```
-:::
-
-::: {.column width="50%"}
 ![](https://chris-prener.github.io/biscale/reference/figures/biscale.002.jpeg)
-:::
-:::
-
