@@ -537,6 +537,7 @@ library(tidyverse)
 x <- matrix(1:6, nrow = 3)
 dx = dist(x)
 
+
 ```
 
 ##
