@@ -1,4 +1,4 @@
-  ---
+---
 title: "Mapas bivariados"
 author: "Gabriel Massaine Moulatlet"
 institute: Instituto de Ecología, A.C.
@@ -14,7 +14,7 @@ highlight-style: arrow-light
 
 ## Paquetes
 
-Vamos a utilizar los seguientes paquetes en R
+Vamos a utilizar los siguientes paquetes en R
 
 -   bivariate
 -   ggplot2
@@ -421,7 +421,7 @@ stl_race_income$color = as.character(atan(stl_race_income$y/stl_race_income$x))
 map = ggplot()+
   geom_sf(data = stl_race_income,aes(fill=color,alpha=alpha),shape=15, size=11,show.legend = FALSE)+
   scale_fill_viridis_d()+
-  theme_bw()
+  theme_void()
 
 ```
 
@@ -471,7 +471,7 @@ leg
 #| echo: false
 library(patchwork)
 
-map + inset_element(leg, 0.1, 0.7, 0.7, 1)
+map + inset_element(leg, -0.5, 0.7, 0.7, 1)
 
 
 ```

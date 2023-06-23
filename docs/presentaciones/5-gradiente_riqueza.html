@@ -425,67 +425,15 @@ Fabricio Villalobos &amp; Axel Arango
 <section id="paquetes-necesarios" class="slide level2">
 <h2>Paquetes necesarios:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The legacy packages maptools, rgdal, and rgeos, underpinning this package
-will retire shortly. Please refer to R-spatial evolution reports on
-https://r-spatial.org/r/2023/05/15/evolution4.html for details.
-This package is now running under evolution status 0 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(letsR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: raster</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: maps</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Please note that 'maptools' will be retired during October 2023,
-plan transition at your earliest convenience (see
-https://r-spatial.org/r/2023/05/15/evolution4.html and earlier blogs
-for guidance);some functionality will be moved to 'sp'.
- Checking rgeos availability: TRUE</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Please note that rgdal will be retired during October 2023,
-plan transition to sf/stars/terra functions using GDAL and PROJ
-at your earliest convenience.
-See https://r-spatial.org/r/2023/05/15/evolution4.html and https://github.com/r-spatial/evolution
-rgdal: version: 1.6-7, (SVN revision 1203)
-Geospatial Data Abstraction Library extensions to R successfully loaded
-Loaded GDAL runtime: GDAL 3.4.3, released 2022/04/22
-Path to GDAL shared files: /usr/share/gdal
-GDAL binary built with GEOS: TRUE 
-Loaded PROJ runtime: Rel. 8.2.0, November 1st, 2021, [PJ_VERSION: 820]
-Path to PROJ shared files: /home/luisd/.local/share/proj:/usr/share/proj
-PROJ CDN enabled: FALSE
-Linking to sp version:1.6-1
-To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>rgeos version: 0.6-3, (SVN revision 696)
- GEOS runtime version: 3.10.2-CAPI-1.16.0 
- Please note that rgeos will be retired during October 2023,
-plan transition to sf or terra functions using GEOS at your earliest convenience.
-See https://r-spatial.org/r/2023/05/15/evolution4.html for details.
- GEOS using OverlayNG
- Linking to sp version: 1.6-1 
- Polygon checking: TRUE </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(rgdal)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">library</span>(viridisLite)</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">library</span>(epm)</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.10.2, GDAL 3.4.3, PROJ 8.2.0; sf_use_s2() is TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">library</span>(tmap)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /home/luisd/Dropbox/darcyDB/PDRF/curso-R-biodiversidad</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(letsR)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(rgdal)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(viridisLite)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(epm)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -497,28 +445,7 @@ See https://r-spatial.org/r/2023/05/15/evolution4.html for details.
 <h2></h2>
 <p>Cargar los polígonos de las especies de interés (shapefiles en su carpeta de trabajo)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>icteri_maps <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"icteridae_maps"</span>,<span class="st">"icteridae_maps.shp"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: OGR support is provided by the sf and terra packages among others</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>icteri_maps <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"icteridae_maps"</span>,<span class="st">"icteridae_maps.shp"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OGR data source with driver: ESRI Shapefile 
 Source: "/home/luisd/Dropbox/darcyDB/PDRF/curso-R-biodiversidad/data/icteridae_maps/icteridae_maps.shp", layer: "icteridae_maps"
@@ -529,7 +456,7 @@ It has 26 fields</code></pre>
 <div class="fragment">
 <p>Conocer el dominio (“extent”) de los datos, para usarlo después en la delimitación del espacio (geográfico) de trabajo</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>icteri_maps<span class="sc">@</span>bbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>icteri_maps<span class="sc">@</span>bbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         min       max
 x -166.19269 -34.79010
@@ -542,16 +469,16 @@ y  -55.98218  69.60669</code></pre>
 <h2></h2>
 <p>Crear una matriz de presencia-ausencia a partir de los polígonos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>icteri.pam <span class="ot">&lt;-</span> <span class="fu">lets.presab</span>(icteri_maps, <span class="at">xmn =</span> <span class="sc">-</span><span class="dv">167</span>,<span class="at">xmx =</span> <span class="sc">-</span><span class="dv">35</span>, <span class="at">ymn =</span> <span class="sc">-</span><span class="dv">56</span>, <span class="at">ymx =</span> <span class="dv">70</span>, <span class="at">resol=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>icteri.pam <span class="ot">&lt;-</span> <span class="fu">lets.presab</span>(icteri_maps, <span class="at">xmn =</span> <span class="sc">-</span><span class="dv">167</span>,<span class="at">xmx =</span> <span class="sc">-</span><span class="dv">35</span>, <span class="at">ymn =</span> <span class="sc">-</span><span class="dv">56</span>, <span class="at">ymx =</span> <span class="dv">70</span>, <span class="at">resol=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="cómo-se-ve-el-patrón-geográfico" class="slide level2">
 <h2>¿Cómo se ve el patrón geográfico?</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">plot</span>(icteri.pam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">plot</span>(icteri.pam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="5-gradiente_riqueza_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<p><img data-src="5-gradiente_riqueza_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -560,7 +487,7 @@ y  -55.98218  69.60669</code></pre>
 <h2></h2>
 <p>¿Qué tiene el objeto que se graficó?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>icteri.pam<span class="sc">$</span>Richness_Raster</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>icteri.pam<span class="sc">$</span>Richness_Raster</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class      : RasterLayer 
 dimensions : 126, 132, 16632  (nrow, ncol, ncell)
@@ -579,9 +506,9 @@ values     : 0, 18  (min, max)</code></pre>
 <div class="fragment">
 <p>Primero, convertimos el raster en un <code>data.frame</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>rdf <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(icteri.pam<span class="sc">$</span>Richness_Raster, <span class="at">xy=</span><span class="cn">TRUE</span>) <span class="co">#Convert raster to data.frame</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">names</span>(rdf)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">'richness'</span> <span class="co">#Name value column</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="fu">head</span>(rdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>rdf <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(icteri.pam<span class="sc">$</span>Richness_Raster, <span class="at">xy=</span><span class="cn">TRUE</span>) <span class="co">#Convert raster to data.frame</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">names</span>(rdf)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">'richness'</span> <span class="co">#Name value column</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">head</span>(rdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       x    y richness
 1 -166.5 69.5        0
@@ -591,9 +518,9 @@ values     : 0, 18  (min, max)</code></pre>
 5 -162.5 69.5        0
 6 -161.5 69.5        0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>rdf2 <span class="ot">&lt;-</span> rdf</span>
-<span id="cb30-2"><a href="#cb30-2"></a>rdf2[,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(rdf[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">0</span>,<span class="cn">NA</span>,rdf[,<span class="dv">3</span>])</span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">head</span>(rdf2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>rdf2 <span class="ot">&lt;-</span> rdf</span>
+<span id="cb12-2"><a href="#cb12-2"></a>rdf2[,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(rdf[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">0</span>,<span class="cn">NA</span>,rdf[,<span class="dv">3</span>])</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">head</span>(rdf2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       x    y richness
 1 -166.5 69.5       NA
@@ -610,12 +537,12 @@ values     : 0, 18  (min, max)</code></pre>
 <h2></h2>
 <p>Ahora sí, lo graficamos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rdf2)<span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">geom_raster</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, <span class="at">fill=</span>richness))<span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours=</span> <span class="fu">rev</span>(<span class="fu">inferno</span>(<span class="dv">10</span>)), <span class="at">name=</span><span class="st">'Richness'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rdf2)<span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_raster</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, <span class="at">fill=</span>richness))<span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours=</span> <span class="fu">rev</span>(<span class="fu">inferno</span>(<span class="dv">10</span>)), <span class="at">name=</span><span class="st">'Richness'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="5-gradiente_riqueza_files/figure-html/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section></section>
+<img data-src="5-gradiente_riqueza_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section id="ecophylomapper---epm-title-et-al.-2022-mee" class="title-slide slide level1 center">
 <h1>EcoPhyloMapper - epm (Title et al.&nbsp;2022 MEE)</h1>
@@ -625,8 +552,8 @@ values     : 0, 18  (min, max)</code></pre>
 <h2></h2>
 <p>Cargar nuevamente los polígonos, pero ahora con el paquete ‘nuevo’ y recomendado a partir de junio 2023! (sf)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>icteri_file <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"icteridae_maps"</span>,<span class="st">"icteridae_maps.shp"</span>)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>icteri_maps.sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(icteri_file, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>icteri_file <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"icteridae_maps"</span>,<span class="st">"icteridae_maps.shp"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>icteri_maps.sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(icteri_file, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `icteridae_maps' from data source 
   `/home/luisd/Dropbox/darcyDB/PDRF/curso-R-biodiversidad/data/icteridae_maps/icteridae_maps.shp' 
@@ -641,7 +568,7 @@ Geodetic CRS:  GCS_unknown</code></pre>
 <div class="fragment">
 <p>Checar que la columna de especies (en este caso: SCINAME) sea de caracteres (para evitar problemas más adelante)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">class</span>(icteri_maps.sf<span class="sc">$</span>SCINAME)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">class</span>(icteri_maps.sf<span class="sc">$</span>SCINAME)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -652,36 +579,30 @@ Geodetic CRS:  GCS_unknown</code></pre>
 <h2></h2>
 <p>Crear un vector con los nombres de todas las especies en el multipoligono</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>allspp <span class="ot">&lt;-</span> <span class="fu">unique</span>(icteri_maps.sf<span class="sc">$</span>SCINAME)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>allspp <span class="ot">&lt;-</span> <span class="fu">unique</span>(icteri_maps.sf<span class="sc">$</span>SCINAME)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>Creamos polígonos individuales por especie</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>spList <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">'list'</span>, <span class="fu">length</span>(allspp))</span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">names</span>(spList) <span class="ot">&lt;-</span> allspp</span>
-<span id="cb38-3"><a href="#cb38-3"></a></span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(allspp)) {</span>
-<span id="cb38-5"><a href="#cb38-5"></a>  ind <span class="ot">&lt;-</span> <span class="fu">which</span>(icteri_maps.sf<span class="sc">$</span>SCINAME <span class="sc">==</span> allspp[i])</span>
-<span id="cb38-6"><a href="#cb38-6"></a>  spList[[i]] <span class="ot">&lt;-</span> icteri_maps.sf[ind,]</span>
-<span id="cb38-7"><a href="#cb38-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>spList <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">'list'</span>, <span class="fu">length</span>(allspp))</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">names</span>(spList) <span class="ot">&lt;-</span> allspp</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(allspp)) {</span>
+<span id="cb20-5"><a href="#cb20-5"></a>  ind <span class="ot">&lt;-</span> <span class="fu">which</span>(icteri_maps.sf<span class="sc">$</span>SCINAME <span class="sc">==</span> allspp[i])</span>
+<span id="cb20-6"><a href="#cb20-6"></a>  spList[[i]] <span class="ot">&lt;-</span> icteri_maps.sf[ind,]</span>
+<span id="cb20-7"><a href="#cb20-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Checamos la geometría de los polígonos e intentamos corregirla si es necesario</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(spList)) {</span>
-<span id="cb39-2"><a href="#cb39-2"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(<span class="fu">st_is_valid</span>(spList[[i]]))) {</span>
-<span id="cb39-3"><a href="#cb39-3"></a>            <span class="fu">message</span>(<span class="st">'</span><span class="sc">\t</span><span class="st">repairing poly '</span>, i)</span>
-<span id="cb39-4"><a href="#cb39-4"></a>            spList[[i]] <span class="ot">&lt;-</span> <span class="fu">st_make_valid</span>(spList[[i]])</span>
-<span id="cb39-5"><a href="#cb39-5"></a>        }</span>
-<span id="cb39-6"><a href="#cb39-6"></a>   }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>    repairing poly 93</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>    repairing poly 94</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(spList)) {</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(<span class="fu">st_is_valid</span>(spList[[i]]))) {</span>
+<span id="cb21-3"><a href="#cb21-3"></a>            <span class="fu">message</span>(<span class="st">'</span><span class="sc">\t</span><span class="st">repairing poly '</span>, i)</span>
+<span id="cb21-4"><a href="#cb21-4"></a>            spList[[i]] <span class="ot">&lt;-</span> <span class="fu">st_make_valid</span>(spList[[i]])</span>
+<span id="cb21-5"><a href="#cb21-5"></a>        }</span>
+<span id="cb21-6"><a href="#cb21-6"></a>   }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -689,7 +610,7 @@ Geodetic CRS:  GCS_unknown</code></pre>
 <h2></h2>
 <p>Ahora sí, creamos el gradiente de riqueza con el paquete epm</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>icteriEPM <span class="ot">&lt;-</span> <span class="fu">createEPMgrid</span>(spList, <span class="at">resolution =</span> <span class="dv">1</span>, <span class="at">retainSmallRanges =</span> <span class="cn">TRUE</span>, <span class="at">extent =</span> <span class="st">'auto'</span>, <span class="at">method =</span> <span class="st">'percentOverlap'</span>, <span class="at">cellType =</span> <span class="st">'square'</span>, <span class="at">percentThreshold =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>icteriEPM <span class="ot">&lt;-</span> <span class="fu">createEPMgrid</span>(spList, <span class="at">resolution =</span> <span class="dv">1</span>, <span class="at">retainSmallRanges =</span> <span class="cn">TRUE</span>, <span class="at">extent =</span> <span class="st">'auto'</span>, <span class="at">method =</span> <span class="st">'percentOverlap'</span>, <span class="at">cellType =</span> <span class="st">'square'</span>, <span class="at">percentThreshold =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   |                                                                            
@@ -701,18 +622,12 @@ Geodetic CRS:  GCS_unknown</code></pre>
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>3 small-ranged species were preserved:
-    Icterus bonana
-    Icterus laudabilis
-    Nesopsar nigerrimus</code></pre>
-</div>
 </div>
 </section>
 <section id="qué-tiene-el-objeto-generado" class="slide level2">
 <h2>¿Qué tiene el objeto generado?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>icteriEPM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>icteriEPM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Summary of epm object:
@@ -734,15 +649,15 @@ Geodetic CRS:  GCS_unknown</code></pre>
 <h2></h2>
 <p>Lo graficamos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">plot</span>(icteriEPM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">plot</span>(icteriEPM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="5-gradiente_riqueza_files/figure-html/unnamed-chunk-16-1.png" width="672" class="r-stretch"></section>
+<img data-src="5-gradiente_riqueza_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
 <section id="section-11" class="slide level2">
 <h2></h2>
 <p>Ahora generamos la matriz de presencia-ausencia a partir del objeto creado. Esta matriz nos puede servir para comparar con los resultados de <code>letsR</code> o para derivar otras métricas/patrones</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>icteri.pamEPM <span class="ot">&lt;-</span> <span class="fu">epmToPhyloComm</span>(icteriEPM, <span class="at">sites =</span> <span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>icteri.pamEPM <span class="ot">&lt;-</span> <span class="fu">epmToPhyloComm</span>(icteriEPM, <span class="at">sites =</span> <span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="footer footer-default">
@@ -960,6 +875,44 @@ Geodetic CRS:  GCS_unknown</code></pre>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

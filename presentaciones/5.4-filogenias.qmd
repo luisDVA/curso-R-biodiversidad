@@ -112,6 +112,8 @@ Nktree<-read.tree(text=Eukarya)
 plot(Nktree)
 ```
 
+##
+
 -   En este ejercicio haremos uso del paquete *ggtree* para graficar, personalizar, anotar y en general mejorar árboles filogenéticos
 
 ## Paquetes necesarios:
@@ -611,6 +613,7 @@ Para hacer esto, primero debemos cargar los atributos de los Icteridos, en este 
 ```{r}
 #| eval: true
 #| echo: true
+
 hwi<-read.csv(here("data","hwi_icteridae.csv"),header=T)
 head(hwi)
 ```
@@ -631,6 +634,7 @@ Una vez cargados los datos, la manera más fácil de utilizarlos es uniendolos a
 ```{r}
 #| eval: true
 #| echo: true
+
 names(hwi)<-c("label","hwi")
 names(migrants)<-c("label","migratory")
 
@@ -649,6 +653,7 @@ Primero gráficaremos los valores continuos del HWI sobre las puntas del árbol 
 ```{r}
 #| eval: true
 #| echo: true
+
 p5<-ggtree(datatree)
 p5+
   geom_tippoint(aes(color=hwi))
@@ -661,6 +666,7 @@ podemos también personalizar esta escala:
 ```{r}
 #| eval: true
 #| echo: true
+
 p5+
   geom_tippoint(aes(color=hwi),shape=15)+
   scale_colour_gradient(low='blue', high='red',breaks= c(15,20,25,30,35))
@@ -673,6 +679,7 @@ p5+
 ```{r}
 #| eval: true
 #| echo: true
+
 p5+
   geom_tippoint(aes(color=migratory),shape=15)+
     scale_colour_manual(values = c("green","orange"))
@@ -687,6 +694,7 @@ Esto puede hacerse con un lenguaje de *dplyr*
 ```{r}
 #| eval: true
 #| echo: true
+
 px<- py%<+% migrants + geom_tippoint(aes(color=migratory),shape=15)+
   scale_color_manual(values = c("#961d29","#1420a3"))+
   scale_fill_manual(values = c("#961d29","#1420a3"))
@@ -695,12 +703,14 @@ px<- py%<+% migrants + geom_tippoint(aes(color=migratory),shape=15)+
 px+ geom_facet(panel="HWI",data = hwi,geom=geom_col,mapping=aes(x=hwi,color=migratory,fill=migratory),orientation='y')+
     theme_tree2()
 ```
+
 ##
 
 Pero, ¿Qué pasa si no me sé la taxonomía o no tengo la filogenía del grupo que estoy estudiando?
 ```{r}
-#|eval: true
-#|include: false
+#| eval: true
+#| include: false
+
 picuid<-phylopic_uid(c("Argania","Quiscalus","Corvus","Desmodus","Vulpes","Canis lupus","Canis latrans"),seed=123)
 pics<-data.frame(label=Nktree$tip.label,uid=picuid$uid)
 phylopicNK<-ggtree(Nktree) %<+% pics+
@@ -712,9 +722,10 @@ phylopicNK<-ggtree(Nktree) %<+% pics+
 ##
 
 ¿Se acuerdan de esta filogenia?
+
 ```{r}
-#|eval: true
-#|echo: true
+#| eval: true
+#| echo: true
 phylopicNK
 ```
 
@@ -725,10 +736,11 @@ Haciendo uso de recursos en línea como *Open tree of Life*(OTL), podemoos obten
 ##
 
 OTL tiene un útil paquete en R (`rotl`), que usaremos para obtener la filogenia con la planta, aves y mamiferos.
+
 ```{r}
-#|eval: true
-#|echo: true 
-#|warning: false
+#| eval: true
+#| echo: true 
+#| warning: false
 
 library("rotl")
 otl_tree<-rotl::tnrs_match_names(c("Quiscalus mexicanus","Canis lupus","Corvus corax","Canis latrans","Vulpes vulpes","Desmodus rotundus","Sideroxylon celastrinum")) %>% 
@@ -739,8 +751,8 @@ otl_tree<-rotl::tnrs_match_names(c("Quiscalus mexicanus","Canis lupus","Corvus c
 ##
 
 ```{r}
-#|eval: true
-#|echo: true
+#| eval: true
+#| echo: true
 p_ott<-ggtree(otl_tree)+
   xlim(0,9)+
   geom_tiplab(color="blue")
@@ -753,8 +765,8 @@ Para la función de `rtol`, no es necesario introducir las especies en orden, ya
 En este caso, OTL nos regresó exactamente la misma filogenia que creamos al principio:
 
 ```{r}
-#|eval: true
-#|echo: true
+#| eval: true
+#| echo: true
 p_nk<-ggtree(Nktree)+
   xlim(0,9)+
   geom_tiplab(color="red")
