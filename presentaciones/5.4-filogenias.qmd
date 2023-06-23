@@ -7,6 +7,84 @@ editor: visual
 
 ## Filogenias en R
 
+Primero, ¿Qué es un árbol Filogenético?
+
+##
+
+Un árbol filogenético es un diagrama que muestra la relación de parentezco entre especies (o taxones)
+
+##
+Uno de los formatos más utilizados para representar filogenias son el *Newick*(.tree)
+
+El formato Newick es una notación para representar parentescos utilizando parentesis y comas.
+
+##
+Si queremos decir que A y B se parecen más entre ellos que con X, lo anotaríamos así:
+
+```{r}
+#|eval: true
+#|echo: true
+"((A,B),X);"
+```
+##
+Para que *R* pueda identificar está notación, se puede usar `ape`:
+
+```{r}
+#|eval: true
+#|echo: true
+library(ape)
+read.tree(text="((A,B),X);") %>% 
+  plot
+```
+
+##
+
+El formato Newick es anidado, por lo que podemos explorar la relación entre diferentes grupos. Por ejemplo:
+
+Sabemos que los lobos, los coyotes y los zorros pertenecen a Canidae, pero que los lobos y los coyotes son del mismo género
+```{r}
+#|eval: true
+#|echo: true
+Canidae<-"(Vulpes_vulpes,(Canis_lupus,Canis_latrans));"
+read.tree(text=Canidae) %>% 
+  plot
+```
+
+##
+
+Y si agregamos murciélagos, todos ellos pertenecen a los mamíferos:
+```{r}
+#|eval: true
+#|echo: true
+Mammalia<-"(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)));"
+read.tree(text=Mammalia) %>% 
+  plot
+```
+
+##
+
+Si quisieramos agregar cuervos y zanates. ¿Estos dónde irían?
+```{r}
+#|eval: true
+#|echo: true
+tetrapoda<-"((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans))));"
+
+read.tree(text=tetrapoda) %>% 
+  plot
+```
+
+##
+
+Y si agregamos una planta, los mamíferos y las aves se anidarían.
+
+```{r}
+#|eval:true
+#|echo:true
+Eukarya<-"(Sideroxylon_celastrinum,((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)))));"
+
+Nktree<-read.tree(text=Eukarya)
+plot(Nktree)
+```
 -   En este ejercicio haremos uso del paquete *ggtree* para graficar, personalizar, anotar y en general mejorar árboles filogenéticos
 
 ## Paquetes necesarios:
@@ -27,7 +105,7 @@ library(here)
 
 ## 
 
-Leemos el árbol filogenético a utilizar (la filogenia de *Icteridae*). Sin embargo, estos ejemplos se pueden hacer en su mayoría con cualquier otra filogenía que tengan disponible.
+En este caso usaremos un árbol filogenético en particular (la filogenia de *Icteridae*). Sin embargo, estos ejemplos se pueden hacer en su mayoría con cualquier otra filogenía que tengan disponible.
 
 ```{r}
 #| eval: true
@@ -160,7 +238,7 @@ Ahora para la anotación de los árboles, se pueden hacer varias cosas, a mi, po
 
 ##
 
-Para esto primero debemos encontrar el nodo del ancestro en común más reciente para este grupo. Usando un *tibble* y la estructura de *dblyr* es muy facil, primero transformamos nuestro árbol en un tibble y despues utilizando un filtro buscamos las especies de *Quiscalus*:
+Para esto primero debemos encontrar el nodo del ancestro en común más reciente para este grupo. Usando un *tibble* y la estructura de *dplyr* es muy facil, primero transformamos nuestro árbol en un tibble y despues utilizando un filtro buscamos las especies de *Quiscalus*:
 
 ```{r}
 #| eval: true
@@ -559,7 +637,7 @@ p5+
 
 y ¿Pueden combinarse?
 
-Esto puede hacerse con un lenguaje de *dblyr*
+Esto puede hacerse con un lenguaje de *dplyr*
 
 ```{r}
 #| eval: true
@@ -571,5 +649,69 @@ px<- py%<+% migrants + geom_tippoint(aes(color=migratory),shape=15)+
   
 px+ geom_facet(panel="HWI",data = hwi,geom=geom_col,mapping=aes(x=hwi,color=migratory,fill=migratory),orientation='y')+
     theme_tree2()
+```
+##
+
+Pero, ¿Qué pasa si no me sé la taxonomía o no tengo la filogenía del grupo que estoy estudiando?
+```{r}
+#|eval: true
+#|include: false
+picuid<-phylopic_uid(c("Argania","Quiscalus","Corvus","Desmodus","Vulpes","Canis lupus","Canis latrans"),seed=123)
+pics<-data.frame(label=Nktree$tip.label,uid=picuid$uid)
+phylopicNK<-ggtree(Nktree) %<+% pics+
+  geom_tiplab(aes(image=uid,color=label),geom="phylopic")+
+  theme(legend.position="none")+
+  scale_color_manual(values=c("#81613c","#919494","black","#473434","#2e275a","#e0cc77"," #9ea26b"))
+```
+
+##
+
+¿Se acuerdan de esta filogenia?
+```{r}
+#|eval: true
+#|echo: true
+phylopicNK
+```
+
+##
+
+Haciendo uso de recursos en línea como *Open tree of Life*(OTL), podemoos obtener una filogenia utilizando las especies que necesitemos.
+
+##
+
+OTL tiene un útil paquete en R (`rotl`), que usaremos para obtener la filogenia con la planta, aves y mamiferos.
+```{r}
+#|eval: true
+#|warning= false
+library("rotl")
+otl_tree<-rotl::tnrs_match_names(c("Quiscalus mexicanus","Canis lupus","Corvus corax","Canis latrans","Vulpes vulpes","Desmodus rotundus","Sideroxylon celastrinum")) %>% 
+  pull(ott_id) %>% 
+  tol_induced_subtree(label_format="name")
+```
+
+##
+
+```{r}
+#|eval: true
+#|echo: true
+p_ott<-ggtree(otl_tree)+
+  xlim(0,9)+
+  geom_tiplab(color="blue")
+p_ott
+```
+
+##
+Para la función de `rtol`, no es necesario introducir las especies en orden, ya que ésta recuperará la taxonomia válida y nos arrojará una filogenia podada.
+
+En este caso, OTL nos regresó exactamente la misma filogenia que creamos al principio:
+
+```{r}
+#|eval: true
+#|echo: true
+p_nk<-ggtree(Nktree)+
+  xlim(0,9)+
+  geom_tiplab(color="red")
+
+p_ott/p_nk
 ```
 ##
