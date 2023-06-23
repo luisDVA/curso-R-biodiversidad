@@ -682,7 +682,7 @@ Haciendo uso de recursos en línea como *Open tree of Life*(OTL), podemoos obten
 OTL tiene un útil paquete en R (`rotl`), que usaremos para obtener la filogenia con la planta, aves y mamiferos.
 ```{r}
 #|eval: true
-#|warning= false
+#|warning:false
 library("rotl")
 otl_tree<-rotl::tnrs_match_names(c("Quiscalus mexicanus","Canis lupus","Corvus corax","Canis latrans","Vulpes vulpes","Desmodus rotundus","Sideroxylon celastrinum")) %>% 
   pull(ott_id) %>% 

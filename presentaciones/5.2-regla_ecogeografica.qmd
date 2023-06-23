@@ -26,6 +26,7 @@ library(here)
 library(geiger)
 library(letsR)
 library(ggplot2)
+library(dplyr)
 library(spdep)
 library(spatialreg)
 ```
