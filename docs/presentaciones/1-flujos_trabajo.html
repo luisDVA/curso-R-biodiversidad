@@ -535,7 +535,7 @@ Al instalar R instalamos:</p>
 <li><p>Ejecutar RStudio</p></li>
 <li><p>Instalar algunos paquetes para hoy:</p></li>
 </ul>
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-1_d4c94776dada1dd5be551d7e897c93e2">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-1_ec3e4970962c5791b8a2243c42b594e7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
@@ -716,13 +716,13 @@ Cambiar nombres</p>
 </ul></li>
 </ul>
 <h3 id="los-paquetes-ya-instalados-se-cargan-con-la-función-library">Los paquetes ya instalados se cargan con la función <code>library()</code></h3>
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-2_c16092901a04dba7b3d98d2d5b1030c3">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-2_ad02eb72af76e5482eacfae48f76a729">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(fs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="crear-nuevas-carpetas-en-el-directorio-del-proyecto" class="slide level2">
 <h2>Crear nuevas carpetas en el directorio del proyecto</h2>
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-3_066c88a900a9a35d0338a4bfbf4374aa">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-3_f7a59f8f870d941ba3bfde2c2722313a">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">dir_create</span>(<span class="st">"R"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">dir_create</span>(<span class="st">"datos"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="fu">dir_create</span>(<span class="st">"salida"</span>)</span>
@@ -790,7 +790,7 @@ Jenny Bryan (2018)<br>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>Si la raíz del proyecto es <code>mi-proyecto</code></p>
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-4_acd0d66e1d005a6c4d60cc274b60066a">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-4_d1b939314b9f7f1222543bd70be78775">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">here</span>(<span class="st">"analisis"</span>,<span class="st">"script1.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>construye:</p>
@@ -872,7 +872,7 @@ Jenny Bryan (2018)<br>
 <h2>Vectores</h2>
 <p>Números</p>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-5_d8594e94e872198f4065234ecb89136d">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-5_656fe7c77921007540a984a357bdcb74">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4</code></pre>
@@ -881,7 +881,7 @@ Jenny Bryan (2018)<br>
 </div>
 <p><br></p>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-6_253fc9691b72545071640da1bcef3b2d">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-6_fd0145d4473984eee5a1fac8b2475abb">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">c</span>(<span class="fl">22.1</span>,<span class="fl">0.006</span>,<span class="fl">4.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 22.100  0.006  4.100</code></pre>
@@ -893,7 +893,7 @@ Jenny Bryan (2018)<br>
 <h2>Vectores</h2>
 <p>Caracteres</p>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-7_e099a55e14ae4d3e264e78a7cf4ba15e">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-7_8984de9358d2e7c820306274855528a6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">c</span>(<span class="st">"perro"</span>,<span class="st">"gato"</span>,<span class="st">"rata"</span>,<span class="st">"B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "perro" "gato"  "rata"  "B"    </code></pre>
@@ -905,7 +905,7 @@ Jenny Bryan (2018)<br>
 <h2>Vectores</h2>
 <p>Lógicos (verdadero/falso)</p>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-8_6a46f4a82e681cd623fa2fbca5cc162d">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-8_451d1f88046603024994824c6b98c2ea">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>,<span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
@@ -924,19 +924,19 @@ Jenny Bryan (2018)<br>
 <section id="creando-objetos" class="slide level2">
 <h2>Creando objetos</h2>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-9_c5da25b9bf4b84b5d2fece426fbea8b0">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-9_29dfed3b5605c617615b93c44a095535">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Función <code>c()</code> para juntar elementos en un vector</p>
 <div class="med-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-10_5cf404628458eb4574de3634d3ba5bb8">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-10_8d37199522add1d75a05f7b0b0828842">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
 <span id="cb14-2"><a href="#cb14-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"G"</span>,<span class="st">"h"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="med-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-11_ccc95800c3c348ef377885b895cb45cc">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-11_affd42a75fe26c8876923e665042b7cc">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3</code></pre>
@@ -951,7 +951,7 @@ Jenny Bryan (2018)<br>
 <section id="los-objetos-tienen-clases" class="slide level2">
 <h2>Los objetos tienen clases</h2>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-12_19d9790eb52458c761529236a075e5c4">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-12_846ccb68d0a37c7d9a5f193d2c0f5846">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
@@ -966,7 +966,7 @@ Jenny Bryan (2018)<br>
 <section id="los-vectores-solo-pueden-tener-objetos-de-la-misma-clase" class="slide level2">
 <h2>Los vectores solo pueden tener objetos de la misma clase</h2>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-13_188c35a7a571bf1249a2506f61f7eda6">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-13_8c5781b8aa396ad7845e83f8b052675d">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="st">"a"</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1" "a" "2"</code></pre>
@@ -996,7 +996,7 @@ Jenny Bryan (2018)<br>
 <section id="factores-1" class="slide level2">
 <h2>Factores</h2>
 <div class="med-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-14_366687ab9c91f6b986e91b7b59b3be84">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-14_b94a901c3bc5613784ae000551c3d974">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"perro"</span>,<span class="st">"gato"</span>,<span class="st">"ave"</span>,<span class="st">"ninguno"</span>,</span>
 <span id="cb25-2"><a href="#cb25-2"></a>         <span class="st">"perro"</span>,<span class="st">"ninguno"</span>,<span class="st">"perro"</span>,<span class="st">"perro"</span>,</span>
 <span id="cb25-3"><a href="#cb25-3"></a>         <span class="st">"gato"</span>,<span class="st">"ave"</span>,<span class="st">"perro"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1028,7 +1028,7 @@ Levels: ave gato ninguno perro</code></pre>
 <h2>Data frames</h2>
 <p>Se crean importando un archivo tabular o con <code>data.frame()</code></p>
 <div class="med-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-15_229711a495716f02b013fa487b1570c6">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-15_9d7b54fa571e127daefaa9b57d77faff">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>mi_tabla <span class="ot">&lt;-</span> </span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">data.frame</span>(<span class="at">id=</span><span class="fu">c</span>(<span class="st">"rana"</span>,<span class="st">"pez"</span>,<span class="st">"nutria"</span>,<span class="st">"gusano"</span>),</span>
 <span id="cb27-3"><a href="#cb27-3"></a>           <span class="at">ind_g=</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">13</span>,<span class="dv">10</span>),</span>
@@ -1044,7 +1044,7 @@ Levels: ave gato ninguno perro</code></pre>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <div class="big-code">
-<div class="cell" data-hash="1-flujos_trabajo_cache/html/unnamed-chunk-16_0c17e6b22ba37e95f69e2a75d942fa7c">
+<div class="cell" data-hash="1-flujos_trabajo_cache/revealjs/unnamed-chunk-16_3d3f6e173a2d3b4a084771e7ac5cd3a8">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>mi_tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      id ind_g listo
@@ -1274,6 +1274,44 @@ Levels: ave gato ninguno perro</code></pre>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

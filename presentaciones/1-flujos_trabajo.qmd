@@ -24,7 +24,7 @@ execute:
   fig-height: 6
 ---
 
-```{r pkgs setup}
+```{r packages setup}
 #| echo: false
 
 library(fontawesome)

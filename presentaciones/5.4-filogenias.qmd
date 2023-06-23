@@ -2,15 +2,15 @@
 title: "Filogenias en R"
 author: Axel Arango & Fabricio Villalobos
 format: revealjs
-editor: visual
 ---
 
 ## Filogenias en R
 
 ```{r}
 #| echo: false
-#| eval: true
+library(ape)
 library(dplyr)
+
 ```
 
 Primero, ¿Qué es un árbol Filogenético?
@@ -20,27 +20,34 @@ Primero, ¿Qué es un árbol Filogenético?
 Un árbol filogenético es un diagrama que muestra la relación de parentezco entre especies (o taxones)
 
 ##
+
 Uno de los formatos más utilizados para representar filogenias son el *Newick*(.tree)
 
 El formato Newick es una notación para representar parentescos utilizando parentesis y comas.
 
 ##
+
 Si queremos decir que A y B se parecen más entre ellos que con X, lo anotaríamos así:
 
-```{r}
-#|eval: true
-#|echo: true
+```{r prueba newick}
+#| eval: true
+#| echo: true
+
 "((A,B),X);"
 ```
+
+
 ##
+
 Para que *R* pueda identificar está notación, se puede usar `ape`:
 
-```{r}
-#|eval: true
-#|echo: true
+```{r newick}
+#| echo: true
+#| eval: true
+
 library(ape)
 read.tree(text="((A,B),X);") %>% 
-  plot
+  plot()
 ```
 
 ##
@@ -48,35 +55,46 @@ read.tree(text="((A,B),X);") %>%
 El formato Newick es anidado, por lo que podemos explorar la relación entre diferentes grupos. Por ejemplo:
 
 Sabemos que los lobos, los coyotes y los zorros pertenecen a Canidae, pero que los lobos y los coyotes son del mismo género
-```{r}
-#|eval: true
-#|echo: true
-Canidae<-"(Vulpes_vulpes,(Canis_lupus,Canis_latrans));"
+
+```{r canii}
+#| eval: true
+#| echo: true
+Canidae <-"(Vulpes_vulpes,(Canis_lupus,Canis_latrans));"
 read.tree(text=Canidae) %>% 
-  plot
+  plot()
+
 ```
+
 
 ##
 
 Y si agregamos murciélagos, todos ellos pertenecen a los mamíferos:
+
 ```{r}
-#|eval: true
-#|echo: true
-Mammalia<-"(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)));"
+#| echo: true
+#| eval: true
+#| label: murcis
+
+
+Mammalia <-"(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)));"
 read.tree(text=Mammalia) %>% 
-  plot
+  plot()
 ```
+
 
 ##
 
 Si quisieramos agregar cuervos y zanates. ¿Estos dónde irían?
+
 ```{r}
-#|eval: true
-#|echo: true
+#| label: zan
+#| echo: true
+#| eval: true
+
 tetrapoda<-"((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans))));"
 
 read.tree(text=tetrapoda) %>% 
-  plot
+  plot()
 ```
 
 ##
@@ -84,13 +102,16 @@ read.tree(text=tetrapoda) %>%
 Y si agregamos una planta, los mamíferos y las aves se anidarían.
 
 ```{r}
-#|eval: true
-#|echo: true
+#| eval: true
+#| echo: true
+#| label: planta
+
 Eukarya<-"(Sideroxylon_celastrinum,((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)))));"
 
 Nktree<-read.tree(text=Eukarya)
 plot(Nktree)
 ```
+
 -   En este ejercicio haremos uso del paquete *ggtree* para graficar, personalizar, anotar y en general mejorar árboles filogenéticos
 
 ## Paquetes necesarios:
@@ -98,6 +119,9 @@ plot(Nktree)
 ```{r}
 #| eval: true
 #| echo: true
+#| message: false
+#| warning: false
+
 library(ape)
 library(ggtree)
 library(deeptime)
@@ -116,7 +140,8 @@ En este caso usaremos un árbol filogenético en particular (la filogenia de *Ic
 ```{r}
 #| eval: true
 #| echo: true
-ictree<-read.tree(here("data","Icteridae_tree.txt"))
+
+ictree <-read.tree(here("data","Icteridae_tree.txt"))
 ictree
 ```
 
@@ -127,6 +152,7 @@ Veamos esta filogenia graficandola usando *ape*, la manera base para R.
 ```{r}
 #| eval: true
 #| echo: true
+
 plot(ictree, show.tip.label=F)
 ```
 
@@ -137,6 +163,7 @@ Ahora graficaremos el mismo árbol utilizando ggtree, el cual sigue una formula 
 ```{r}
 #| eval: true
 #| echo: true
+
 p1<-ggtree(ictree,color="black",size=0.5)
 plot(p1)
 ```
@@ -150,6 +177,7 @@ Con *p1*, al igual que con cualquier otro gráfico de ggplot, podemos agregar pa
 ```{r}
 #| eval: true
 #| echo: true
+
 p1+layout_dendrogram()+
 p1+layout_fan()+
 p1+layout_circular()
@@ -521,8 +549,19 @@ p4+xlim(0,15)+
 Una vez teniendo este árbol parafilético, podemos colocar las imagenes gusto en sus grupos correspondientes, es importante considerar, que las imagenes deben tener el nombre exacto del grupo o especie y el mismo formato:
 
 ```{r}
-#| eval: true
+#| eval: false
 #| echo: true
+p4+ 
+  xlim(NA, 15) + ylim(NA, 5.5)+
+  geom_tiplab(aes(image=paste0("imgs/imagenes/", label, '.jpg')),geom="image", offset=3, align=1, size=0.18)+
+  geom_tiplab(geom="label",color="black",fill="white")
+```
+
+##
+
+```{r}
+#| eval: true
+#| echo: false
 p4+ 
   xlim(NA, 15) + ylim(NA, 5.5)+
   geom_tiplab(aes(image=paste0("imgs/imagenes/", label, '.jpg')),geom="image", offset=3, align=1, size=0.18)+

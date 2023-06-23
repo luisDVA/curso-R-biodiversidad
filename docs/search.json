@@ -578,7 +578,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#cadenas-de-texto",
     "title": "Manipulacion y limpieza de datos",
     "section": "Cadenas de texto",
-    "text": "Cadenas de texto\n\n\nLos nombres de variables, objetos, y los valores en un data frame también pueden ser cadenas de texto:\n\n\n\nWarning: Since gt v0.3.0, `columns = vars(...)` has been deprecated.\n• Please use `columns = c(...)` instead.\n\n\n\n\n\n  \n    \n    \n      bebida\n      precio\n    \n  \n  \n    café\n3.50\n    té\n2.99\n    jugo\n3.20"
+    "text": "Cadenas de texto\n\n\nLos nombres de variables, objetos, y los valores en un data frame también pueden ser cadenas de texto:\n\n\n\n\n\n\n  \n    \n    \n      bebida\n      precio\n    \n  \n  \n    café\n3.50\n    té\n2.99\n    jugo\n3.20"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#r-distingue-entre-mayúsculas-y-minúsculas",
@@ -886,21 +886,21 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#seleccionando-variables",
     "title": "Manipulacion y limpieza de datos",
     "section": "Seleccionando variables",
-    "text": "Seleccionando variables\nDatos de pingüinos pinguinos de 📦 datos\n\n\nlibrary(datos)\ndata(pinguinos)\n\nWarning in data(pinguinos): data set 'pinguinos' not found\n\nnames(pinguinos)\n\n[1] \"especie\"         \"isla\"            \"largo_pico_mm\"   \"alto_pico_mm\"   \n[5] \"largo_aleta_mm\"  \"masa_corporal_g\" \"sexo\"            \"anio\""
+    "text": "Seleccionando variables\nDatos de pingüinos pinguinos de 📦 datos\n\n\nlibrary(datos)\ndata(pinguinos)\nnames(pinguinos)\n\n[1] \"especie\"         \"isla\"            \"largo_pico_mm\"   \"alto_pico_mm\"   \n[5] \"largo_aleta_mm\"  \"masa_corporal_g\" \"sexo\"            \"anio\""
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#section-26",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#section-26",
     "title": "Manipulacion y limpieza de datos",
     "section": "",
-    "text": "pinguinos %&gt;% \n  select(especie, matches(\"larg\")) %&gt;% \n  sample_n(3)\n\n# A tibble: 3 × 3\n  especie largo_pico_mm largo_aleta_mm\n  &lt;fct&gt;           &lt;dbl&gt;          &lt;int&gt;\n1 Barbijo          47              185\n2 Adelia           36              186\n3 Adelia           38.8            191"
+    "text": "pinguinos %&gt;% \n  select(especie, matches(\"larg\")) %&gt;% \n  sample_n(3)\n\n# A tibble: 3 × 3\n  especie largo_pico_mm largo_aleta_mm\n  &lt;fct&gt;           &lt;dbl&gt;          &lt;int&gt;\n1 Papúa            45.2            215\n2 Barbijo          48.5            191\n3 Barbijo          52.7            197"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#filtrando-filas",
     "href": "presentaciones/2-manipulacion_y_limpieza.html#filtrando-filas",
     "title": "Manipulacion y limpieza de datos",
     "section": "Filtrando filas",
-    "text": "Filtrando filas\nDatos de paises del paquete 📦 datos\n\nlibrary(datos)\ndata(paises)\n\n\n\npaises %&gt;% select(pais,continente) %&gt;% \n  sample_n(4)\n\n# A tibble: 4 × 2\n  pais       continente\n  &lt;fct&gt;      &lt;fct&gt;     \n1 Botswana   África    \n2 Líbano     Asia      \n3 Baréin     Asia      \n4 Afganistán Asia"
+    "text": "Filtrando filas\nDatos de paises del paquete 📦 datos\n\nlibrary(datos)\ndata(paises)\n\n\n\npaises %&gt;% select(pais,continente) %&gt;% \n  sample_n(4)\n\n# A tibble: 4 × 2\n  pais        continente\n  &lt;fct&gt;       &lt;fct&gt;     \n1 Jordania    Asia      \n2 Corea, Rep. Asia      \n3 Marruecos   África    \n4 Comoras     África"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#coincidencias-en-filas",
@@ -942,7 +942,7 @@
     "href": "presentaciones/2-manipulacion_y_limpieza.html#identificar-con-get_dupes",
     "title": "Manipulacion y limpieza de datos",
     "section": "Identificar con get_dupes()",
-    "text": "Identificar con get_dupes()\n\nordenes_pizza %&gt;%\n  get_dupes() # todas las variables (por defecto)\n\nNo variable names specified - using all columns.\n\n\n# A tibble: 2 × 5\n  IDusuario Direccion   Colonia   Alcaldia   dupe_count\n  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 susana24  Fresnos 114 San Angel A. Obregón          2\n2 susana24  Fresnos 114 San Angel A. Obregón          2\n\n\n\nAñade una variable dupe_count que cuantifica las filas con valores duplicados\nAcomoda las variables de interés al principio del data frame resultante"
+    "text": "Identificar con get_dupes()\n\nordenes_pizza %&gt;%\n  get_dupes() # todas las variables (por defecto)\n\n# A tibble: 2 × 5\n  IDusuario Direccion   Colonia   Alcaldia   dupe_count\n  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 susana24  Fresnos 114 San Angel A. Obregón          2\n2 susana24  Fresnos 114 San Angel A. Obregón          2\n\n\n\nAñade una variable dupe_count que cuantifica las filas con valores duplicados\nAcomoda las variables de interés al principio del data frame resultante"
   },
   {
     "objectID": "presentaciones/2-manipulacion_y_limpieza.html#section-28",
@@ -3021,42 +3021,42 @@
     "href": "presentaciones/5.4-filogenias.html#section-2",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Si queremos decir que A y B se parecen más entre ellos que con X, lo anotaríamos así:\n\n\n[1] \"((A,B),X);\""
+    "text": "Si queremos decir que A y B se parecen más entre ellos que con X, lo anotaríamos así:\n\n\"((A,B),X);\"\n\n[1] \"((A,B),X);\""
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-3",
     "href": "presentaciones/5.4-filogenias.html#section-3",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Para que R pueda identificar está notación, se puede usar ape:"
+    "text": "Para que R pueda identificar está notación, se puede usar ape:\n\nlibrary(ape)\nread.tree(text=\"((A,B),X);\") %&gt;% \n  plot()"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-4",
     "href": "presentaciones/5.4-filogenias.html#section-4",
     "title": "Filogenias en R",
     "section": "",
-    "text": "El formato Newick es anidado, por lo que podemos explorar la relación entre diferentes grupos. Por ejemplo:\nSabemos que los lobos, los coyotes y los zorros pertenecen a Canidae, pero que los lobos y los coyotes son del mismo género"
+    "text": "El formato Newick es anidado, por lo que podemos explorar la relación entre diferentes grupos. Por ejemplo:\nSabemos que los lobos, los coyotes y los zorros pertenecen a Canidae, pero que los lobos y los coyotes son del mismo género\n\nCanidae &lt;-\"(Vulpes_vulpes,(Canis_lupus,Canis_latrans));\"\nread.tree(text=Canidae) %&gt;% \n  plot()"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-5",
     "href": "presentaciones/5.4-filogenias.html#section-5",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Y si agregamos murciélagos, todos ellos pertenecen a los mamíferos:"
+    "text": "Y si agregamos murciélagos, todos ellos pertenecen a los mamíferos:\n\nMammalia &lt;-\"(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)));\"\nread.tree(text=Mammalia) %&gt;% \n  plot()"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-6",
     "href": "presentaciones/5.4-filogenias.html#section-6",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Si quisieramos agregar cuervos y zanates. ¿Estos dónde irían?"
+    "text": "Si quisieramos agregar cuervos y zanates. ¿Estos dónde irían?\n\ntetrapoda&lt;-\"((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans))));\"\n\nread.tree(text=tetrapoda) %&gt;% \n  plot()"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-7",
     "href": "presentaciones/5.4-filogenias.html#section-7",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Y si agregamos una planta, los mamíferos y las aves se anidarían.\n\n\nEn este ejercicio haremos uso del paquete ggtree para graficar, personalizar, anotar y en general mejorar árboles filogenéticos"
+    "text": "Y si agregamos una planta, los mamíferos y las aves se anidarían.\n\nEukarya&lt;-\"(Sideroxylon_celastrinum,((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)))));\"\n\nNktree&lt;-read.tree(text=Eukarya)\nplot(Nktree)\n\n\n\nEn este ejercicio haremos uso del paquete ggtree para graficar, personalizar, anotar y en general mejorar árboles filogenéticos"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#paquetes-necesarios",
@@ -3070,7 +3070,7 @@
     "href": "presentaciones/5.4-filogenias.html#section-8",
     "title": "Filogenias en R",
     "section": "",
-    "text": "En este caso usaremos un árbol filogenético en particular (la filogenia de Icteridae). Sin embargo, estos ejemplos se pueden hacer en su mayoría con cualquier otra filogenía que tengan disponible.\n\nictree&lt;-read.tree(here(\"data\",\"Icteridae_tree.txt\"))\nictree\n\n\nPhylogenetic tree with 100 tips and 99 internal nodes.\n\nTip labels:\n  Icterus_melanopsis, Icterus_northropi, Icterus_laudabilis, Icterus_dominicensis, Icterus_cayanensis, Icterus_pyrrhopterus, ...\nNode labels:\n  761, 762, 763, 764, 765, 766, ...\n\nRooted; includes branch lengths."
+    "text": "En este caso usaremos un árbol filogenético en particular (la filogenia de Icteridae). Sin embargo, estos ejemplos se pueden hacer en su mayoría con cualquier otra filogenía que tengan disponible.\n\nictree &lt;-read.tree(here(\"data\",\"Icteridae_tree.txt\"))\nictree\n\n\nPhylogenetic tree with 100 tips and 99 internal nodes.\n\nTip labels:\n  Icterus_melanopsis, Icterus_northropi, Icterus_laudabilis, Icterus_dominicensis, Icterus_cayanensis, Icterus_pyrrhopterus, ...\nNode labels:\n  761, 762, 763, 764, 765, 766, ...\n\nRooted; includes branch lengths."
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-9",
@@ -3294,91 +3294,91 @@
     "href": "presentaciones/5.4-filogenias.html#section-40",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Volveremos a usar nuestra filogenia de grupos y le agregaremos dos especies de Icterus y una especie de Quiscalus\n\ngrouptree&lt;-ictree %&gt;%\nkeep.tip(c(\"Quiscalus_mexicanus\", \"Icterus_galbula\",\"Molothrus_aeneus\",\"Agelaius_phoeniceus\",\"Psarocolius_montezuma\"))\nggtree(grouptree)+\n  xlim(0,15)+\n  geom_tiplab(color=\"blue\")"
+    "text": "También es posible agregar especies a la filogenia dentro de sus respectivos generos, pero hay que tener cuidado con esto, pues posiblemente nos genere politomías o colocarlas de manera discordante, y esto puede ser problématico para estudios de diversificación o evolución de atributos."
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-41",
     "href": "presentaciones/5.4-filogenias.html#section-41",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Para agregar las especies, utilizamos la función add.species.to.genus de phytools:\n\ngrouptree2&lt;-grouptree\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Quiscalus_quiscula\")\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Icterus_bullocki\")\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Icterus_gullaris\")\nggtree(grouptree2)+\n  xlim(0,20)+\n  geom_tiplab(color=\"blue\")"
+    "text": "Volveremos a usar nuestra filogenia de grupos y le agregaremos dos especies de Icterus y una especie de Quiscalus\n\ngrouptree&lt;-ictree %&gt;%\nkeep.tip(c(\"Quiscalus_mexicanus\", \"Icterus_galbula\",\"Molothrus_aeneus\",\"Agelaius_phoeniceus\",\"Psarocolius_montezuma\"))\nggtree(grouptree)+\n  xlim(0,15)+\n  geom_tiplab(color=\"blue\")"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-42",
     "href": "presentaciones/5.4-filogenias.html#section-42",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Finalmente, se puede usar ggtree, para graficar atributos de las especies en la filogenia.\nPara hacer esto, primero debemos cargar los atributos de los Icteridos, en este caso usaremos el Hand Wing Index (HWI) y el hábito migratorio:\n\nhwi&lt;-read.csv(here(\"data\",\"hwi_icteridae.csv\"),header=T)\nhead(hwi)\n\n                     X      HWI\n1   Icterus_melanopsis 26.51912\n2    Icterus_northropi 21.02135\n3   Icterus_laudabilis 22.22500\n4 Icterus_dominicensis 26.52877\n5   Icterus_cayanensis 26.26213\n6 Icterus_pyrrhopterus 17.75463"
+    "text": "Para agregar las especies, utilizamos la función add.species.to.genus de phytools:\n\ngrouptree2&lt;-grouptree\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Quiscalus_quiscula\")\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Icterus_bullocki\")\ngrouptree2&lt;-add.species.to.genus(grouptree2,\"Icterus_gullaris\")\nggtree(grouptree2)+\n  xlim(0,20)+\n  geom_tiplab(color=\"blue\")"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-43",
     "href": "presentaciones/5.4-filogenias.html#section-43",
     "title": "Filogenias en R",
     "section": "",
-    "text": "migrants&lt;-read.csv(here(\"data\",\"icterimigrants.csv\"),header=T)\nhead(migrants)\n\n                   sp  migratory\n1  Agelaioides_badius No-migrant\n2  Agelaius_assimilis No-migrant\n3  Agelaius_humeralis No-migrant\n4 Agelaius_phoeniceus    Migrant\n5   Agelaius_tricolor No-migrant\n6  Agelaius_xanthomus No-migrant"
+    "text": "Finalmente, se puede usar ggtree, para graficar atributos de las especies en la filogenia.\nPara hacer esto, primero debemos cargar los atributos de los Icteridos, en este caso usaremos el Hand Wing Index (HWI) y el hábito migratorio:\n\nhwi&lt;-read.csv(here(\"data\",\"hwi_icteridae.csv\"),header=T)\nhead(hwi)\n\n                     X      HWI\n1   Icterus_melanopsis 26.51912\n2    Icterus_northropi 21.02135\n3   Icterus_laudabilis 22.22500\n4 Icterus_dominicensis 26.52877\n5   Icterus_cayanensis 26.26213\n6 Icterus_pyrrhopterus 17.75463"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-44",
     "href": "presentaciones/5.4-filogenias.html#section-44",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Una vez cargados los datos, la manera más fácil de utilizarlos es uniendolos a la filogenia usando la funcion full_join, es importante que las especies estén etiquetadas como label, para que la función las reconozca:\n\nnames(hwi)&lt;-c(\"label\",\"hwi\")\nnames(migrants)&lt;-c(\"label\",\"migratory\")\n\nhwimigrants&lt;-hwi%&gt;%\nleft_join(migrants,by=\"label\")\ndatatree&lt;-full_join(ictree,hwimigrants,by=\"label\")\ndatatree\n\n'treedata' S4 object'.\n\n...@ phylo:\n\nPhylogenetic tree with 100 tips and 99 internal nodes.\n\nTip labels:\n  Icterus_melanopsis, Icterus_northropi, Icterus_laudabilis,\nIcterus_dominicensis, Icterus_cayanensis, Icterus_pyrrhopterus, ...\nNode labels:\n  761, 762, 763, 764, 765, 766, ...\n\nRooted; includes branch lengths.\n\nwith the following features available:\n  '', 'hwi', 'migratory'.\n\n# The associated data tibble abstraction: 199 × 5\n# The 'node', 'label' and 'isTip' are from the phylo tree.\n    node label                 isTip   hwi migratory \n   &lt;int&gt; &lt;chr&gt;                 &lt;lgl&gt; &lt;dbl&gt; &lt;chr&gt;     \n 1     1 Icterus_melanopsis    TRUE   26.5 No-migrant\n 2     2 Icterus_northropi     TRUE   21.0 No-migrant\n 3     3 Icterus_laudabilis    TRUE   22.2 No-migrant\n 4     4 Icterus_dominicensis  TRUE   26.5 No-migrant\n 5     5 Icterus_cayanensis    TRUE   26.3 No-migrant\n 6     6 Icterus_pyrrhopterus  TRUE   17.8 No-migrant\n 7     7 Icterus_auricapillus  TRUE   17.3 No-migrant\n 8     8 Icterus_bonana        TRUE   16.9 No-migrant\n 9     9 Icterus_portoricensis TRUE   22.3 No-migrant\n10    10 Icterus_prosthemelas  TRUE   24.1 No-migrant\n# ℹ 189 more rows"
+    "text": "migrants&lt;-read.csv(here(\"data\",\"icterimigrants.csv\"),header=T)\nhead(migrants)\n\n                   sp  migratory\n1  Agelaioides_badius No-migrant\n2  Agelaius_assimilis No-migrant\n3  Agelaius_humeralis No-migrant\n4 Agelaius_phoeniceus    Migrant\n5   Agelaius_tricolor No-migrant\n6  Agelaius_xanthomus No-migrant"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-45",
     "href": "presentaciones/5.4-filogenias.html#section-45",
     "title": "Filogenias en R",
     "section": "",
-    "text": "¡Listo! Ahora tenemos una filogenia con atributos y podemos gráficarlos juntos\nPrimero gráficaremos los valores continuos del HWI sobre las puntas del árbol en una escala de colores:\n\np5&lt;-ggtree(datatree)\np5+\n  geom_tippoint(aes(color=hwi))"
+    "text": "Una vez cargados los datos, la manera más fácil de utilizarlos es uniendolos a la filogenia usando la funcion full_join, es importante que las especies estén etiquetadas como label, para que la función las reconozca:\n\nnames(hwi)&lt;-c(\"label\",\"hwi\")\nnames(migrants)&lt;-c(\"label\",\"migratory\")\n\nhwimigrants&lt;-hwi%&gt;%\nleft_join(migrants,by=\"label\")\ndatatree&lt;-full_join(ictree,hwimigrants,by=\"label\")\ndatatree\n\n'treedata' S4 object'.\n\n...@ phylo:\n\nPhylogenetic tree with 100 tips and 99 internal nodes.\n\nTip labels:\n  Icterus_melanopsis, Icterus_northropi, Icterus_laudabilis,\nIcterus_dominicensis, Icterus_cayanensis, Icterus_pyrrhopterus, ...\nNode labels:\n  761, 762, 763, 764, 765, 766, ...\n\nRooted; includes branch lengths.\n\nwith the following features available:\n  '', 'hwi', 'migratory'.\n\n# The associated data tibble abstraction: 199 × 5\n# The 'node', 'label' and 'isTip' are from the phylo tree.\n    node label                 isTip   hwi migratory \n   &lt;int&gt; &lt;chr&gt;                 &lt;lgl&gt; &lt;dbl&gt; &lt;chr&gt;     \n 1     1 Icterus_melanopsis    TRUE   26.5 No-migrant\n 2     2 Icterus_northropi     TRUE   21.0 No-migrant\n 3     3 Icterus_laudabilis    TRUE   22.2 No-migrant\n 4     4 Icterus_dominicensis  TRUE   26.5 No-migrant\n 5     5 Icterus_cayanensis    TRUE   26.3 No-migrant\n 6     6 Icterus_pyrrhopterus  TRUE   17.8 No-migrant\n 7     7 Icterus_auricapillus  TRUE   17.3 No-migrant\n 8     8 Icterus_bonana        TRUE   16.9 No-migrant\n 9     9 Icterus_portoricensis TRUE   22.3 No-migrant\n10    10 Icterus_prosthemelas  TRUE   24.1 No-migrant\n# ℹ 189 more rows"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-46",
     "href": "presentaciones/5.4-filogenias.html#section-46",
     "title": "Filogenias en R",
     "section": "",
-    "text": "podemos también personalizar esta escala:\n\np5+\n  geom_tippoint(aes(color=hwi),shape=15)+\n  scale_colour_gradient(low='blue', high='red',breaks= c(15,20,25,30,35))"
+    "text": "¡Listo! Ahora tenemos una filogenia con atributos y podemos gráficarlos juntos\nPrimero gráficaremos los valores continuos del HWI sobre las puntas del árbol en una escala de colores:\n\np5&lt;-ggtree(datatree)\np5+\n  geom_tippoint(aes(color=hwi))"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-47",
     "href": "presentaciones/5.4-filogenias.html#section-47",
     "title": "Filogenias en R",
     "section": "",
-    "text": "¿Y cómo se verían los datos binarios?\n\np5+\n  geom_tippoint(aes(color=migratory),shape=15)+\n    scale_colour_manual(values = c(\"green\",\"orange\"))"
+    "text": "podemos también personalizar esta escala:\n\np5+\n  geom_tippoint(aes(color=hwi),shape=15)+\n  scale_colour_gradient(low='blue', high='red',breaks= c(15,20,25,30,35))"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-48",
     "href": "presentaciones/5.4-filogenias.html#section-48",
     "title": "Filogenias en R",
     "section": "",
-    "text": "y ¿Pueden combinarse?\nEsto puede hacerse con un lenguaje de dplyr\n\npx&lt;- py%&lt;+% migrants + geom_tippoint(aes(color=migratory),shape=15)+\n  scale_color_manual(values = c(\"#961d29\",\"#1420a3\"))+\n  scale_fill_manual(values = c(\"#961d29\",\"#1420a3\"))\n  \n  \npx+ geom_facet(panel=\"HWI\",data = hwi,geom=geom_col,mapping=aes(x=hwi,color=migratory,fill=migratory),orientation='y')+\n    theme_tree2()"
+    "text": "¿Y cómo se verían los datos binarios?\n\np5+\n  geom_tippoint(aes(color=migratory),shape=15)+\n    scale_colour_manual(values = c(\"green\",\"orange\"))"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-49",
     "href": "presentaciones/5.4-filogenias.html#section-49",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Pero, ¿Qué pasa si no me sé la taxonomía o no tengo la filogenía del grupo que estoy estudiando?"
+    "text": "y ¿Pueden combinarse?\nEsto puede hacerse con un lenguaje de dplyr\n\npx&lt;- py%&lt;+% migrants + geom_tippoint(aes(color=migratory),shape=15)+\n  scale_color_manual(values = c(\"#961d29\",\"#1420a3\"))+\n  scale_fill_manual(values = c(\"#961d29\",\"#1420a3\"))\n  \n  \npx+ geom_facet(panel=\"HWI\",data = hwi,geom=geom_col,mapping=aes(x=hwi,color=migratory,fill=migratory),orientation='y')+\n    theme_tree2()"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-50",
     "href": "presentaciones/5.4-filogenias.html#section-50",
     "title": "Filogenias en R",
     "section": "",
-    "text": "¿Se acuerdan de esta filogenia?"
+    "text": "Pero, ¿Qué pasa si no me sé la taxonomía o no tengo la filogenía del grupo que estoy estudiando?"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-51",
     "href": "presentaciones/5.4-filogenias.html#section-51",
     "title": "Filogenias en R",
     "section": "",
-    "text": "Haciendo uso de recursos en línea como Open tree of Life(OTL), podemoos obtener una filogenia utilizando las especies que necesitemos."
+    "text": "¿Se acuerdan de esta filogenia?"
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-52",
     "href": "presentaciones/5.4-filogenias.html#section-52",
     "title": "Filogenias en R",
     "section": "",
-    "text": "OTL tiene un útil paquete en R (rotl), que usaremos para obtener la filogenia con la planta, aves y mamiferos.\n\n\n\nProgress [---------------------------------] 0/211 (  0%) ?s\nProgress [==============================] 211/211 (100%)  0s"
+    "text": "Haciendo uso de recursos en línea como Open tree of Life(OTL), podemoos obtener una filogenia utilizando las especies que necesitemos."
   },
   {
     "objectID": "presentaciones/5.4-filogenias.html#section-54",
@@ -4058,5 +4058,19 @@
     "title": "Materiales del curso",
     "section": "Profesores",
     "text": "Profesores\nDr. Fabricio Villalobos Camacho\nDr. Gabriel Massaine Moulatlet\nDr. Luis D. Verde Arregoitia"
+  },
+  {
+    "objectID": "presentaciones/5.4-filogenias.html#section-53",
+    "href": "presentaciones/5.4-filogenias.html#section-53",
+    "title": "Filogenias en R",
+    "section": "",
+    "text": "OTL tiene un útil paquete en R (rotl), que usaremos para obtener la filogenia con la planta, aves y mamiferos.\n\n\n\nProgress [---------------------------------] 0/211 (  0%) ?s\nProgress [==============================] 211/211 (100%)  0s"
+  },
+  {
+    "objectID": "presentaciones/5.4-filogenias.html#section-55",
+    "href": "presentaciones/5.4-filogenias.html#section-55",
+    "title": "Filogenias en R",
+    "section": "",
+    "text": "Para la función de rtol, no es necesario introducir las especies en orden, ya que ésta recuperará la taxonomia válida y nos arrojará una filogenia podada.\nEn este caso, OTL nos regresó exactamente la misma filogenia que creamos al principio:"
   }
 ]

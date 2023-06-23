@@ -27,6 +27,9 @@ Los datos (polígonos) son de una familia de aves (Passeriformes:Emberizoidae:Ic
 ```{r}
 #| eval: true
 #| echo: true
+#| message: false
+#| warning: false
+
 library(sp)
 library(letsR)
 library(rgdal)
