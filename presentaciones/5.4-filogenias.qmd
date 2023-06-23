@@ -7,6 +7,12 @@ editor: visual
 
 ## Filogenias en R
 
+```{r}
+#| echo: false
+#| eval: true
+library(dplyr)
+```
+
 Primero, ¿Qué es un árbol Filogenético?
 
 ##
@@ -78,8 +84,8 @@ read.tree(text=tetrapoda) %>%
 Y si agregamos una planta, los mamíferos y las aves se anidarían.
 
 ```{r}
-#|eval:true
-#|echo:true
+#|eval: true
+#|echo: true
 Eukarya<-"(Sideroxylon_celastrinum,((Quiscalus_mexicanus,Corvus_corax),(Desmodus_rotundus,(Vulpes_vulpes,(Canis_lupus,Canis_latrans)))));"
 
 Nktree<-read.tree(text=Eukarya)
@@ -661,7 +667,7 @@ pics<-data.frame(label=Nktree$tip.label,uid=picuid$uid)
 phylopicNK<-ggtree(Nktree) %<+% pics+
   geom_tiplab(aes(image=uid,color=label),geom="phylopic")+
   theme(legend.position="none")+
-  scale_color_manual(values=c("#81613c","#919494","black","#473434","#2e275a","#e0cc77"," #9ea26b"))
+  scale_color_manual(values=c("#81613c","#919494","black","#473434","#2e275a","#e0cc77","#9ea26b"))
 ```
 
 ##
@@ -682,7 +688,9 @@ Haciendo uso de recursos en línea como *Open tree of Life*(OTL), podemoos obten
 OTL tiene un útil paquete en R (`rotl`), que usaremos para obtener la filogenia con la planta, aves y mamiferos.
 ```{r}
 #|eval: true
-#|warning:false
+#|echo: true 
+#|warning: false
+
 library("rotl")
 otl_tree<-rotl::tnrs_match_names(c("Quiscalus mexicanus","Canis lupus","Corvus corax","Canis latrans","Vulpes vulpes","Desmodus rotundus","Sideroxylon celastrinum")) %>% 
   pull(ott_id) %>% 
